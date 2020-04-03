@@ -46,7 +46,7 @@ create_source()
 
     echo "Extracting polygone ($POLY)"
     mkdir -p data/srtm
-    osmconvert SRTM-${COUNTRY}_lon*.osm.gz -B=osmmaps/scripts/poly/${POLY}.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=data/srtm/${COUNTRY}.osm.pbf
+    osmconvert SRTM-${COUNTRY}_lon*.osm.gz -B=tk-osm/scripts/poly/${POLY}.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=data/srtm/${COUNTRY}.osm.pbf
     if [ $? -ne 0 ] ; then
       echo "osmconvert failed extracting $2"
       exit 2
@@ -62,7 +62,7 @@ build_map()
   if [ x"$COUNTRY_ARG" == x"" -o "$COUNTRY_ARG" == "$COUNTRY" ]; then
 
     echo "Running build_map for $COUNTRY"
-    env MKGMAP_MEM=10000M osmmaps/scripts/build_maps SRTM-$COUNTRY
+    env MKGMAP_MEM=10000M tk-osm/scripts/build_maps SRTM-$COUNTRY
     if [ $? -ne 0 ] ; then
       echo "build_maps failed for SRTM-$COUNTRY"
       exit 2

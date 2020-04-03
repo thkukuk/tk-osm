@@ -24,7 +24,7 @@ if [ $UPDATE -ne 0 ]; then
   stat -c %y  data/osmbugs/src/$DBNAME | sed -e 's|\..*||g' -e 's| |T|g' > data/osmbugs/src/timestamp.txt
 fi
 
-osmmaps/scripts/extract_countries data/osmbugs/src data/osmbugs
+tk-osm/scripts/extract_countries data/osmbugs/src data/osmbugs
 if [ $? -ne 0 ] ; then
   echo "extracting countrys failed"
   exit 2

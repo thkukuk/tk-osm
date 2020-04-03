@@ -32,7 +32,7 @@ extract ()
 # $1 - Input file
 # $2 - name of country
   echo "Extracting $2 ..."
-  osmconvert $1 -B=osmmaps/scripts/poly/$2.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=${DATADIR}/.tmp/$2.osm.pbf
+  osmconvert $1 -B=tk-osm/scripts/poly/$2.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=${DATADIR}/.tmp/$2.osm.pbf
   if [ $? -ne 0 ] ; then
     echo "osmconvert failed extracting $2"
     exit 2

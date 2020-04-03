@@ -36,10 +36,10 @@ else
   NAME="TK-OSM-${CAPCOUNTRY}-${CAPSTYLE}"
 fi
 
-MKGMAP_LOG=../../../osmmaps/scripts/logging.properties
+MKGMAP_LOG=../../../tk-osm/scripts/logging.properties
 export MKGMAP_LOG
 
-OSMMAPS_DIR=../../../osmmaps
+OSMMAPS_DIR=../../../tk-osm
 
 PRODUCT_VERSION=`date "+%y%m%d"`
 

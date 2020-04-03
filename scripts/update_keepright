@@ -14,7 +14,7 @@ if [ $UPDATE -ne 0 ]; then
         echo "Download of keepright data failed!"
         exit 1
   fi
-  bzcat data/keepright/src/$DBNAME | osmmaps/scripts/keepright2osm.pl | gzip -9f > data/keepright/src/keepright-dump.osm.gz
+  bzcat data/keepright/src/$DBNAME | tk-osm/scripts/keepright2osm.pl | gzip -9f > data/keepright/src/keepright-dump.osm.gz
   if [ $? -ne 0 ] ; then
 	echo "Conversion of keepright data failed!"
 	exit 1
@@ -22,7 +22,7 @@ if [ $UPDATE -ne 0 ]; then
   stat -c %y  data/keepright/src/$DBNAME | sed -e 's|\..*||g' -e 's| |T|g' > data/keepright/src/timestamp.txt
 fi
 
-osmmaps/scripts/extract_countries data/keepright/src data/keepright
+tk-osm/scripts/extract_countries data/keepright/src data/keepright
 if [ $? -ne 0 ] ; then
   echo "extracting countrys failed"
   exit 2

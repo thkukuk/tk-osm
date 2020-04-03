@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd osmmaps/scripts/cities > /dev/null
+pushd tk-osm/scripts/cities > /dev/null
 wget http://download.geonames.org/export/dump/cities1000.zip
 unzip -o cities1000.zip
 rm cities1000.zip

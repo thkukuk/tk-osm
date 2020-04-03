@@ -43,8 +43,8 @@ OUTPUTDIR=build/$COUNTRY/$2
 
 rm -rf $OUTPUTDIR
 mkdir -p $OUTPUTDIR
-if [ -f osmmaps/basemap/areas.$COUNTRY.list -a "$OUTPUTDIR" == "tiles" ]; then
-	AREALIST="--split-file=osmmaps/basemap/areas.$COUNTRY.list"
+if [ -f tk-osm/basemap/areas.$COUNTRY.list -a "$OUTPUTDIR" == "tiles" ]; then
+	AREALIST="--split-file=tk-osm/basemap/areas.$COUNTRY.list"
 fi
 
 PRECOMP_SEA=""
@@ -58,10 +58,10 @@ fi
 #  ;;
 #esac
 #wget http://download.geonames.org/export/dump/cities15000.zip
-tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP} --max-areas=1024 $NOTRIM $PRECOMP_SEA --geonames-file=osmmaps/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
+tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP} --max-areas=1024 $NOTRIM $PRECOMP_SEA --geonames-file=tk-osm/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
 RETVAL=$?
 #if [ $RETVAL -eq 255 ] ; then
-#   tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP_OLD} --max-areas=1024  $NOTRIM $PRECOMP_SEA --geonames-file=osmmaps/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
+#   tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP_OLD} --max-areas=1024  $NOTRIM $PRECOMP_SEA --geonames-file=tk-osm/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
 #   RETVAL=$?
 #fi
 if [ $RETVAL -ne 0 -o ! -f $OUTPUTDIR/${TILEID}.osm.pbf ] ; then
@@ -317,7 +317,7 @@ for style in $MAPS ; do
   osb)
     CAPSTYLE="OSB"
     if [ "$OSMBUGS_IS_SPLITTED" == "NO" ] ; then
-      /usr/bin/time osmmaps/scripts/update_osmbugs
+      /usr/bin/time tk-osm/scripts/update_osmbugs
       if [ $? -ne 0 ] ; then
         echo "update_osmbugs for $COUNTRY failed!"
       else
@@ -329,7 +329,7 @@ for style in $MAPS ; do
   keepright)
     CAPSTYLE="KeepRight"
     if [ "$KEEPRIGHT_IS_SPLITTED" == "NO" ] ; then
-      /usr/bin/time osmmaps/scripts/update_keepright
+      /usr/bin/time tk-osm/scripts/update_keepright
       if [ $? -eq 1 ] ; then
         echo "update_keepright for $COUNTRY failed!"
       else 
@@ -360,13 +360,13 @@ for style in $MAPS ; do
   echo "Building $style ..."
   rm -rf build/$COUNTRY/$style
 
-  /usr/bin/time osmmaps/scripts/create_map $style $COUNTRY $COUNTRY_ABBR
+  /usr/bin/time tk-osm/scripts/create_map $style $COUNTRY $COUNTRY_ABBR
   if [ $? -ne 0 ] ; then
     echo "create_map for $style failed!"
     exit 1
   fi
 
-  /usr/bin/time osmmaps/scripts/create_7z $style $COUNTRY
+  /usr/bin/time tk-osm/scripts/create_7z $style $COUNTRY
   if [ $? -ne 0 ] ; then
     echo "create_7z for $style failed!"
     exit 1

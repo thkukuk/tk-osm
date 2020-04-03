@@ -38,7 +38,7 @@ if [ $? -ne 0 ] ; then
   cleanup 1
 fi
 
-MKGMAP_LOG=osmmaps/scripts/logging.properties
+MKGMAP_LOG=tk-osm/scripts/logging.properties
 export MKGMAP_LOG
 
 rm -rf $TMPDIR/bounds-$DATE
