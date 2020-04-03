@@ -1,0 +1,35 @@
+
+#include 'locator';
+
+# -------------------------------------------------------------------
+# Public transportation
+
+public_transport=stop_position & subway = yes
+{
+  set ref='${ref|def:}(${route_ref})';
+  name 'U-Bahn ${name|def:} ${ref|def:}';
+}
+
+railway=tram_stop | (public_transport=stop_position & tram=yes)
+{
+  set ref='${ref|def:}(${route_ref})';
+  name '${name|def:} ${ref|def:}(Tram)';
+}
+
+highway=bus_stop | (public_transport=stop_position & bus=yes)
+{
+  set ref='${ref|def:}(${route_ref})'|'${ref|def:}(${bus_routes})';
+  name '${name|def:} ${ref|def:}(Bus)';
+}
+
+railway=halt | railway=station | public_transport=station
+{
+  set ref='${ref|def:}(${route_ref})'|'${ref|def:}(${bus_routes})';
+  name '${name|def:} ${ref|def:}';
+}
+
+public_transport=stop_position                  [0x3300 level 3]
+railway=tram_stop				[0x3300 level 3]
+highway=bus_stop				[0x3300 level 2]
+railway=halt                                    [0x3300 level 4]
+railway=station					[0x3300 level 4]

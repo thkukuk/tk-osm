@@ -1,0 +1,30 @@
+#!/bin/bash
+
+STYLE=${1:-basemap}
+COUNTRY=${2:-germany}
+CAPSTYLE=`echo $STYLE | sed -e 's/\(.\)\(.*\)/\u\1\2/'`
+CAPCOUNTRY=`echo $COUNTRY | sed -e 's/^us-/US_/' -e 's/^usa-/USA_/' -e 's/^usa/USA/' | sed -e 's/\(.\)\(.*\)/\u\1\2/' | sed -e 's/\(.*\)_\(.\)\(.*\)/\1_\u\2\3/'`
+COUNTRYDIR=${COUNTRY}
+
+if [ "$STYLE" == "osb" ]; then
+  CAPSTYLE="OSB"
+fi
+if [ "$STYLE" == "keepright" ]; then
+  CAPSTYLE="KeepRight"
+fi
+if [ "$STYLE" == "srtm" ]; then
+  CAPSTYLE="SRTM"
+fi
+
+NAME="TK-${CAPCOUNTRY}-${CAPSTYLE}"
+
+mkdir -p  maps
+cd build/$COUNTRYDIR/$STYLE
+rm -f ../../../maps/TK-${CAPCOUNTRY}-${CAPSTYLE}.7z
+if [ -f ${NAME}.img ]; then
+    7z a ../../../maps/TK-${CAPCOUNTRY}-${CAPSTYLE}.7z ${NAME}.img ${NAME}.exe
+else
+    7z a ../../../maps/TK-${CAPCOUNTRY}-${CAPSTYLE}.7z 7*.img ${NAME}.exe
+fi
+cd ../../../maps/ > /dev/null
+md5sum TK-${CAPCOUNTRY}-${CAPSTYLE}.7z > TK-${CAPCOUNTRY}-${CAPSTYLE}.7z.md5

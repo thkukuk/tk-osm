@@ -1,0 +1,553 @@
+family 7110:	Europe
+	product-id=1:	Basemap		draw-priority=10
+	product-id=2:	SRTM		draw-priority=12
+
+family 7111:	Europe/Streets
+	product-id=1:	Streets		draw-priority=05
+
+family 7112:	Europe/Bicycling
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7113:	Europe/Wanderwege
+	product-id=1:	Wanderwege	draw-priority=24
+
+family 7114:	Europe/Oepnv
+	product-id=1:   Oepnv		draw-priority=20
+
+family 7115:	Europe/fixme/keepright
+	product-id=1:	Fixme Europe	draw-priority=25
+	procuct-id=3:	KeepRight	draw-priority=27
+
+family 7116:	Europe/marine
+	product-id=1:	Marine Europe	draw-priority=30
+
+family 7117:	Europe/fastfood
+	product-id=1:	Fastfood	draw-priority=30
+
+family 7118:	Europe/boundary
+	product-id=1:	Boundaries	draw-priority=12
+
+	71100001-71101206:	tilesplitter Europe
+	71105001-71105411:	tilesplitter SRTM/Europe
+	71110001-71111270:	basemap Europe
+	71115001-71116270:	streets Europe
+	71120001-71121270:	bicycling Europe
+	71125001-71126270:	Wanderwege Europe
+	71130001-71131270:	oepnv Europe
+	71135001-71135xxx:	fixme Europe
+	71136001-71136xxx:	XXX Europe
+	71137001-71137xxx:	keepright Europe
+	71140001-71144999:	marine Europe
+	71145001-71149xxx:	boundary Europy
+	71150001-7115xxxx:	SRTM Europe
+
+
+family 7119:	DACH/streets
+	product-id=1:	Streets		draw-priority=05
+
+family 7120:	DACH
+	product-id=1:	Basemap		draw-priority=10
+	product-id=1:	Basemap+DEM
+	product-id=2:	SRTM		draw-priority=12
+
+family 7121:	DACH/mkgmap
+        product-id=1:	mkgmap default	draw-priority=10
+
+family 7122:	Bicycling		draw-priority=20
+	product-id=1:	Bicycling DACH
+
+family 7123:	DACH/Wanderwege
+	product-id=1:	Wanderwege	draw-priority=24
+
+family 7124:	Oepnv			draw-priority=20
+	product-id=1:	Oepnv DACH
+
+family 7125:	DACH/fixme/keepright
+	product-id=1:	Fixme		draw-priority=25
+	procuct-id=3:	KeepRight	draw-priority=27
+
+family 7126:	DACH/marine
+	product-id=1:	Marine		draw-priority=30
+
+family 7127:	DACH/mkgmap default
+	product-id=1:	mkgmap default	draw-priority=10
+
+family 7128:	DACH/Fastfood
+	product-id=1:	Fastfood	draw-priority=30
+
+family 7129:	DACH/Address
+	product-id=1:	Address		draw-priority=15
+
+	71200001-71200483:	tilesplitter DACH
+	71201001-71201483:	basemap DACH
+	71202001-71202483:	bicycling DACH
+	71203001-71203483:	Wanderwege DACH
+	71204001-71204483:	oepnv DACH
+	71205001-71205279:	fixme DACH
+	71205501-71205501:	XXX DACH
+	71205601-71205717:	keepright DACH
+	71206001-71206483:	marine DACH
+	71207001-71207483:	fastfood DACH
+	71208001-71208076:	tilesplitter SRTM/DACH
+	71209001-71209076:	srtm DACH
+	71211001-71211279:      mkgmap default DACH
+	71212001-71212483:	Address DACH
+	71213001-71212483:	Streets DACH
+	71220001-71220xxx:	basemap+DEM
+
+
+family 7130:	Czech Republic
+	product-id=1:	Basemap		draw-priority=10
+	product-id=2:	SRTM		draw-priority=12
+
+family 7131:    Czech Republic/Oepnv
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7132:    Czech Republic/Bicycling
+        product-id=1:   Bicycling	draw-priority=20
+
+family 7133:    Czech Republic/Wanderwege
+        product-id=1:   Wanderwege	draw-priority=24
+
+        71300001-71300039:      tilesplitter
+        71300501-71300504:      tilesplitter SRTM
+        71301001-71301039:      basemap
+        71302001-71302004:      SRTM
+        71303001-71303006:      Oepnv
+	71304001-71304006:	Bicycling
+	71305001-71305006:	Wanderwege
+
+
+family 7134:    Ireland
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7135: 	Ireland/Bicycling
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7136:	Ireland/XXX
+	product-id=1:	XXX
+
+family 7137:	Ireland/Oepnv
+	product-id=1:	Oepnv		draw-priority=20
+
+family 7138:	Ireland/Marine
+	product-id=1:	Marine		draw-priority=30
+
+family 7139:	Ireland/Wanderwege
+	product-id=1:	Wanderwege	draw-priority=24
+
+	71340001-71340006:	Tilesplitter IE
+	71340501-71340502:	Tilesplitter SRTM IE
+	71341001-71341006:	Basemap IE
+	71342001-71342002:	SRTM IE
+	71343001-71343001:	Bicycling IE
+	71344001-71344001:	XXX IE
+	71345001-71345001:	OEPNV IE
+	71346001-71346001:	Marine IE
+	71347001-71347001:	Wanderwege IE
+
+
+family 7140:	Canada
+	product-id=1:	Basemap		draw-priority=10
+	product-id=2:	SRTM		draw-priority=12
+
+family 7142:	Canada/Bicycling
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7143:	Canada/XXX
+	product-id=1:	XXX		draw-priority=20
+
+family 7144:	Canada/Oepnv
+	product-id=1:	Oepnv		draw-priority=1
+
+family 7145:	Canada/Wanderwege	draw-priority=24
+	product-id=1:	Wanderwege
+
+	71400001-71400200:	tilesplitter CA
+	71401001-71401200:	basemap CA
+	71402001-71402033:	bicycling CA
+	71403001-71403033:	XXX CA
+	71404001-71404033:	oepnv CA
+	71405001-71405033:	wanderwege CA
+	71408001-71408xxx:	tilesplitter SRTM CA
+	71409001-71409xxx:	SRTM CA
+
+
+family 7150:	USA
+	product-id=1:	Basemap		draw-priority=10
+	product-id=2:	SRTM		draw-priority=12
+	product-id=3:	SRTM/Northeast	draw-priority=12
+	product-id=4:   SRTM/Midwest	draw-priority=12
+	product-id=5:	SRTM/West	draw-priority=12
+	product-id=6:	SRTM/South	draw-priority=12
+
+family 7152:    USA/Bicycling
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7153:    USA/Wanderwege
+        product-id=1:   Wanderwege	draw-priority=24
+
+family 7154:    USA/Oepnv
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7155:    USA/Caribbean
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+	71500001-71500500:	tilesplitter USA-Northeast
+	71500501-71501000:	tilesplitter USA-West
+        71501001-71501500:	tilesplitter USA-Midwest
+	71501501-71502000:      tilesplitter USA-South
+	71503001-71503500:	basemap USA-Northeast
+	71503501-71504000:      basemap USA-West
+	71504001-71504500:	basemap USA-Midwest
+	71504501-71505000:      basemap USA-South
+
+	71504001-71504108:	bicycling USA
+	71506001-71506108:	Wanderwege USA
+	71508001-71508108:	oepnv USA
+	71510001-71510xxx:	SRTM USA
+	71520001-715200xx:	tilesplitter Caribbean
+	71520201-715202xx:	basemap Caribbean
+	71520401-715204xx:	SRTM Caribbean
+	71520501-71520555:	SRTM USA-Northeast
+	71520601-71520723:	SRTM USA-Midwest
+	71521001-71521621:	SRTM USA-West
+	71522001-71522191:	SRTM USA-South
+
+family 7160:    France
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7161:    France
+        product-id=1:   Bicycling	draw-priority=20
+
+family 7162:    France
+        product-id=1:   Wanderwege	draw-priority=24
+
+family 7163:    France
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7164:    France/fixme/keepright
+        product-id=1:   Fixme           draw-priority=25
+        procuct-id=3:   KeepRight       draw-priority=27
+
+family 7165:    France/marine
+        product-id=1:   Marine          draw-priority=30
+
+        71600001-71600642:      tilesplitter
+        71601001-71601642:      basemap
+        71602001-71602642:      bicycling
+        71603001-71603642:      wanderwege
+        71604001-71604642:      oepnv
+        71605001-71605642:      fixme
+        71606001-71606108:      keepright
+        71607001-71607642:      marine
+        71609001-71609044:      srtm
+
+family 7168:	Germany
+	product-id=1:	mkgmap		draw-priority=10
+	71680001-71680xxx:		tilesplitter
+        71681001-71681xxx:		basemap
+
+family 7169:	Germany
+	product-id=1:	Basemap		draw-priority=10
+	product-id=2:	SRTM		draw-priority=12
+
+	71690001-71690xxx:		tilesplitter
+	71691001-71691xxx:		basemap
+	71692001-71692xxx:		srtm
+
+family 7170:    BeNeLux
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7171: 	BeNeLux
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7172:	BeNeLux
+	product-id=1:	XXX
+
+family 7173:	BeNeLux
+	product-id=1:	Oepnv		draw-priority=20
+
+family 7174:	BeNeLux
+	product-id=1:	Marine		draw-priority=30
+
+family 7175:	BeNeLux
+	product-id=1:	Mkgmap default 	draw-priority=10
+
+family 7176:	BeNeLux
+	product-id=1:	Wanderwege	draw-priority=24
+
+	71700001-717000xx:	Tilesplitter BeNeLux
+	71700501-717005xx:	Tilesplitter SRTM BeNeLux
+	71701001-71701xxx:	Basemap BeNeLux
+	71702001-71702xxx:	SRTM BeNeLux
+	71703001-71703xxx:	Bicycling BeNeLux
+	71704001-71704xxx:	XXX BeNeLux
+	71705001-71705xxx:	OEPNV BeNeLux
+	71706001-717060xx:	Marine BeNeLux
+	71707001-71707xxx:	Mkgmap default BeNeLux
+	71708001-71708015:	Wanderwege BeNeLux
+
+family 7180:    Italy
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7181:    Italy/Bicycling       	draw-priority=20
+        product-id=1:   Bicycling Italy
+
+family 7182:    Italy			draw-priority=20
+        product-id=1:   XXX
+
+family 7183:    Italy
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7184:    Italy/fixme/keepright
+        product-id=1:   Fixme           draw-priority=25
+        procuct-id=3:   KeepRight       draw-priority=27
+
+family 7185:    Italy/marine
+        product-id=1:   Marine          draw-priority=30
+
+family 7186:	Italy
+	product-id=1:	Wanderwege	draw-priority=24
+
+        71800001-71800369:      tilesplitter
+        71801001-71801369:      basemap
+        71802001-71802369:      bicycling
+        71803001-71803369:      XXX
+        71804001-71804369:      oepnv
+        71805001-71805369:      fixme
+        71805501-71805501:      XXX
+        71805601-71805601:      keepright
+        71805701-718057xx:      marine
+	71806001-718060xx:	wanderwege
+        71809001-71809044:      srtm
+
+family 7190:    Scandinavia
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7191:    Scandinavia
+        product-id=1:   Bicycling	draw-priority=20
+
+family 7192:    Scandinavia
+        product-id=1:   Wanderwege	draw-priority=24
+
+family 7193:    Scandinavia
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7194:    Scandinavia/fixme/keepright
+        product-id=1:   Fixme           draw-priority=25
+        procuct-id=3:   KeepRight       draw-priority=27
+
+family 7195:    Scandinavia/marine
+        product-id=1:   Marine          draw-priority=30
+
+        71900001-71900069:      tilesplitter
+        71901001-71901069:      basemap
+        71902001-71902010:      bicycling
+        71903001-71903010:      wanderwege
+        71904001-71904010:      oepnv
+        71905001-71905010:      fixme
+        71905501-71905510:      XXX
+        71905601-71905610:      keepright
+        71905701-719057xx:      marine
+        71909001-71909064:      srtm
+
+family 7200:    Great Britain
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7201: 	Great Britain
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7202:	Great Britain
+	product-id=1:	Wanderwege	draw-priority=24
+
+family 7203:	Great Britain
+	product-id=1:	Oepnv		draw-priority=20
+
+family 7204:	Great Britain
+	product-id=1:	Marine		draw-priority=30
+
+	72000001-72000065:	Tilesplitter Great Britain
+	72000501-720005xx:	Tilesplitter SRTM
+	72001001-72001065:	Basemap Great Britain
+	72002001-72002xxx:	SRTM Great Britain
+	72003001-72003xxx:	Bicycling Great Britain
+	72004001-72004xxx:	Wanderwege Great Britain
+	72005001-72005xxx:	OEPNV Great Britain
+	72006001-720060xx:	Marine Great Britain
+
+family 7210:    India
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        72100001-72100017:      Tilesplitter India
+        72100501-721005xx:      Tilesplitter SRTM
+        72101001-72101017:      Basemap India
+        72102001-72102xxx:      SRTM India
+
+family 7220:    Channel Islands
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7221: 	Channel Islands
+	product-id=1:	Bicycling	draw-priority=20
+
+family 7222:	Channel Islands
+	product-id=1:	Wanderwege	draw-priority=24
+
+family 7223:	Channel Islands
+	product-id=1:	Oepnv		draw-priority=20
+
+family 7224:	Channel Islands
+	product-id=1:	Marine		draw-priority=30
+
+	72200001-722000xx:	Tilesplitter Channel Islands
+	72200501-722005xx:	Tilesplitter SRTM
+	72201001-722010xx:	Basemap Channel Islands
+	72202001-72202xxx:	SRTM Channel Islands
+	72203001-72203xxx:	Bicycling Channel Islands
+	72204001-72204xxx:	Wanderwege Channel Islands
+	72205001-72205xxx:	OEPNV Channel Islands
+	72206001-722060xx:	Marine Channel Islands
+
+family 7230:	Croatia
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7231:    Croatia
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7232:    Croatia
+        product-id=1:   Wanderwege      draw-priority=24
+
+family 7233:    Croatia
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7234:    Croatia
+        product-id=1:   Marine          draw-priority=30
+
+        72300001-723000xx:      Tilesplitter Croatia
+        72300501-723005xx:      Tilesplitter SRTM
+        72301001-723010xx:      Basemap Croatia
+        72302001-72302xxx:      SRTM Croatia
+        72303001-72303xxx:      Bicycling Croatia
+        72304001-72304xxx:      Wanderwege Croatia
+        72305001-72305xxx:      OEPNV Croatia
+        72306001-723060xx:      Marine Croatia
+
+family 7240:	Spain
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7241:    Spain
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7242:    Spain
+        product-id=1:   Wanderwege      draw-priority=24
+
+family 7243:    Spain
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7244:    Spain
+        product-id=1:   Marine          draw-priority=30
+
+        72400001-72400038:      Tilesplitter Spain
+	72400201-724002xx       Tilesplitter Canary Islands
+        72400501-724005xx:      Tilesplitter SRTM Spain
+        72400901-724009xx:      Tilesplitter SRTM Canary Islands
+        72401001-72401038:      Basemap Spain
+        72401501-724015xx:      Basemap Canary Islands
+        72402001-72402xxx:      SRTM Spain
+	72402701-724027xx:      SRTM Canary Islands
+        72403001-72403038:      Bicycling Spain
+	72403201-724032xx:      Bicycling Canary Islands
+        72404001-72404038:      Wanderwege Spain
+	72404201-724042xx:      Wanderwege Canary Islands
+        72405001-72405038:      OEPNV Spain
+	72405201-724052xx:      OEPNV Canary Islands
+        72406001-72406038:      Marine Spain
+        72406201-724062xx:      Marine Canary Islands
+
+family 7250:	Portugal
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7251:    Portugal
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7252:    Portugal
+        product-id=1:   Wanderwege      draw-priority=24
+
+family 7253:    Portugal
+        product-id=1:   Oepnv           draw-priority=20
+
+family 7254:    Portugal
+        product-id=1:   Marine          draw-priority=30
+
+        72500001-725000xx:      Tilesplitter Portugal
+        72500501-725005xx:      Tilesplitter SRTM
+        72501001-725010xx:      Basemap Portugal
+        72502001-72502xxx:      SRTM Portugal
+        72503001-72503xxx:      Bicycling Portugal
+        72504001-72504xxx:      Wanderwege Portugal
+        72505001-72505xxx:      OEPNV Portugal
+        72506001-725060xx:      Marine Portugal
+
+family 7256:    Iceland
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7257:    Iceland
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7258:    Iceland
+        product-id=1:   Wanderwege      draw-priority=24
+
+family 7259:    Iceland
+        product-id=1:   Oepnv           draw-priority=20
+
+        72550001-725500xx:      Tilesplitter Iceland
+        72550501-725505xx:      Tilesplitter SRTM
+        72551001-725510xx:      Basemap Iceland
+        72552001-72552xxx:      SRTM Iceland
+        72553001-72553xxx:      Bicycling Iceland
+        72554001-72554xxx:      Wanderwege Portugal
+        72555001-72555xxx:      OEPNV Iceland
+
+family 7260:    New Zealand
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+family 7261:    New Zealand
+        product-id=1:   Bicycling       draw-priority=20
+
+family 7262:    New Zealand
+        product-id=1:   Wanderwege      draw-priority=24
+
+family 7263:    New Zealand
+        product-id=1:   Oepnv           draw-priority=20
+
+        72600001-72600021:      Tilesplitter
+        72601001-72601xxx:      Tilesplitter SRTM
+        72603001-726030xx:      Basemap
+        72604001-72605xxx:      SRTM
+        72606001-72606xxx:      Bicycling
+        72607001-72607xxx:      Wanderwege
+        72608001-72608xxx:      OEPNV
+
+family 7266:    Singapore
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        72660001-726600xx:      Tilesplitter
+        72661001-72661xxx:      Tilesplitter SRTM
+        72662001-72662xxx:      Basemap
+        72663001-72663xxx:      SRTM
+

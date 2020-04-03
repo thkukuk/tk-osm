@@ -1,0 +1,16 @@
+
+##include 'locator';
+
+# If something is not meant to have a name, record this so
+# that it doesn't get highlighted.
+noname=yes { name 'deliberately does not have a name' }
+
+note=* & (note ~ 'FIXME.*' | note ~ 'fixme.*' |note ~ 'Fixme.*') & boundary!=*
+	{name 'Notiz: ${note}'}
+		[0x10c10 level 3]
+(fixme=* | FIXME=* | Fixme=*) & boundary!=*
+	{name 'Fixme: ${fixme}' | 'Fixme: ${FIXME}' | 'Fixme: ${Fixme}'}
+		[0x01 level 3]
+highway=residential & name!=*	[0x10c12 level 3]
+#tracks should have a tracktype
+highway=track & tracktype!=*	[0x10c11 level 3]

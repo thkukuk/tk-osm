@@ -1,0 +1,31 @@
+#!/bin/bash
+
+DBNAME="osbdump_latest.sql.bz2"
+
+test -d data/osmbugs/src || mkdir -p data/osmbugs/src
+
+if [ -f data/osmbugs/src/$DBNAME ]; then
+  UPDATE=`echo $(((($(date +%s)-$(stat -c %Y data/osmbugs/src/$DBNAME)))/86400))`
+else
+  UPDATE=1;
+fi
+if [ $UPDATE -ne 0 ]; then
+  rm -f data/osmbugs/src/$DBNAME
+  wget -nv http://openstreetbugs.schokokeks.org/dumps/$DBNAME  -P data/osmbugs/src
+  if [ $? -ne 0 ] ; then
+        echo "Download of osmbugs data failed!"
+        exit 1
+  fi
+  bzcat data/osmbugs/src/$DBNAME | osbsql2osm | gzip -9f > data/osmbugs/src/osmbugs-dump.osm.gz
+  if [ $? -ne 0 ] ; then
+	echo "Conversion of osmbugs data failed!"
+	exit 1
+  fi
+  stat -c %y  data/osmbugs/src/$DBNAME | sed -e 's|\..*||g' -e 's| |T|g' > data/osmbugs/src/timestamp.txt
+fi
+
+osmmaps/scripts/extract_countries data/osmbugs/src data/osmbugs
+if [ $? -ne 0 ] ; then
+  echo "extracting countrys failed"
+  exit 2
+fi

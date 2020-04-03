@@ -1,0 +1,22 @@
+
+##include 'locator';
+
+route_bus=* { set route_name='${route_bus}' }
+route_tram=* { set route_name='${route_tram}' }
+route_subway=* { set route_name='${route_subway}' }
+route_train=* { set route_name='${route_train}' }
+route_monorail=* { set route_name='${route_monorail}' }
+route_ferry=*	{set route_name='${route_ferry}' }
+
+route_bus=*	 { name '${route_name}'|'${name}' } [0x10f04 level 4-4 continue]
+route_bus=*	 { name '${route_name}'|'${name}' } [0x04 level 3]
+route_train=*	 { name '${route_name}'|'${name}' } [0x10f02 level 4-5 continue]
+route_train=*	 { name '${route_name}'|'${name}' } [0x02 level 3]
+route_tram=*	 { name '${route_name}'|'${name}' } [0x10f03 level 4-4 continue]
+route_tram=*	 { name '${route_name}'|'${name}' } [0x03 level 3]
+route_subway=*	 { name '${route_name}'|'${name}' } [0x10f01 level 4-4 continue]
+route_subway=*	 { name '${route_name}'|'${name}' } [0x01 level 3]
+route_monorail=* { name '${route_name}'|'${name}' } [0x10f05 level 4-4]
+route_monorail=* { name '${route_name}'|'${name}' } [0x05 level 3]
+route_ferry=*	 { name '${route_name}'|'${name}' } [0x10f1a level 4-5 continue]
+route_ferry=*	 { name '${route_name}'|'${name}' } [0x1a level 3]

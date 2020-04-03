@@ -1,0 +1,612 @@
+# -------------------------------------------------------------------
+# Adress mapping
+
+addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
+
+# Set name if not set directly, but alternates exist
+
+name!=* & place_name=* { name '${place_name}' }
+name!=* & loc_name=* { name '${loc_name}' }
+
+# Fix the name of streets in the US imported from tiger
+tiger:name_base=* & tiger:name_type=Rd & name!=*
+	{name '${tiger:name_base} Road'}
+tiger:name_base=* & tiger:name_type=St & name!=*
+	{name '${tiger:name_base} Street'}
+tiger:name_base=* & tiger:name_type=* & name!=*
+	{name '${tiger:name_base} ${tiger:name_type}'}
+
+# To assign the right housenumbers to the street
+highway=* & name=* {set mkgmap:street='${name|part:;:1}'}
+
+# Ignore addr:place if we have street and housenumber, it
+# is most likely wrong.
+addr:housenumber=* & addr:street=* & addr:place=* {delete addr:place}
+
+# Set mkgmap:country
+include 'inc/address_pre';
+
+# Don't add generated ways to the address index
+highway=* & name=* & mkgmap:synthesised=yes &
+	(name='cycleway' | name ~ '.*(cycleway).*')
+	{delete mkgmap:street}
+
+# Replace "Cycleway" with "Radweg in german speaking countries
+style:lang=german & highway=* & mkgmap:synthesised=yes & name=* &
+	(name='cycleway' | name ~ '.*(cycleway).*')
+	{name '${name|subst:cycleway=>Radweg}'}
+
+# -------------------------------------------------------------------
+# Boundarys
+
+# We use the continue statement, to make sure that streets, rivers, ...
+# additional tagged as boundary will still be drawn.
+
+# new and old for country borders
+boundary2=yes {name '${mkgmap:boundary2_name}'}	[0x1e level 7 continue]
+boundary2=yes {name '${mkgmap:boundary2_name}'}	[0x1e level 6 continue]
+#(boundary=administrative & admin_level=2) | boundary=national
+#	{ name '${mkgmap:boundary_name}' }	[0x1e level 5 continue]
+# federal states border
+boundary4=yes {name '${mkgmap:boundary4_name}'}	[0x1d level 5 continue]
+#boundary=administrative & admin_level=4
+#	{ name '${mkgmap:boundary_name}' }	[0x1d level 4 continue]
+#boundary=administrative & admin_level<7 [0x1c level 3]
+#boundary=administrative & admin_level<9 [0x1c level 1]
+#boundary=administrative [0x1c level 0]
+#boundary=political [0x1c level 5]
+
+
+# -------------------------------------------------------------------
+# Contours take their name from the elevation setting.
+# Contours have an own layer.
+
+#contour=elevation & contour_ext=elevation_minor & ele>0
+#        { name '${ele|conv:m=>ft}'; }
+#        [0x20 level 0]
+#contour=elevation & contour_ext=elevation_medium & ele>0
+#        { name '${ele|conv:m=>ft}'; }
+#        [0x21 level 1]
+#contour=elevation & contour_ext=elevation_major & ele>0
+#        { name '${ele|conv:m=>ft}'; }
+#        [0x22 level 3]
+
+# -------------------------------------------------------------------
+# Flughafen
+
+#ifndef STREETS
+aeroway=runway [0x27 level 3]
+aeroway=taxiway [0x2d level 2]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Highway
+
+# Remove maxspeed=none
+maxspeed=* & maxspeed=none {delete maxspeed}
+maxspeed=* & maxspeed=signals {delete maxspeed}
+maxspeed=* & maxspeed=walk {set maxspeed=7}
+
+# Mark highways with the toll flag
+highway=* & (toll=yes|toll=true) { set mkgmap:toll=yes }
+
+# Remove disabled highways
+highway=no {delete highway;delete junction}
+
+# Hide proposed ways
+(highway=proposed | highway=proposal | highway=planned | highway ~ '.*proposed.*') {delete highway;delete junction}
+# Hide removed ways
+(highway=razed | highway=dismantled) {deletealltags}
+# Hide other non-existent ways
+(highway=unbuilt | highway=neverbuilt | highway=rejected | highway ~ 'x-.*') {delete highway;delete junction}
+# Remove highway tag from ways which are not suitable for routing
+highway=traffic_signals | highway=junction | highway=island | highway=centre_line | highway=traffic_island  {delete highway}
+highway=piste | highway=ski {delete highway}
+highway=no | highway=none {delete highway}
+
+# Remove motorcycle tags, can be interpreted wrong
+motorcycle=*   {delete motorcycle}
+
+# Make sure service=parking_aisle will be rendert
+service=parking_aisle { add highway=service }
+
+# Remove access=yes from highways (redundant).
+highway=* & (access=yes|access=permissive|access=designated|access=official)
+	{delete access}
+# Translate motor_vehicle and vehicle access rules.
+highway=* & motor_vehicle=* { add motorcar='${motor_vehicle}' }
+highway=* & vehicle=* { add motorcar='${vehicle}'; add bicycle='${vehicle}' }
+
+# Assume we are not agricultural
+motorcar=agricultural {set motorcar=no}
+
+# Handle oneways
+(oneway=1 | oneway=true) { set oneway=yes }
+(oneway=no | oneway=false) { set oneway=no }
+
+# Handle shelter and covered like tunnel
+shelter=yes {add tunnel=yes}
+covered=yes {add tunnel=yes}
+
+# private and impassable ways are not accessible
+highway=* & (impassable=yes | access=private)   {set access=no}
+
+# Hide unaccessible tunnels
+highway=* & tunnel=yes & (access=private|access=no) &
+		(foot!=*|foot=no|foot=private) &
+		(bicycle!=*|bicycle=no|bicycle=private)
+					 {delete highway;delete junction}
+
+# Disable dead-end-checks for unaccessible oneways
+highway=* & oneway=yes & (access=private|access=no)
+		{add mkgmap:dead-end-check=false}
+
+# Special handling of construction
+highway=* & construction=yes {set highway=construction}
+highway=proposed {deletealltags}
+
+# cycleway and footpath
+highway=* & cycle_direction=both {add cycleway=opposite_track}
+highway=* & oneway:bicycle=no {add cycleway=opposite}
+highway=* & bicycle:oneway=no {add cycleway=opposite}
+# fix wrong crossing usage
+highway=crossing {add highway=path}
+
+# map use_cycleway/use_sidepath to bicycle=no
+highway=* & bicycle=use_cycleway { set bicycle=no }
+highway=* & bicycle=use_sidepath { set bicycle=no }
+
+# Unify ways with ";"
+highway="footway; cycleway" { set highway=cycleway; set segregated=no; set foot=yes}
+highway="footway;cycleway" { set highway=cycleway; set segregated=no; set foot=yes}
+highway="cycleway; footway" { set highway=cycleway; set segregated=no; set foot=yes}
+highway="cycleway;footway" { set highway=cycleway; set segregated=no; set foot=yes}
+
+# Set highway names to include the reference if there is one
+mkgmap:country=USA & highway=motorway
+	{set mkgmap:label:1='${ref|subst: =>|subst:I=>|highway-symbol:interstate}'}
+mkgmap:country!=USA & highway=motorway
+	{set mkgmap:label:1='${ref|subst: =>|highway-symbol:hbox}'}
+
+mkgmap:country=USA & highway=trunk
+        {set mkgmap:label:1='${ref|subst: =>|subst:I=>|highway-symbol:interstate}'}
+mkgmap:country!=USA & highway=trunk
+        {set mkgmap:label:1='${ref|subst: =>|highway-symbol:hbox}'}
+
+exit_to=* & destination!=* {set destination='${exit_to}'}
+
+(highway=motorway_link | highway=trunk_link)
+	{set mkgmap:label:1='${destination:ref|subst: =>} ${destination|subst:;=> |subst:/=> }' |
+         '${ref|subst: =>} ${destination|subst:;=> |subst:/=> }' |
+         '${destination|subst:;=> |subst:/=> }'
+	 }
+
+mkgmap:country=USA & highway=primary
+	{set mkgmap:label:1='${ref|subst: =>|highway-symbol:shield}'}
+mkgmap:country!=USA & highway=primary
+	{set mkgmap:label:1='${ref|subst: =>|highway-symbol:box}'}
+
+mkgmap:country=USA & highway=secondary
+	{set mkgmap:label:1='${ref|subst: =>|highway-symbol:round}'}
+
+mkgmap:country!=USA & highway=secondary
+	{set mkgmap:label:1='${ref|subst: =>|highway-symbol:oval}'}
+
+highway=* & name=* {addlabel '${name}'}
+highway=* & ref=* {addlabel '${ref|subst: =>}'}
+
+# Convert generic path to most specific, adjust permissions
+highway=cycleway &
+	(bicycle=designated|bicycle=permissive|bicycle=official)
+	{set bicycle=yes }
+highway=footway &
+	(bicycle=designated|bicycle=permissive|bicycle=official)
+	{set highway=cycleway; set bicycle=yes; set foot=yes}
+highway=path &
+	(bicycle=designated|bicycle=permissive|bicycle=official)
+	{set highway=cycleway; set bicycle=yes; set foot=yes}
+highway=path & (foot=designated|foot=permissive|foot=official)
+	{set highway=footway; set foot=yes }
+# handle dismount as yes, else routing will not work
+highway=* & bicycle=dismount {set bicycle=yes}
+
+# bicycle and segregated == yes => handle as cycleway
+(highway=footway|highway=path) & segregated=yes {set highway=cycleway}
+
+# Flag unpaved roads.
+highway=*
+& (surface=cobblestone | surface=compacted | surface=dirt |
+   surface=earth | surface=grass | surface=grass_paver |
+   surface=gravel | surface=grit | surface=ground | surface=mud |
+   surface=pebblestone | surface=sand | surface=unpaved |
+   mtb:scale>0 |
+   tracktype ~ 'grade[2-5]' |
+   smoothness ~ '.*(bad|horrible|impassable)' |
+   sac_scale ~ '.*(mountain|alpine)_hiking' |
+   sport=via_ferrata)
+	{ add mkgmap:unpaved=1 }
+(highway=bridleway | highway=path | highway=track | highway=unsurfaced)
+& surface!=* & tracktype!=* & smoothness!=* & sac_scale!=*
+	{ add mkgmap:unpaved=1 }
+
+# Don't mark unconnected paths as routeable
+(highway=path | highway=footway)
+	{ add mkgmap:set_unconnected_type=0x010b08 }
+highway=cycleway { add mkgmap:set_unconnected_type=0x010b16 }
+highway=track { add mkgmap:set_unconnected_type=0x010b10 }
+(highway=bridleway | highway=pedestrian | highway=service | highway=steps)
+	{ add mkgmap:set_unconnected_type=none }
+
+# Start to draw
+#---------------
+
+# Special handling of embankment
+highway=* & embankment=yes [0x10f00 level 0 continue]
+
+# Roundabouts
+junction=roundabout & (highway=trunk | highway=trunk_link)
+				[0x0c road_class=4 road_speed=2 level 4]
+junction=roundabout & (highway=primary | highway=primary_link)
+				[0x0c road_class=3 road_speed=2 level 4]
+junction=roundabout & (highway=secondary | highway=secondary_link)
+				[0x0c road_class=2 road_speed=2 level 3]
+junction=roundabout & (highway=tertiary | highway=tertiary_link)
+				[0x0c road_class=1 road_speed=1 level 2]
+junction=roundabout & highway=unclassified
+				[0x0c road_class=1 road_speed=1 level 2]
+junction=roundabout 		[0x0c road_class=0 road_speed=1 level 2]
+
+# Ways that may or may not be useable
+
+# Treat ways under construction as highway=path
+highway=construction & bridge=yes	[0x10103 level 2 continue]
+highway=construction & tunnel=yes	[0x10114 level 2 continue]
+highway=construction
+	{add access = no; add bicycle = no; add foot = no; add mkgmap:dead-end-check = false; name '${name|def:}(im Bau)'}
+					[0x1010f level 2]
+# Treat disused ways as highway=service, but at lower road_speed.
+highway=* & bridge=yes & disused=yes 	[0x10105 level 2 continue]
+highway=* & tunnel=yes & disused=yes 	[0x10116 level 2 continue]
+highway=* & disused=yes [0x07 road_class=0 road_speed=0 level 2]
+
+# Ways sorted roughly by descending order of class
+highway=motorway|highway=motorway_link {add mkgmap:numbers=false}
+highway=motorway & bridge=yes	[0x10101 level 3 continue]
+highway=motorway & tunnel=yes	[0x10111 level 3 continue]
+highway=motorway {add oneway = yes; add bicycle = no; add foot = no }
+highway=motorway		[0x10f01 level 7 continue]
+highway=motorway		[0x10f01 level 4-6 continue]
+highway=motorway 		[0x01 road_class=4 road_speed=7 level 3]
+highway=motorway_link & bridge=yes	[0x10102 level 3 continue]
+highway=motorway_link & tunnel=yes	[0x10113 level 3 continue]
+highway=motorway_link	{add oneway=yes; add bicycle=no; add foot=no}
+highway=motorway_link	[0x10f01 level 4-5 continue]
+highway=motorway_link	[0x0b road_class=4 road_speed=3 level 3]
+
+highway=* & motorroad=yes {add bicycle = no; add foot = no}
+
+highway=trunk & bridge=yes		[0x10102 level 3 continue]
+highway=trunk & tunnel=yes		[0x10113 level 3 continue]
+highway=trunk				[0x10f02 level 4-5 continue]
+highway=trunk			[0x02 road_class=4 road_speed=5 level 3]
+highway=trunk_link & bridge=yes		[0x10102 level 3 continue]
+highway=trunk_link & tunnel=yes		[0x10113 level 3 continue]
+highway=trunk_link			[0x10f02 level 4-4 continue]
+highway=trunk_link 		[0x02 road_class=4 road_speed=2 level 3]
+highway=* & motorroad=yes & bridge=yes	[0x10102 level 3 continue]
+highway=* & motorroad=yes & tunnel=yes	[0x10113 level 3 continue]
+highway=* & motorroad=yes		[0x10f02 level 4-5 continue]
+highway=* & motorroad=yes	[0x02 road_class=4 road_speed=4 level 3]
+highway=primary & bridge=yes		[0x10102 level 3 continue]
+highway=primary & tunnel=yes		[0x10113 level 3 continue]
+#highway=primary & oneway=yes		[0x1010a level 3 continue]
+highway=primary				[0x10f02 level 4-5 continue]
+highway=primary			[0x02 road_class=3 road_speed=4 level 3]
+highway=primary_link & bridge=yes	[0x10102 level 3 continue]
+highway=primary_link & tunnel=yes	[0x10113 level 3 continue]
+#highway=primary_link & oneway=yes	[0x1010a level 3 continue]
+highway=primary_link			[0x10f02 level 4-5 continue]
+highway=primary_link		[0x02 road_class=3 road_speed=1 level 3]
+highway=secondary & bridge=yes		[0x10102 level 3 continue]
+highway=secondary & tunnel=yes		[0x10113 level 3 continue]
+#highway=secondary & oneway=yes		[0x1010a level 3 continue]
+highway=secondary			[0x10f03 level 4-4 continue]
+highway=secondary		[0x03 road_class=2 road_speed=3 level 3]
+highway=secondary_link & bridge=yes	[0x10102 level 4 continue]
+highway=secondary_link & tunnel=yes	[0x10113 level 4 continue]
+#highway=secondary_link & oneway=yes	[0x1010a level 4 continue]
+highway=secondary_link			[0x10f03 level 4-4 continue]
+highway=secondary_link		[0x03 road_class=2 road_speed=1 level 3]
+highway=tertiary & bridge=yes		[0x10102 level 3 continue]
+highway=tertiary & tunnel=yes		[0x10113 level 3 continue]
+#highway=tertiary & oneway=yes		[0x1010a level 3 continue]
+highway=tertiary		[0x04 road_class=1 road_speed=3 level 3]
+highway=tertiary_link & bridge=yes	[0x10102 level 3 continue]
+highway=tertiary_link & tunnel=yes	[0x10113 level 3 continue]
+#highway=tertiary_link & oneway=yes	[0x1010a level 3 continue]
+highway=tertiary_link		[0x04 road_class=1 road_speed=1 level 3]
+highway=minor & bridge=yes		[0x10102 level 2 continue]
+highway=minor & tunnel=yes		[0x10113 level 2 continue]
+#highway=minor & oneway=yes		[0x1010a level 2 continue]
+highway=minor			[0x06 road_class=1 road_speed=3 level 2]
+highway=unclassified & bridge=yes	[0x10102 level 2 continue]
+highway=unclassified & tunnel=yes	[0x10113 level 2 continue]
+#highway=unclassified & oneway=yes	[0x1010a level 2 continue]
+highway=unclassified		[0x06 road_class=0 road_speed=3 level 2]
+
+highway=pedestrian & bridge=yes		[0x10104 level 2 continue]
+highway=pedestrian & tunnel=yes		[0x10115 level 2 continue]
+highway=pedestrian & area=yes {add access = no; add foot = yes}
+		[0x0d road_class=0 road_speed=0 level 2 continue]
+highway=pedestrian & area!=yes {add access = no; add foot = yes}
+			[0x0d road_class=0 road_speed=0 level 2]
+highway=living_street & bridge=yes	[0x10102 level 1 continue]
+highway=living_street & tunnel=yes	[0x10113 level 1 continue]
+#highway=living_street & oneway=yes	[0x1010a level 1 continue]
+highway=living_street & area=yes
+		[0x06 road_class=0 road_speed=1 level 1 continue]
+highway=living_street & area!=yes
+			[0x06 road_class=0 road_speed=1 level 1]
+highway=residential & bridge=yes	[0x10102 level 2 continue]
+highway=residential & tunnel=yes	[0x10113 level 2 continue]
+highway=residential & area=yes
+			[0x05 road_class=0 road_speed=2 level 2 continue]
+#highway=residential & area!=yes & oneway!=yes
+#					[0x06 road_class=0 road_speed=2 level 2]
+highway=residential & area!=yes		[0x06 road_class=0 road_speed=2 level 2]
+#highway=residential & area!=yes & oneway=yes
+#					[0x06 road_class=0 road_speed=2 level 2 continue]
+#highway=residential & oneway=yes	[0x00 level 2]
+#ifndef STREETS
+highway=bridleway & bridge=yes		[0x10105 level 1 continue]
+highway=bridleway & tunnel=yes		[0x10116 level 1 continue]
+highway=bridleway
+	{add access = no; add foot = yes}
+	[0x17 road_class=0 road_speed=0 level 0]
+
+highway=byway & bridge=yes		[0x10103 level 0 continue]
+highway=byway & tunnel=yes		[0x10114 level 0 continue]
+highway=byway			[0x0a road_class=0 road_speed=0 level 0]
+
+highway=service & bridge=yes		[0x10105 level 1 continue]
+highway=service & tunnel=yes		[0x10116 level 1 continue]
+highway=service & area=yes
+			[0x07 road_class=0 road_speed=2 level 1 continue]
+highway=service & area!=yes	[0x07 road_class=0 road_speed=2 level 1]
+
+highway=cycleway & bridge=yes		[0x10104 level 1 continue]
+highway=cycleway & tunnel=yes		[0x10115 level 1 continue]
+highway=cycleway & mkgmap:unpaved=1
+		{add access = no; set bicycle = yes; add foot = yes}
+				[0x16 road_class=1 road_speed=1 level 1]
+highway=cycleway {add access = no; set bicycle = yes; add foot = yes}
+				[0x16 road_class=3 road_speed=2 level 1]
+
+highway=footway & bridge=yes		[0x10104 level 1 continue]
+highway=footway & tunnel=yes		[0x10115 level 1 continue]
+highway=footway {add access=no; add bicycle=no; add foot=yes}
+				[0x08 road_class=0 road_speed=0 level 1]
+
+highway=path {add access = no; add bicycle = yes; add foot = yes}
+highway=path & (mtb:scale=* | mtb:scale:imba=*)         { add bicycle=yes; }
+highway=path & (mtb:scale>1 | mtb:scale:imba>1)         { set bicycle=no; }
+highway=path & (sac_scale~'.*(mountain|alpine)_hiking') { add bicycle=no; }
+
+highway=path & bridge=yes		[0x10104 level 1 continue]
+highway=path & tunnel=yes		[0x10115 level 1 continue]
+highway=path & (mtb:scale<2 | route=* | ref=*)
+				[0x08 road_class=0 road_speed=1 level 1]
+highway=path			[0x08 road_class=0 road_speed=0 level 0]
+
+# steps
+highway=steps & bridge=yes		[0x10104 level 1 continue]
+highway=steps & tunnel=yes		[0x10115 level 1 continue]
+highway=steps {add access = no; add foot = yes}
+				[0x13 road_class=0 road_speed=0 level 1]
+highway=escalator {add access = no; add foot = yes}
+				[0x13 road_class=0 road_speed=0 level 1]
+#endif /* STREETS */
+
+# track
+highway=track & tracktype!=*			{add motorcar=no}
+highway=track & (tracktype~'grade[2-5]')	{add motorcar=no}
+
+highway=track & tracktype=grade1 & bridge=yes 	[0x10103 level 2 continue]
+highway=track & tracktype=grade1 & tunnel=yes 	[0x10114 level 2 continue]
+highway=track & tracktype=grade1
+			[0x0e road_class=2 road_speed=2 level 2]
+
+#ifndef STREETS
+highway=track & tracktype=grade2 & bridge=yes 	[0x10104 level 1 continue]
+highway=track & tracktype=grade2 & tunnel=yes 	[0x10115 level 1 continue]
+highway=track & tracktype=grade2
+			[0x0f road_class=1 road_speed=2 level 1]
+
+highway=track & tracktype=grade3 & bridge=yes 	[0x10104 level 1 continue]
+highway=track & tracktype=grade3 & tunnel=yes 	[0x10115 level 1 continue]
+highway=track & tracktype=grade3
+			[0x10 road_class=0 road_speed=1 level 1]
+
+highway=track & tracktype=grade4 & bridge=yes 	[0x10105 level 0 continue]
+highway=track & tracktype=grade4 & tunnel=yes 	[0x10116 level 0 continue]
+highway=track & tracktype=grade4
+			[0x11 road_class=0 road_speed=0 level 0]
+
+highway=track & tracktype=grade5 & bridge=yes 	[0x10105 level 0 continue]
+highway=track & tracktype=grade5 & tunnel=yes 	[0x10116 level 0 continue]
+highway=track & tracktype=grade5 {add bicycle=no}
+			[0x12 road_class=0 road_speed=0 level 0]
+
+highway=track & bridge=yes 		[0x10105 level 1 continue]
+highway=track & tunnel=yes 		[0x10116 level 1 continue]
+highway=track
+			[0x12 road_class=0 road_speed=1 level 1]
+
+highway=unsurfaced & bridge=yes		[0x10104 level 0 continue]
+highway=unsurfaced & tunnel=yes		[0x10115 level 0 continue]
+highway=unsurfaced {add motorcar=no}
+			[0x0a road_class=0 road_speed=1 level 0]
+#endif /* STREETS */
+
+highway=road & bridge=yes 		[0x10102 level 1 continue]
+highway=road & tunnel=yes 		[0x10113 level 1 continue]
+highway=road {add mkgmap:dead-end-check = false}
+			[0x06 road_class=0 road_speed=2 level 1]
+
+# Mop up any unrecognised highway types
+# (Don't map them, find out which this are and handle them
+# correct).
+#highway=* & area!=yes & area!=true & area!=1 & bridge=yes
+#					[0x10104 level 1]
+#highway=* & area!=yes & area!=true & area!=1 & tunnel=yes
+#					[0x10115 level 1]
+#highway=* & area!=yes & area!=true & area!=1 [0x09 level 1]
+
+#limit artificial cycleways to to resolution 24
+mkgmap:synthesised=yes & mkgmap:bicycle=yes { set mkgmap:highest-resolution-only = true }
+
+# don't add house numbers to unnamed or artifical bicycle ways
+mkgmap:bicycle=yes & (mkgmap:foot=no & mkgmap:car=no & mkgmap:street!=* | mkgmap:synthesised=yes) {set mkgmap:numbers=false}
+
+# -------------------------------------------------------------------
+# natural
+
+#natural=coastline				[0x15 level 6]
+#ifndef STREETS
+natural=cliff & area!=yes			[0x31 level 2]
+
+
+# -------------------------------------------------------------------
+# power
+
+power=line {name 'Powerline (${voltage} V)'}   [0x29 level 0]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Eisenbahn
+
+# Unify tagging
+railway=rail & disused=yes {set railway=disused}
+# Special handling of construction
+railway=* & construction=* & construction!=no { set railway=construction }
+railway=proposed {delete 'railway'; delete 'oneway'; delete 'tunnel'; delete 'bridge'}
+
+# special handling for bridges and embankment, don't display tunnel
+#ifndef STREETS
+railway=* & (bridge=yes) 	[0x10106 level 0 continue ]
+#railway=* & railway!=subway & (tunnel=yes)
+#				[0x10112 level 0 continue ]
+railway=* & (embankment=yes)		[0x10f00 level 0 continue ]
+
+railway=abandoned & tunnel!=yes 	[0x10a03 level 0]
+railway=light_rail & tunnel!=yes 	[0x14 level 4]
+railway=narrow_gauge & tunnel!=yes 	[0x14 level 3]
+#endif /* STREETS */
+railway=rail & tunnel!=yes		[0x10a01 level 4]
+#ifndef STREETS
+railway=preserved & tunnel!=yes		[0x10a01 level 4]
+railway=disused & tunnel!=yes
+	{name '${name|def:}(stillgelegt)' }
+					[0x10a02 level 4]
+railway=construction & tunnel!=yes
+        {name '${name|def:}(im Bau)' }
+                                        [0x10a02 level 3]
+railway=subway & tunnel!=yes 		[0x14 level 4]
+railway=tram & tunnel!=yes 		[0x14 level 4]
+(railway=platform | public_transport=platform) & tunnel!=yes & area=yes
+        {add access = no; add foot = yes}
+        [0x1a road_class=0 road_speed=0 level 2 default_name "Plattform" continue]
+(railway=platform | public_transport=platform) & tunnel!=yes & area!=yes
+	{add access = no; add foot = yes}
+	[0x1a road_class=0 road_speed=0 level 2 default_name "Plattform"]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Wasswerwege
+
+route=ferry {set mkgmap:numbers = false}
+route=ferry & (motorcar=no | motor_vehicle=no)
+	 {add mkgmap:ferry=1; name '${name} (${description})'|'${name}'|'${description}' }
+				[0x1b road_class=0 road_speed=0 level 1]
+route=ferry {add mkgmap:ferry=1; name '${name} (${description})'|'${name}'|'${description}' }
+				[0x1b road_class=3 road_speed=1 level 4]
+route=shuttle_train {add mkgmap:ferry=1; name '${name} (${description})'|'${name}'|'${description}' }
+                                [0x1b road_class=3 road_speed=1 level 4]
+
+waterway=* & disused=yes {set waterway=disused}
+#ifndef STREETS
+waterway=weir				[0x10f08 level 2 continue]
+waterway=rapids|waterway=waterfall	[0x1010e level 3 continue]
+#endif /* STREETS */
+waterway=canal				[0x10f04 level 4-5 continue]
+waterway=canal				[0x1f level 3]
+waterway=river				[0x10f04 level 4-5 continue]
+waterway=river				[0x1f level 3]
+#ifndef STREETS
+waterway=drain				[0x1f level 1]
+waterway=stream				[0x18 level 1]
+waterway=ditch|barrier=ditch		[0x18 level 1]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# barrier
+
+#ifndef STREETS
+barrier=wall | barrier=retaining_wall	[0x32 level 0 continue]
+barrier=city_wall & area!=yes		[0x2c level 2 continue]
+barrier=fence | fenced=yes		[0x33 level 0 continue]
+barrier=hedge				[0x34 level 0 continue]
+
+# -------------------------------------------------------------------
+# aerialway
+
+aerialway=chair_lift			[0x38 level 0]
+aerialway=drag_lift			[0x38 level 0]
+aerialway=gondola			[0x38 level 0]
+aerialway=cable_car			[0x38 level 0]
+# not really a lift, but something similar
+railway=funicular			[0x38 level 0]
+
+# -------------------------------------------------------------------
+# man_made
+
+man_made=pipeline & location!=underground & location!=underwater
+	 {name '${operator}'}	[0x28 level 0]
+man_made=pier & area!=yes	[0x1a road_class=0 road_speed=0 level 2 default_name 'Pier' continue]
+man_made=quay & area!=yes	[0x1a road_class=0 road_speed=0 level 2 default_name 'Kai' continue]
+man_made=breakwater & area!=yes	[0x30 level 2 default_name 'Wellenbrecher']
+man_made=dyke | man_made=embankment	[0x10f00 level 2]
+
+# draw man_made=stones as wall
+man_made=stones & area!=yes		[0x32 level 1]
+
+leisure=marina & natural=water		[0x2a level 4 continue]
+leisure=marina & natural!=water		[0x2a level 4]
+
+
+# draw historic ruins (like Limes Wall) and artwork as wall.
+historic=ruins & area!=yes		[0x32 level 1 continue]
+tourism=artwork & area!=yes		[0x32 level 0 continue]
+
+leisure=track & area!=yes		[0x35 level 0 continue]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+
+include 'inc/address';
+
+# calculate the access rules
+include 'inc/access';
+
+# calculate the road speed based on maxspeed tag
+include 'inc/roadspeed';
+
+name=* { name '${name}' }
+
+# if some of mkgmap:label:X are free, fill them up with ref tags:
+highway=* & int_ref=* { addlabel '${int_ref|subst: =>}' }
+highway=* & nat_ref=* { addlabel '${nat_ref|subst: =>}' }
+highway=* & reg_ref=* { addlabel '${reg_ref|subst: =>}' }

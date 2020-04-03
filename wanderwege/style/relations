@@ -1,0 +1,178 @@
+# Relation-File for the Wanderwege layer.
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=blue | osmc:symbol ~ 'blue:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_blue='$(route_blue):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_blue_type='${network}';
+	        set route_blue_name=
+	            '$(route_blue_name), ${osmc:name} (${distance})' |
+	            '$(route_blue_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_blue_name), ${name} (${distance})' |
+	            '$(route_blue_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=yellow | osmc:symbol ~ 'yellow:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_yellow='$(route_yellow):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_yellow_type='${network}';
+	        set route_yellow_name=
+	            '$(route_yellow_name), ${osmc:name} (${distance})' |
+	            '$(route_yellow_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_yellow_name), ${name} (${distance})' |
+	            '$(route_yellow_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=green | osmc:symbol ~ 'green:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_green='$(route_green):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_green_type='${network}';
+	        set route_green_name=
+	            '$(route_green_name), ${osmc:name} (${distance})' |
+	            '$(route_green_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_green_name), ${name} (${distance})' |
+	            '$(route_green_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=red | osmc:symbol ~ 'red:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_red='$(route_red):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_red_type='${network}';
+	        set route_red_name=
+	            '$(route_red_name), ${osmc:name} (${distance})' |
+	            '$(route_red_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_red_name), ${name} (${distance})' |
+	            '$(route_red_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=black | osmc:symbol ~ 'black:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_black='$(route_black):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_black_type='${network}';
+	        set route_black_name=
+	            '$(route_black_name), ${osmc:name} (${distance})' |
+	            '$(route_black_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_black_name), ${name} (${distance})' |
+	            '$(route_black_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=orange | osmc:symbol ~ 'orange:.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_orange='$(route_orange):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_orange_type='${network}';
+	        set route_orange_name=
+	            '$(route_orange_name), ${osmc:name} (${distance})' |
+	            '$(route_orange_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_orange_name), ${name} (${distance})' |
+	            '$(route_orange_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(route=foot | route=hiking) & 
+	(osmc:symbol=white | osmc:symbol ~ 'white:.*' | osmc:symbol ~ ':.*') &
+	(name=* | osmc:name=*) &
+	(network=iwn | network=nwn | network=rwn | network=lwn) {
+	apply { set route_white='$(route_white):${osmc:symbol}'|
+	                         '${osmc:symbol}';
+	        set route_white_type='${network}';
+	        set route_white_name=
+	            '$(route_white_name), ${osmc:name} (${distance})' |
+	            '$(route_white_name), ${osmc:name}' |
+	            '${osmc:name} (${distance})' | '${osmc:name}' |
+	            '$(route_white_name), ${name} (${distance})' |
+	            '$(route_white_name), ${name}' |
+	            '${name} (${distance})' | '${name}'
+	      }
+}
+
+(network=iwn | network=nwn | network=rwn | network=lwn) & osmc:symbol!=* {
+	apply { set route_rest=
+	            '$(route_rest), ${name} (${ref}/${distance})'|
+	            '$(route_rest), ${name} (${ref})' |
+	            '$(route_rest), ${name} (${distance})' |
+	            '$(route_rest), ${name}' |
+	            '$(route_rest), ${ref} (${distance})'|
+	            '$(route_rest), ${ref}' |
+	            '$(route_rest), ${distance}' |
+	            '${name} (${ref}/${distance})'|
+	            '${name} (${ref})' |
+	            '${name} (${distance})' |
+	            '${name}' |
+	            '${ref} (${distance})'|
+	            '${ref}' |
+	            '${distance}'
+	      }
+}
+
+route=running | route=fitness_trail {
+	apply { set route_running=
+	            '$(route_running), ${name} (${ref}/${distance})'|
+	            '$(route_running), ${name} (${ref})' |
+	            '$(route_running), ${name} (${distance})' |
+	            '$(route_running), ${name}' |
+	            '$(route_running), ${ref} (${distance})'|
+	            '$(route_running), ${ref}' |
+	            '$(route_running), ${distance}' |
+	            '${name} (${ref}/${distance})'|
+	            '${name} (${ref})' |
+	            '${name} (${distance})' |
+	            '${name}' |
+	            '${ref} (${distance})'|
+	            '${ref}' |
+	            '${distance}'
+	      }
+}
+
+network=greenway {
+	apply { set route_greenway=
+	            '$(route_greenway), ${name} (${ref}/${distance})'|
+	            '$(route_greenway), ${name} (${ref})' |
+	            '$(route_greenway), ${name} (${distance})' |
+	            '$(route_greenway), ${name}' |
+	            '$(route_greenway), ${ref} (${distance})'|
+	            '$(route_greenway), ${ref}' |
+	            '$(route_greenway), ${distance}' |
+	            '${name} (${ref}/${distance})'|
+	            '${name} (${ref})' |
+	            '${name} (${distance})' |
+	            '${name}' |
+	            '${ref} (${distance})'|
+	            '${ref}' |
+	            '${distance}'
+	      }
+}
+

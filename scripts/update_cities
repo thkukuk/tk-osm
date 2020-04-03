@@ -1,0 +1,39 @@
+#!/bin/bash
+
+pushd osmmaps/scripts/cities > /dev/null
+wget http://download.geonames.org/export/dump/cities1000.zip
+unzip -o cities1000.zip
+rm cities1000.zip
+../extract_country_from_cities.pl cities1000.txt AT > AT.txt
+../extract_country_from_cities.pl cities1000.txt BE > BE.txt
+../extract_country_from_cities.pl cities1000.txt CA > CAN.txt
+../extract_country_from_cities.pl cities1000.txt CH > CH.txt
+../extract_country_from_cities.pl cities1000.txt CZ > CZE.txt
+../extract_country_from_cities.pl cities1000.txt DE > DEU.txt
+../extract_country_from_cities.pl cities1000.txt DK > DK.txt
+../extract_country_from_cities.pl cities1000.txt FI > FI.txt
+../extract_country_from_cities.pl cities1000.txt FR > FRA.txt
+../extract_country_from_cities.pl cities1000.txt GB > GBR.txt 
+../extract_country_from_cities.pl cities1000.txt HR > HRV.txt
+../extract_country_from_cities.pl cities1000.txt IE > IE.txt
+../extract_country_from_cities.pl cities1000.txt IN > IND.txt
+../extract_country_from_cities.pl cities1000.txt IS > ISL.txt
+../extract_country_from_cities.pl cities1000.txt IT > ITA.txt
+../extract_country_from_cities.pl cities1000.txt LI > LIE.txt
+../extract_country_from_cities.pl cities1000.txt LU > LU.txt
+../extract_country_from_cities.pl cities1000.txt NL > NL.txt
+../extract_country_from_cities.pl cities1000.txt NO > NO.txt
+../extract_country_from_cities.pl cities1000.txt NZ > NZL.txt
+../extract_country_from_cities.pl cities1000.txt SE > SE.txt
+../extract_country_from_cities.pl cities1000.txt SG > SGP.txt
+../extract_country_from_cities.pl cities1000.txt US > USA.txt
+../extract_country_from_cities.pl cities1000.txt PT > PRT.txt
+../extract_country_from_cities.pl cities1000.txt ES > ESP.txt
+
+cat AT.txt CH.txt DEU.txt LIE.txt > DACH.txt
+cat BE.txt NL.txt LU.txt > BNL.txt
+cat IE.txt GBR.txt > IRL.txt
+cat SE.txt DK.txt FI.txt NO.txt > DNS.txt
+cat cities1000.txt > EU.txt
+
+popd > /dev/null

@@ -1,0 +1,78 @@
+#!/bin/bash
+
+set -o nounset
+#set -o errexit
+
+onerror ()
+{
+  cleanup 2
+}
+
+cleanup ()
+{
+  rm -f $LOCALTMP/*
+  rmdir $LOCALTMP
+  rm -rf .tmp
+  popd > /dev/null
+  exit $1
+}
+
+trap onerror INT TERM
+
+mkdir -p data/sea
+pushd data/sea > /dev/null
+
+rm -rf .tmp
+mkdir .tmp || cleanup 2
+LOCALTMP=`mktemp -d` || cleanup 2
+
+CURRENT=`/bin/ls ../planet/planet-*.osm.pbf | sort -r | head -1`
+NEXT=`echo $CURRENT | sed -e 's|.*planet-||g' -e 's|.osm.pbf||g'`
+
+osmcoastline -v -i -f -c 0 -p land -o $LOCALTMP/coastline-${NEXT}.db $CURRENT
+OSMCOASTLINE_RET=$?
+echo "osmcoastline return code: $OSMCOASTLINE_RET"
+if [ $OSMCOASTLINE_RET -ne 0 -a $OSMCOASTLINE_RET -ne 1 ] ; then
+  echo "osmcoastline failed!"
+  cleanup 2
+fi
+
+ogr2ogr -f "ESRI Shapefile" .tmp/land_polygons.shp $LOCALTMP/coastline-${NEXT}.db land_polygons
+if [ $? -ne 0 ] ; then
+  echo "ogr2ogr failed!"
+  cleanup 2
+fi
+
+mkdir .tmp/sea-$NEXT
+mkgmap_sea_generator .tmp/land_polygons.shp WGS84 .tmp/sea-$NEXT > /dev/null
+if [ $? -ne 0 ]; then
+  echo "mkgmap_sea_generator failed!"
+  cleanup 2
+fi
+
+DIRSIZE=`/usr/bin/du -sh .tmp/sea-$NEXT |sed -e 's|M.*||g'`
+# 179 is the current size for a correct coastline map without errors
+if [ ${DIRSIZE} -lt 200 ]; then
+  echo "Failed, size ${DIRSIZE} to small"
+  cleanup 2
+fi
+
+mv $LOCALTMP/coastline-${NEXT}.db .
+rmdir $LOCALTMP
+rm -rf sea-$NEXT
+mv .tmp/sea-$NEXT .
+rm -f current && ln -sf sea-$NEXT current
+ln -sf sea-$NEXT sea
+echo $NEXT > sea/version.txt
+zip -q sea-$NEXT sea/*
+rm sea
+# cleanup old files
+rm -rf `/bin/ls -d sea-* | grep -v zip | sort | head -n -3` ||:
+rm -rf `/bin/ls coastline-* | sort | head -n -3` ||:
+rm -f `/bin/ls sea-*.zip | sort | head -n -3` ||:
+
+rm -rf .tmp
+
+popd > /dev/null
+
+exit 0

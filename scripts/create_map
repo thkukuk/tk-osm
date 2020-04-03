@@ -1,0 +1,189 @@
+#!/bin/bash
+
+STYLE=${1:-basemap}
+COUNTRY=${2:-DACH}
+COUNTRY_ABBR=${3:-DACH}
+CAPSTYLE=`echo $STYLE | sed -e 's/\(.\)\(.*\)/\u\1\2/'`
+CAPCOUNTRY=`echo $COUNTRY | sed -e 's/^us-/US_/' -e 's/^usa-/USA_/' -e 's/^usa/USA/' | sed -e 's/\(.\)\(.*\)/\u\1\2/' | sed -e 's/\(.*\)_\(.\)\(.*\)/\1_\u\2\3/'`
+LANG=POSIX
+export LANG
+
+case "$STYLE" in
+  osb)
+   CAPSTYLE="OSB"
+   TILES=tiles-osmbugs
+   ;;
+  keepright)
+   CAPSTYLE="KeepRight"
+   TILES=tiles-keepright
+   ;;
+  srtm)
+   CAPSTYLE="SRTM"
+   TILES=tiles-srtm
+   ;;
+  #bicycling|hiking|oepnv|wanderwege|marine)
+  # TILES=tiles-layer
+  # ;;
+  *)
+   TILES=tiles
+   ;;
+esac
+
+DESC="TK-${CAPCOUNTRY}-${CAPSTYLE}"
+if [ "$STYLE" == "srtm" ]; then
+  NAME="TK-SRTM-${CAPCOUNTRY}"
+else
+  NAME="TK-OSM-${CAPCOUNTRY}-${CAPSTYLE}"
+fi
+
+MKGMAP_LOG=../../../osmmaps/scripts/logging.properties
+export MKGMAP_LOG
+
+OSMMAPS_DIR=../../../osmmaps
+
+PRODUCT_VERSION=`date "+%y%m%d"`
+
+#disabled: --adjust-turn-headings
+CONFIG="--product-version=$PRODUCT_VERSION --add-pois-to-areas  --pois-to-areas-placement=entrance=main;entrance=yes;building=entrance;barrier=entrance --reduce-point-density=4 --reduce-point-density-polygon=8 --min-size-polygon=8 --polygon-size-limits=24:8,18:4,17:2,16:0 --make-opposite-cycleways --name-tag-list=name,place_name,loc_name --order-by-decreasing-area"
+
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "mkgmap" ] ; then
+ if [ ! -d data/sea/current ]; then
+   echo "ERROR: no sea data found, map may be broken!"
+ fi
+
+  CONFIG="$CONFIG --link-pois-to-ways --route --net --index --housenumbers --add-boundary-nodes-at-admin-boundaries=2" # --x-split-name-index --process-destination --process-exits
+  if [ "$STYLE" == "basemap+DEM" ]; then
+    CONFIG="$CONFIG --dem=/data/OSM/data/hgt/VIEW1,/data/OSM/data/hgt/VIEW3"
+  fi
+else
+  CONFIG="$CONFIG --transparent --no-poi-address"
+fi
+
+cd build/$COUNTRY
+rm -rf $STYLE
+mkdir $STYLE
+cd $STYLE
+# Handle --bounds seperat, so that we can add more styles if necessry
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "mkgmap" -o "$STYLE" == "address" ] ; then
+   if [ -d ../../../data/boundaries/current ]; then
+      ln -sf ../../../data/boundaries/current bounds
+      CONFIG="--bounds=bounds --location-autofill=bounds,is_in,nearest $CONFIG"
+   fi
+fi
+# Sea is only necessary for basemps.
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "mkgmap" ] ; then
+  if [ -d ../../../data/sea/current ]; then
+    ln -sf ../../../data/sea/current sea
+    CONFIG="--precomp-sea=sea $CONFIG"
+  fi
+fi
+if [ -e $OSMMAPS_DIR/$STYLE/style ]; then
+  mkdir style
+  mkdir style/inc
+  cp -aL $OSMMAPS_DIR/$STYLE/style/{info,options,relations,version,lines,points,polygons} style/
+  for i in access access_country address address_pre roadspeed name water_points landuse_points water_lines contour_lines water_polygons landuse_polygons; do
+     test -f $OSMMAPS_DIR/$STYLE/style/inc/$i && cp -aL $OSMMAPS_DIR/$STYLE/style/inc/$i style/inc/
+  done
+  cp -aL $OSMMAPS_DIR/basemap/style/inc/address style/inc/
+  STYLE_OPTION="--style-file=style"
+fi
+if [ "$STYLE" == srtm ]; then
+  sed -e 's|^mapname:.*||g' -e 's|^description: \(.*\)-|description: SRTM-\1-|g' ../$TILES/template.args > maps.cfg
+else
+  sed -e 's|^mapname:.*||g' ../$TILES/template.args > maps.cfg
+fi
+ln -sf ../$TILES/*.osm.* .
+test -f ../$TILES/timestamp.txt &&  sed -e 's|T.*||' ../$TILES/timestamp.txt > timestamp.txt
+
+if [ -f $OSMMAPS_DIR/$STYLE/mkgmap.$COUNTRY.cfg ] ; then
+  cp -aL $OSMMAPS_DIR/$STYLE/mkgmap.$COUNTRY.cfg mkgmap.cfg
+else
+  echo "No mkgmap.$COUNTRY.cfg found!"
+  exit 1
+fi
+
+if [ -f $OSMMAPS_DIR/$STYLE/$STYLE.txt ]; then
+  cp -aL $OSMMAPS_DIR/$STYLE/$STYLE.txt TK_${COUNTRY_ABBR}.TXT
+  $OSMMAPS_DIR/scripts/patch_typfile.pl TK_${COUNTRY_ABBR}.TXT
+  if [ $? -ne 0 ] ; then
+    echo "patch_typfile failed!"
+    exit 1
+  fi
+  TYPFILE=TK_${COUNTRY_ABBR}.TXT
+elif [ -f $OSMMAPS_DIR/$STYLE/$STYLE.TYP ]; then
+  cp -aL $OSMMAPS_DIR/$STYLE/$STYLE.TYP TK_${COUNTRY_ABBR}.TYP
+  $OSMMAPS_DIR/scripts/patch_typfile.pl TK_${COUNTRY_ABBR}.TYP
+  if [ $? -ne 0 ] ; then
+    echo "patch_typfile failed!"
+    exit 1
+  fi
+  TYPFILE=TK_${COUNTRY_ABBR}.TYP
+else
+  echo "INFO: No TYP file found!"
+  TYPFILE=""
+fi
+
+# Copyright overwrite
+if [ "$STYLE" == "srtm" ]; then
+  cp $OSMMAPS_DIR/$STYLE/license.txt ${DESC}_license.txt
+  COPYRIGHT="SRTM Data available from the U.S. Geological Survey and Jonathan de Ferranti"
+else
+  echo "${DESC} map data (c) OpenStreetMap contributors (http://www.openstreetmap.org/copyright)" > ${DESC}_license.txt
+  COPYRIGHT="OpenStreetMap contributors, ODbL. See: http://www.openstreetmap.org/copyright. ${DESC} based on data from `cat timestamp.txt`."
+fi
+echo >> ${DESC}_license.txt
+echo -n "$DESC created with mkgmap-r"`rpm -q --queryformat %{version} mkgmap` >> ${DESC}_license.txt
+if [ -f timestamp.txt ]; then
+  echo -n " and data from " >> ${DESC}_license.txt
+  cat timestamp.txt >> ${DESC}_license.txt
+fi
+echo "" >> ${DESC}_license.txt
+
+MKGMAP_DEFAULT_OPTIONS="$STYLE_OPTION --family-name=$DESC --country-name=$COUNTRY --country-abbr=$COUNTRY_ABBR --area-name=$COUNTRY_ABBR --latin1 --license-file=${DESC}_license.txt"
+
+echo "Running mkgmap for $DESC"
+if [ "$STYLE" == "basemap" -a "$COUNTRY" == "europe" ]; then
+    echo "Building map for mapsource..."
+    mkgmap $MKGMAP_DEFAULT_OPTIONS --copyright-message="${COPYRIGHT}" --series-name=${DESC} --overview-mapname=${NAME} $CONFIG -c mkgmap.cfg --tdbfile -c maps.cfg --description="${DESC}" $TYPFILE
+    if [ $? -ne 0 ] ; then
+	echo "mkgmap ${DESC} for mapsource failed!"
+	exit 1
+    fi
+    test -f mkgmap.log && mv mkgmap.log mkgmap.mapsource.log
+
+    $OSMMAPS_DIR/scripts/create_nsis_file.pl $CAPSTYLE $CAPCOUNTRY $COUNTRY_ABBR --no-gmt
+else
+    echo "Building map for GARMIN devices..."
+    mkgmap $MKGMAP_DEFAULT_OPTIONS --copyright-message="${COPYRIGHT}" --series-name=$DESC $CONFIG -c mkgmap.cfg --gmapsupp -c maps.cfg --description="$DESC" $TYPFILE
+    if [ $? -ne 0 -o ! -f gmapsupp.img ] ; then
+	echo "mkgmap $DESC for gmapsupp failed!"
+	exit 1
+    fi
+
+    mv gmapsupp.img ${DESC}.img
+    test -f mkgmap.log && mv mkgmap.log mkgmap.gmapsupp.log
+    file_size=$(stat -c '%s' ${DESC}.img)
+    maxsize=4294967294
+    if [ $file_size -ge $maxsize ]; then
+	echo "ERROR: ${DESC}.img too big! is: $file_size, max: ${maxsize}\n"
+	exit 1
+    fi
+
+    echo "Building map for mapsource..."
+    mkgmap $MKGMAP_DEFAULT_OPTIONS --copyright-message="${COPYRIGHT}" --series-name=${DESC} --overview-mapname=${NAME} $CONFIG -c mkgmap.cfg --tdbfile 7*.img --description="${DESC}" $TYPFILE
+    if [ $? -ne 0 ] ; then
+	echo "mkgmap ${DESC} for mapsource failed!"
+	exit 1
+    fi
+    test -f mkgmap.log && mv mkgmap.log mkgmap.mapsource.log
+
+    cp -aL $OSMMAPS_DIR/scripts/gmt.exe .
+    $OSMMAPS_DIR/scripts/create_nsis_file.pl $CAPSTYLE $CAPCOUNTRY $COUNTRY_ABBR
+fi
+
+makensis -V3 $DESC.nsi
+if [ $? -ne 0 ] ; then
+  echo "makensis failed!"
+  exit 1
+fi
+exit 0

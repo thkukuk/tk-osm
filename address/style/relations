@@ -1,0 +1,6 @@
+#
+# You can have rules for relations.  Usually you will set tags on the
+# elements that make up the relation.
+#
+
+type=associatedStreet { apply { add addr:street='${name}' ; }}

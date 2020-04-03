@@ -1,0 +1,4436 @@
+; wanderwege.TYP
+
+[_id]
+ProductCode=1
+FID=7128
+CodePage=1252
+ [End]
+
+;=========== COMMENTS ======
+[_comments]
+[End]
+
+
+
+
+;=========== POLYGONES : DRAW ORDER PRIORITY ======
+[_drawOrder]
+[End]
+
+
+
+
+
+;===================== POLYGONES ========================
+
+
+;====================== LINES ===========================
+
+
+[_line]
+Type=0x0e
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_ROUTE_LINE_2/Routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=3
+Xpm="0 0 1 0"
+"1 c #6E3100"
+String1=0x04,Fitness Trail
+String2=0x02,Fitness Strecke
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x0f
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_ROUTE_LINE_3/Routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #6A5ACD"
+String1=0x02,Wanderweg
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x16
+;GRMN_TYPE: Roads/TRAIL/Walkway or trail/Non NT, NT
+UseOrientation=Y
+Xpm="32 3 2  1"
+"! c #6A5ACD"
+"# c #00AA00"
+"!!#!!#!!#!!#!!#!!#!!#!!#!!#!!#!!"
+"##!##!##!##!##!##!##!##!##!##!##"
+"!!#!!#!!#!!#!!#!!#!!#!!#!!#!!#!!"
+;12345678901234567890123456789012
+String1=0x02,GrÃ¼nzug
+String2=0x04,Greenway
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10100
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #0000FF"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10101
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #FFFF00"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10102
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #00CD00"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10103
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #FF0000"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10104
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #000000"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10105
+;GRMN_TYPE: Marine Lines/MARINE_CONTOUR_LINE/Marine contour line/Non NT, NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #0000FF"
+"# c #FFFF00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10106
+;GRMN_TYPE: Marine Lines/OVERHEAD_CABLE/Overhead cable/Non NT, NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #0000FF"
+"# c #00CD00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10107
+;GRMN_TYPE: Marine Lines/BRIDGE/Bridge area outline/Non NT, NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #0000FF"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10108
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #0000FF"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10109
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FFFF00"
+"# c #00CD00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1010a
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FFFF00"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1010b
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FFFF00"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1010c
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #00CD00"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1010d
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #00CD00"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1010e
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FF0000"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10110
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #FFFFFF"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10111
+;GRMN_TYPE: //
+UseOrientation=Y
+LineWidth=4
+Xpm="0 0 1 0"
+"1 c #FFA500"
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10300
+;GRMN_TYPE: //
+UseOrientation=Y
+Xpm="32 2 2  1"
+"! c #0000FF"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10301
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_CONTOUR/Depth contour/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FFFF00"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10302
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_1/Shallowest isobath area outline/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #00CD00"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10303
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_2/Shallowest isobath area outline/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FFFF00"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10304
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_3/Shallowest isobath area outline/Non NT, NT
+UseOrientation=Y
+Xpm="32 2 2  1"
+"! c #00CD00"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10305
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_4/Shallowest isobath area outline/Non NT, NT
+UseOrientation=Y
+Xpm="32 2 2  1"
+"! c #FF0000"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10306
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_DEPTH_5/Deepest isobath area outline/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #00CD00"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10307
+;GRMN_TYPE: Isobath Area Outlines/ISOBATH_INTERTIDAL_ZONE/Border of area covered and uncovered by tides/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FF0000"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10308
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #000000"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a00
+;GRMN_TYPE: Water Features/STREAM(NT)/Small stream or creek/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #0000FF"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a01
+;GRMN_TYPE: Water Features/RIVER(NT)/Large stream or river/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FFFF00"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a02
+;GRMN_TYPE: Water Features/INTERMITTENT_STREAM(NT)/Intermittent or dry stream, creek, or ditch/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #00CD00"
+"  c none"
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+"!!!!!!!!!!!                     "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a03
+;GRMN_TYPE: Misc. Line Types/SHORELINE(NT)/Shoreline of water body (typically only used when a water area is not available)/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FFFF00"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a04
+;GRMN_TYPE: Misc. Line Types/MARINE_BOUNDARY(NT)/Marine Boundary Line/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #00CD00"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a05
+;GRMN_TYPE: Misc. Line Types/MARINE_HAZARD(NT)/Marine Hazard Line/NT
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FF0000"
+"  c none"
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+"           !!!!!!!!!!!          "
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a06
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #00CD00"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a07
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #FF0000"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10a08
+;GRMN_TYPE: //
+UseOrientation=N
+Xpm="32 4 2  1"
+"! c #000000"
+"  c none"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+"                      !!!!!!!!!!"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f00
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_33/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #0000FF"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f01
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_34/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FFFF00"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f02
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_35/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #00CD00"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f03
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_36/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FF0000"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f04
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_37/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #000000"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f05
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_38/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #0000FF"
+"# c #FFFF00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f06
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_39/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #0000FF"
+"# c #00CD00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f07
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_40/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #0000FF"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f08
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_41/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #0000FF"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f09
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_42/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FFFF00"
+"# c #00CD00"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f0a
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_43/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FFFF00"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f0b
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_44/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FFFF00"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f0c
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_45/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #00CD00"
+"# c #FF0000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f0d
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_46/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #00CD00"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f0e
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_47/Non-routable customizable line/Non NT, NT
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #FF0000"
+"# c #000000"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+;12345678901234567890123456789012
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f10
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_49/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FFFFFF"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x10f11
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_50/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FFA500"
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+;====================== POINTS ==========================
+
+
+[_point]
+Type=0x029
+SubType=0x05
+;GRMN_TYPE: //
+String1=0x02,Infotafel
+ExtendedLabels=N
+DayXpm="10 11 7 1"   Colormode=32
+"!	c #003399"  alpha=0
+"#	c #003298"  alpha=0
+"%	c #7490C0"  alpha=0
+"?	c #FFFFFF"  alpha=0
+"$	c #003198"  alpha=0
+"*	c #063599"  alpha=0
+"=	c #003097"  alpha=0
+"!##%?%##!!"
+"!##???#$#!"
+"!!#%?%###!"
+"!!#####!#!"
+"!!*???###!"
+"!!=#??###!"
+"!!##??#!#!"
+"!!##??#!#!"
+"#!##??#!#!"
+"!##????##!"
+"!$#######!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x00
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #0000FF"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#%%%%%%%%%%##!"
+"!###%%%%%%####!"
+"!#####%%#####%!"
+"!%%########%%%!"
+"!%%%%####%%%%%!"
+"!%%########%%%!"
+"!#####%%#####%!"
+"!###%%%%%%####!"
+"!#%%%%%%%%%%##!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x01
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #E2BD00"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#%%%%%%%%%%##!"
+"!###%%%%%%####!"
+"!#####%%#####%!"
+"!%%########%%%!"
+"!%%%%####%%%%%!"
+"!%%########%%%!"
+"!#####%%#####%!"
+"!###%%%%%%####!"
+"!#%%%%%%%%%%##!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x02
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #267F00"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#%%%%%%%%%%##!"
+"!###%%%%%%####!"
+"!#####%%#####%!"
+"!%%########%%%!"
+"!%%%%####%%%%%!"
+"!%%########%%%!"
+"!#####%%#####%!"
+"!###%%%%%%####!"
+"!#%%%%%%%%%%##!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x03
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FF0000"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#%%%%%%%%%%##!"
+"!###%%%%%%####!"
+"!#####%%#####%!"
+"!%%########%%%!"
+"!%%%%####%%%%%!"
+"!%%########%%%!"
+"!#####%%#####%!"
+"!###%%%%%%####!"
+"!#%%%%%%%%%%##!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x04
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!!##########!!!"
+"!!!!######!!!!!"
+"!!!!!!##!!!!!#!"
+"!##!!!!!!!!###!"
+"!####!!!!#####!"
+"!##!!!!!!!!###!"
+"!!!!!!##!!!!!#!"
+"!!!!######!!!!!"
+"!!##########!!!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x05
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 10 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x06
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 10 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x07
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 10 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x08
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 10 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x09
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 7 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #00010A"  alpha=0
+"%	c #0022E6"  alpha=0
+"?	c #FFFFFF"  alpha=0
+"$	c #FEFEFE"  alpha=0
+"*	c #0026FF"  alpha=0
+"=	c #FDFDFD"  alpha=0
+"!!!!!!!!!!!!!!!"
+"#%??????????$$!"
+"!***??????????!"
+"!*****??????$?!"
+"!??*****?$$???!"
+"!????****?????!"
+"!??$??*****???!"
+"!???????*****?!"
+"!?$=??????****!"
+"!$??????????**!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0a
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 7 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #2C2500"  alpha=0
+"%	c #E2BD00"  alpha=0
+"?	c #FFFFFF"  alpha=0
+"$	c #FEFEFE"  alpha=0
+"*	c #F0DE83"  alpha=0
+"=	c #FDFDFD"  alpha=0
+"!!!!!!!!!!!!!!!"
+"#%??????????$$!"
+"!%%%??????????!"
+"!%%%%%??????$?!"
+"!??%%%%*?$$???!"
+"!????%%%%?????!"
+"!??$??*%%%%???!"
+"!???????%%%%%?!"
+"!?$=??????%%%%!"
+"!$??????????%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0b
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 8 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #071800"  alpha=0
+"%	c #267F00"  alpha=0
+"?	c #FFFFFF"  alpha=0
+"$	c #FEFEFE"  alpha=0
+"*	c #92BE7F"  alpha=0
+"=	c #91BE7E"  alpha=0
+"1	c #FDFDFD"  alpha=0
+"!!!!!!!!!!!!!!!"
+"#%??????????$$!"
+"#%%%??????????!"
+"!%%%%%??????$?!"
+"!??%%%%*?$$???!"
+"!????%%%%?????!"
+"!??$?$=%%%%???!"
+"!????$??%%%%%?!"
+"!?$1??????%%%%!"
+"!$??????????%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0c
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 7 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #140000"  alpha=0
+"%	c #FF0000"  alpha=0
+"?	c #FFFFFF"  alpha=0
+"$	c #FEFEFE"  alpha=0
+"*	c #2E0000"  alpha=0
+"=	c #FDFDFD"  alpha=0
+"!!!!!!!!!!!!!!!"
+"#%??????????$$!"
+"*%%%??????????!"
+"!%%%%%??????$?!"
+"!??%%%%%?$$???!"
+"!????%%%%?????!"
+"!??$??%%%%%???!"
+"!???????%%%%%?!"
+"!?$=??????%%%%!"
+"!$??????????%%!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0d
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FEFEFE"  alpha=0
+"?	c #FDFDFD"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!!##########%%!"
+"!!!!##########!"
+"!!!!!!######%#!"
+"!##!!!!!#%%###!"
+"!####!!!!#####!"
+"!##%##!!!!!###!"
+"!#######!!!!!#!"
+"!#%?######!!!!!"
+"!%##########!!!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0e
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"?	c #7B8EFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!#####?%?#####!"
+"!#####%%%#####!"
+"!####?%%%?####!"
+"!####%%%%%####!"
+"!###%%%%%%%###!"
+"!##?%%%%%%%?##!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x0f
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 6 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"?	c #F0DE82"  alpha=0
+"$	c #F0DD7D"  alpha=0
+"*	c #F0DE83"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!#####?%$#####!"
+"!#####%%%#####!"
+"!####?%%%$####!"
+"!###*%%%%%####!"
+"!###%%%%%%%###!"
+"!##*%%%%%%%?##!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x10
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"?	c #92BE7F"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!#####?%?#####!"
+"!#####%%%#####!"
+"!####?%%%?####!"
+"!####%%%%%####!"
+"!###%%%%%%%###!"
+"!##?%%%%%%%?##!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x11
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"?	c #FF7B7B"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!#####?%?#####!"
+"!#####%%%#####!"
+"!####?%%%?####!"
+"!####%%%%%####!"
+"!###%%%%%%%###!"
+"!##?%%%%%%%?##!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x12
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #7D7D7D"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######!######!"
+"!#####%!%#####!"
+"!#####!!!#####!"
+"!####%!!!%####!"
+"!####!!!!!####!"
+"!###!!!!!!!###!"
+"!##%!!!!!!!%##!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x13
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x14
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x15
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=Default
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x16
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!###%%%%%%%###!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x17
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x18
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"?	c #7F92FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#%?##########!"
+"!#%%%%?#######!"
+"!#%%%%%%%?####!"
+"!#%%%%%%%%%%##!"
+"!#%%%%%%%?####!"
+"!#%%%%?#######!"
+"!#%?##########!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x19
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 8 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"?	c #F0DE81"  alpha=0
+"$	c #F0DD79"  alpha=0
+"*	c #F0DE82"  alpha=0
+"=	c #F0DB6D"  alpha=0
+"1	c #F0DC73"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#%?##########!"
+"!#%%%%$#######!"
+"!#%%%%%%%*####!"
+"!#%%%%%%%%%%##!"
+"!#%%%%%%%=####!"
+"!#%%%%=#######!"
+"!#%1##########!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1a
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"?	c #92BE7F"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#%?##########!"
+"!#%%%%?#######!"
+"!#%%%%%%%?####!"
+"!#%%%%%%%%%%##!"
+"!#%%%%%%%?####!"
+"!#%%%%?#######!"
+"!#%?##########!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1b
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"?	c #FF7F7F"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#%?##########!"
+"!#%%%%?#######!"
+"!#%%%%%%%?####!"
+"!#%%%%%%%%%%##!"
+"!#%%%%%%%?####!"
+"!#%%%%?#######!"
+"!#%?##########!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1c
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #7F7F7F"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#!%##########!"
+"!#!!!!%#######!"
+"!#!!!!!!!%####!"
+"!#!!!!!!!!!!##!"
+"!#!!!!!!!%####!"
+"!#!!!!%#######!"
+"!#!%##########!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1d
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #7C7C7C"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!#%%%#!!!!"
+"!!!#%%%%%#!!!"
+"!!!%%#!#%%!!!"
+"!!!%%!!!%%!!!"
+"!!!%%#!#%%!!!"
+"!!!#%%%%%#!!!"
+"!!!!#%%%#!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1e
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"#############"
+"#############"
+"#############"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x032
+SubType=0x1f
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #808080"  alpha=0
+"?	c #848484"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!#!!!!!!"
+"!!!!!%#%!!!!!"
+"!!!!!#?#!!!!!"
+"!!!!%#!#%!!!!"
+"!!!!#?!?#!!!!"
+"!!!#?!!!?#!!!"
+"!!%#######%!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x00
+;GRMN_TYPE: //
+String1=0x02,Blauer Balken auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x01
+;GRMN_TYPE: //
+String1=0x02,Gelber Balken auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x02
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼ner Balken auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x03
+;GRMN_TYPE: //
+String1=0x02,Roter Balken auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x04
+;GRMN_TYPE: //
+String1=0x02,Schwarzer Balken auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x05
+;GRMN_TYPE: //
+String1=0x02,
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x06
+;GRMN_TYPE: //
+String1=0x02,Gelbes Kreuz auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x07
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼nes Kreuz auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x08
+;GRMN_TYPE: //
+String1=0x02,Rotes Kreuz auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!%%%%%%%%%%%%%!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x09
+;GRMN_TYPE: //
+String1=0x02,Schwarzes Kreuz auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0a
+;GRMN_TYPE: //
+String1=0x02,Blauer Punkt auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #8395FF"  alpha=0
+"?	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###???????###!"
+"!###???????###!"
+"!###???????###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0b
+;GRMN_TYPE: //
+String1=0x02,Gelber Punkt auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FFD800"  alpha=0
+"?	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###???????###!"
+"!###???????###!"
+"!###???????###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0c
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼ner Punkt auf weiÃŸem Punkt
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 6 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #81B46B"  alpha=0
+"?	c #267F00"  alpha=0
+"$	c #81B56C"  alpha=0
+"*	c #80B46A"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???$####!"
+"!###$?????$###!"
+"!###???????###!"
+"!###???????###!"
+"!###???????###!"
+"!###*?????$###!"
+"!####%???$####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0d
+;GRMN_TYPE: //
+String1=0x02,Roter Punkt auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF7F7F"  alpha=0
+"?	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###???????###!"
+"!###???????###!"
+"!###???????###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0e
+;GRMN_TYPE: //
+String1=0x02,Schwarzer Punkt auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #878787"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%!!!%####!"
+"!###%!!!!!%###!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!###!!!!!!!###!"
+"!###%!!!!!%###!"
+"!####%!!!%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x0f
+;GRMN_TYPE: //
+String1=0x02,Jakobsweg
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="14 13 131 2"   Colormode=32
+"!!	c #0026FF"  alpha=0
+"!#	c #1E3BE1"  alpha=0
+"!%	c #052BEF"  alpha=0
+"!?	c #0931DF"  alpha=0
+"!$	c #1538C6"  alpha=0
+"!*	c #052AF1"  alpha=0
+"!=	c #1538DB"  alpha=0
+"!1	c #1336DB"  alpha=0
+"!2	c #364CC3"  alpha=0
+"!3	c #BFAE31"  alpha=0
+"!4	c #254F82"  alpha=0
+"!5	c #2A5B89"  alpha=0
+"!6	c #3F5B90"  alpha=0
+"!7	c #092DF0"  alpha=0
+"!8	c #0429F4"  alpha=0
+"!9	c #2843AF"  alpha=0
+"#!	c #7B835F"  alpha=0
+"##	c #909149"  alpha=0
+"#%	c #AAA230"  alpha=0
+"#?	c #596B69"  alpha=0
+"#$	c #7C8747"  alpha=0
+"#*	c #9A953E"  alpha=0
+"#=	c #7B7F66"  alpha=0
+"#1	c #1735DE"  alpha=0
+"#2	c #0328F7"  alpha=0
+"#3	c #2742AF"  alpha=0
+"#4	c #7C7C5B"  alpha=0
+"#5	c #E0C31B"  alpha=0
+"#6	c #CDB618"  alpha=0
+"#7	c #ADA32D"  alpha=0
+"#8	c #A89E37"  alpha=0
+"#9	c #939243"  alpha=0
+"%!	c #757D52"  alpha=0
+"%#	c #526479"  alpha=0
+"%%	c #888577"  alpha=0
+"%?	c #5768A3"  alpha=0
+"%$	c #0E32EF"  alpha=0
+"%*	c #576868"  alpha=0
+"%=	c #E2C412"  alpha=0
+"%1	c #FFD800"  alpha=0
+"%2	c #E0C30F"  alpha=0
+"%3	c #F3CF06"  alpha=0
+"%4	c #999743"  alpha=0
+"%5	c #BCAC2A"  alpha=0
+"%6	c #B9A92A"  alpha=0
+"%7	c #AFA135"  alpha=0
+"%8	c #8A8A4E"  alpha=0
+"%9	c #516B71"  alpha=0
+"?!	c #0E34E0"  alpha=0
+"?#	c #1B39E2"  alpha=0
+"?%	c #DDC116"  alpha=0
+"??	c #F4D00D"  alpha=0
+"?$	c #FBD405"  alpha=0
+"?*	c #E0C514"  alpha=0
+"?=	c #6F705D"  alpha=0
+"?1	c #4A627E"  alpha=0
+"?2	c #2742D5"  alpha=0
+"?3	c #1032E3"  alpha=0
+"?4	c #082EE6"  alpha=0
+"?5	c #0228F9"  alpha=0
+"?6	c #203CDF"  alpha=0
+"?7	c #FDD602"  alpha=0
+"?8	c #F8D406"  alpha=0
+"?9	c #F4D106"  alpha=0
+"$!	c #E5C611"  alpha=0
+"$#	c #E1C319"  alpha=0
+"$%	c #E1C31A"  alpha=0
+"$?	c #7A8476"  alpha=0
+"$$	c #0B2FF2"  alpha=0
+"$*	c #E3C50E"  alpha=0
+"$=	c #EBC90F"  alpha=0
+"$1	c #7C7E4B"  alpha=0
+"$2	c #61696B"  alpha=0
+"$3	c #516862"  alpha=0
+"$4	c #38537A"  alpha=0
+"$5	c #324B90"  alpha=0
+"$6	c #2C489A"  alpha=0
+"$7	c #27489D"  alpha=0
+"$8	c #052AF3"  alpha=0
+"$9	c #082CED"  alpha=0
+"*!	c #67745A"  alpha=0
+"*#	c #EFCE11"  alpha=0
+"*%	c #B3A037"  alpha=0
+"*?	c #BFAC24"  alpha=0
+"*$	c #BAAC29"  alpha=0
+"**	c #B5A62D"  alpha=0
+"*=	c #80834C"  alpha=0
+"*1	c #636E7D"  alpha=0
+"*2	c #324AC2"  alpha=0
+"*3	c #072CF3"  alpha=0
+"*4	c #324FA9"  alpha=0
+"*5	c #9B9449"  alpha=0
+"*6	c #C8B227"  alpha=0
+"*7	c #BDAB2A"  alpha=0
+"*8	c #AE9E30"  alpha=0
+"*9	c #9F9633"  alpha=0
+"=!	c #858A48"  alpha=0
+"=#	c #566964"  alpha=0
+"=%	c #959641"  alpha=0
+"=?	c #9C9640"  alpha=0
+"=$	c #6C7768"  alpha=0
+"=*	c #1335DF"  alpha=0
+"==	c #062AF0"  alpha=0
+"=1	c #3A51A2"  alpha=0
+"=2	c #707B69"  alpha=0
+"=3	c #92894A"  alpha=0
+"=4	c #B39F2E"  alpha=0
+"=5	c #838847"  alpha=0
+"=6	c #999142"  alpha=0
+"=7	c #ABA131"  alpha=0
+"=8	c #757F56"  alpha=0
+"=9	c #1F3EAC"  alpha=0
+"1!	c #1939D1"  alpha=0
+"1#	c #072BF4"  alpha=0
+"1%	c #052CEF"  alpha=0
+"1?	c #1D48A8"  alpha=0
+"1$	c #3A5981"  alpha=0
+"1*	c #2B46B6"  alpha=0
+"1=	c #6F766D"  alpha=0
+"11	c #BDAE26"  alpha=0
+"12	c #1E3CCA"  alpha=0
+"13	c #6B775C"  alpha=0
+"14	c #727860"  alpha=0
+"15	c #2240BE"  alpha=0
+"16	c #0127FC"  alpha=0
+"17	c #042BF2"  alpha=0
+"18	c #48698E"  alpha=0
+"19	c #0127FD"  alpha=0
+"2!	c #072CEE"  alpha=0
+"2#	c #0C2FEC"  alpha=0
+"2%	c #052AF6"  alpha=0
+"!!!!!!!!!!!!!#!%!?!$!!!!!!!!"
+"!!!!!*!=!1!2!3!4!5!6!7!!!!!!"
+"!!!8!9#!###%#?#$#*#=#1!!!!!!"
+"#2#3#4#5#6#7#8#9%!%#%%%?%$!!"
+"!%%*%=%1%2%3%4%5%6%7%8%9?!!!"
+"?#?%???$%1%1?*?=?1?2?3?4?5!!"
+"?6?7?8?7%1%1?9$!%=$#$%$%$?$$"
+"?#$*%1%1%1$=$1$2$3$4$5$6$7$8"
+"$9*!*#%1$!*%*?*$***=*1*2*3!!"
+"#2*4*5*6*7*8*9=!=#=%=?=$=*!!"
+"!!===1=2=3=4=5=6=7=8=91!1#!!"
+"!!1%1?1$1*1=1112131415!!!!!!"
+"!!16171%?5!718192!2#2%!!!!!!"
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x10
+;GRMN_TYPE: //
+String1=0x02,Blaue Raute auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 5 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0000FF"  alpha=0
+"?	c #7F7FFF"  alpha=0
+"$	c #3D3DFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!####?%%%?####!"
+"!###$%%%%%$###!"
+"!##%%%%%%%%%##!"
+"!###$%%%%%$###!"
+"!####?%%%?####!"
+"!######%######!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x11
+;GRMN_TYPE: //
+String1=0x02,Gelbe Raute auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 5 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"?	c #F0DD7F"  alpha=0
+"$	c #E9CD41"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!####?%%%?####!"
+"!###$%%%%%$###!"
+"!##%%%%%%%%%##!"
+"!###$%%%%%$###!"
+"!####?%%%?####!"
+"!######%######!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x12
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼ne Raute auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 5 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"?	c #92BE7F"  alpha=0
+"$	c #64A349"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!####?%%%?####!"
+"!###$%%%%%$###!"
+"!##%%%%%%%%%##!"
+"!###$%%%%%$###!"
+"!####?%%%?####!"
+"!######%######!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x13
+;GRMN_TYPE: //
+String1=0x02,Rote Raute auf weiÃŸem Grund
+ExtendedLabels=N
+DayXpm="15 11 5 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"?	c #FF7F7F"  alpha=0
+"$	c #FF3D3D"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######%######!"
+"!####?%%%?####!"
+"!###$%%%%%$###!"
+"!##%%%%%%%%%##!"
+"!###$%%%%%$###!"
+"!####?%%%?####!"
+"!######%######!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x14
+;GRMN_TYPE: //
+String1=0x02,Schwarze Raute auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #878787"  alpha=0
+"?	c #414141"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!######!######!"
+"!####%!!!%####!"
+"!###?!!!!!?###!"
+"!##!!!!!!!!!##!"
+"!###?!!!!!?###!"
+"!####%!!!%####!"
+"!######!######!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x15
+;GRMN_TYPE: //
+String1=0x02,Blauer Kreis auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #778BFF"  alpha=0
+"?	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###??%#%??###!"
+"!###??###??###!"
+"!###??%#%??###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x16
+;GRMN_TYPE: //
+String1=0x02,Gelber Kreis auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #F0DD7F"  alpha=0
+"?	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###??%#%??###!"
+"!###??###??###!"
+"!###??%#%??###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x17
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼ner Kreis auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #92BE7F"  alpha=0
+"?	c #267F00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###??%#%??###!"
+"!###??###??###!"
+"!###??%#%??###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x18
+;GRMN_TYPE: //
+String1=0x02,Roter Kreis auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF7B7B"  alpha=0
+"?	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%???%####!"
+"!###%?????%###!"
+"!###??%#%??###!"
+"!###??###??###!"
+"!###??%#%??###!"
+"!###%?????%###!"
+"!####%???%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x19
+;GRMN_TYPE: //
+String1=0x02,Schwarzer Kreis auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #7F7F7F"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!####%!!!%####!"
+"!###%!!!!!%###!"
+"!###!!%#%!!###!"
+"!###!!###!!###!"
+"!###!!%#%!!###!"
+"!###%!!!!!%###!"
+"!####%!!!%####!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1a
+;GRMN_TYPE: //
+String1=0x02,Blauer LÃ¤ngsstreifen auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #0026FF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1b
+;GRMN_TYPE: //
+String1=0x02,Gelber LÃ¤ngsstreifen auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #E2BD00"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1c
+;GRMN_TYPE: //
+String1=0x02,GrÃ¼ner LÃ¤ngsstreifen auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #267F00"  alpha=0
+"?	c #2C8308"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####?%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1d
+;GRMN_TYPE: //
+String1=0x02,Roter LÃ¤ngsstreifen auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 4 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"?	c #FF0808"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####?%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!#####%%%#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1e
+;GRMN_TYPE: //
+String1=0x02,Schwarzer LÃ¤ngsstreifen auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 2 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!#####!!!#####!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x033
+SubType=0x1f
+;GRMN_TYPE: //
+String1=0x02,Jakobsweg (alt)
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 13 189 2"   Colormode=32
+"!!	c #3F5794"  alpha=0
+"!#	c #3D529B"  alpha=0
+"!%	c #40509D"  alpha=0
+"!?	c #3B51A4"  alpha=0
+"!$	c #3454AB"  alpha=0
+"!*	c #415398"  alpha=0
+"!=	c #545876"  alpha=0
+"!1	c #777B80"  alpha=0
+"!2	c #48577A"  alpha=0
+"!3	c #3D5397"  alpha=0
+"!4	c #3C5396"  alpha=0
+"!5	c #3A549B"  alpha=0
+"!6	c #3B5597"  alpha=0
+"!7	c #3B538F"  alpha=0
+"!8	c #425299"  alpha=0
+"!9	c #425491"  alpha=0
+"#!	c #424E9B"  alpha=0
+"##	c #464D9A"  alpha=0
+"#%	c #3C578E"  alpha=0
+"#?	c #6A6370"  alpha=0
+"#$	c #D3B140"  alpha=0
+"#*	c #F3D820"  alpha=0
+"#=	c #AAAA42"  alpha=0
+"#1	c #505C7E"  alpha=0
+"#2	c #42528E"  alpha=0
+"#3	c #3B4EA7"  alpha=0
+"#4	c #3852A3"  alpha=0
+"#5	c #3B5591"  alpha=0
+"#6	c #3F5293"  alpha=0
+"#7	c #3E5595"  alpha=0
+"#8	c #3E509D"  alpha=0
+"#9	c #425099"  alpha=0
+"%!	c #3E5394"  alpha=0
+"%#	c #77765A"  alpha=0
+"%%	c #DFCF4D"  alpha=0
+"%?	c #F2D42C"  alpha=0
+"%$	c #EDC61E"  alpha=0
+"%*	c #D9B730"  alpha=0
+"%=	c #E1D45B"  alpha=0
+"%1	c #6D726C"  alpha=0
+"%2	c #464F94"  alpha=0
+"%3	c #3D50A8"  alpha=0
+"%4	c #3C539A"  alpha=0
+"%5	c #485093"  alpha=0
+"%6	c #3F4FA3"  alpha=0
+"%7	c #3952A0"  alpha=0
+"%8	c #48577C"  alpha=0
+"%9	c #C8B44B"  alpha=0
+"?!	c #F0D72B"  alpha=0
+"?#	c #F1DA25"  alpha=0
+"?%	c #E7C722"  alpha=0
+"??	c #F5D236"  alpha=0
+"?$	c #F0CE2E"  alpha=0
+"?*	c #B0A251"  alpha=0
+"?=	c #46557C"  alpha=0
+"?1	c #375691"  alpha=0
+"?2	c #3C548E"  alpha=0
+"?3	c #3B5399"  alpha=0
+"?4	c #43529D"  alpha=0
+"?5	c #3E557F"  alpha=0
+"?6	c #5D645F"  alpha=0
+"?7	c #B0A754"  alpha=0
+"?8	c #E8D13D"  alpha=0
+"?9	c #DFC51F"  alpha=0
+"$!	c #DEC01F"  alpha=0
+"$#	c #E2C518"  alpha=0
+"$%	c #F4D335"  alpha=0
+"$?	c #EAD537"  alpha=0
+"$$	c #978965"  alpha=0
+"$*	c #4F5388"  alpha=0
+"$=	c #3F548A"  alpha=0
+"$1	c #444F99"  alpha=0
+"$2	c #4A5C72"  alpha=0
+"$3	c #A0A059"  alpha=0
+"$4	c #E4CF4E"  alpha=0
+"$5	c #CAB84E"  alpha=0
+"$6	c #D3BC42"  alpha=0
+"$7	c #DEC33B"  alpha=0
+"$8	c #E6CA3D"  alpha=0
+"$9	c #F1D639"  alpha=0
+"*!	c #EBCE32"  alpha=0
+"*#	c #E9C735"  alpha=0
+"*%	c #D8B930"  alpha=0
+"*?	c #D9CA42"  alpha=0
+"*$	c #C9BF3B"  alpha=0
+"**	c #988E5F"  alpha=0
+"*=	c #4C5082"  alpha=0
+"*1	c #757A6B"  alpha=0
+"*2	c #CBC851"  alpha=0
+"*3	c #A78B5C"  alpha=0
+"*4	c #B9A33A"  alpha=0
+"*5	c #CAB633"  alpha=0
+"*6	c #D1BB42"  alpha=0
+"*7	c #C0A732"  alpha=0
+"*8	c #F2DC47"  alpha=0
+"*9	c #CBB127"  alpha=0
+"=!	c #D5B933"  alpha=0
+"=#	c #D7C03B"  alpha=0
+"=%	c #A99C28"  alpha=0
+"=?	c #C0A63F"  alpha=0
+"=$	c #DACE4E"  alpha=0
+"=*	c #657C6D"  alpha=0
+"==	c #505C92"  alpha=0
+"=1	c #737A62"  alpha=0
+"=2	c #C4B84D"  alpha=0
+"=3	c #DFC439"  alpha=0
+"=4	c #B19B2D"  alpha=0
+"=5	c #E0D051"  alpha=0
+"=6	c #AF9839"  alpha=0
+"=7	c #E3D33B"  alpha=0
+"=8	c #BBA235"  alpha=0
+"=9	c #DBCA54"  alpha=0
+"1!	c #B2A738"  alpha=0
+"1#	c #EEDB3F"  alpha=0
+"1%	c #B39B53"  alpha=0
+"1?	c #767370"  alpha=0
+"1$	c #506081"  alpha=0
+"1*	c #B5AA52"  alpha=0
+"1=	c #EDD02E"  alpha=0
+"11	c #AB9962"  alpha=0
+"12	c #B5A259"  alpha=0
+"13	c #E0D54D"  alpha=0
+"14	c #9C8934"  alpha=0
+"15	c #D9CD2D"  alpha=0
+"16	c #AA903E"  alpha=0
+"17	c #DFCF41"  alpha=0
+"18	c #C3AB38"  alpha=0
+"19	c #BFB656"  alpha=0
+"2!	c #D5D737"  alpha=0
+"2#	c #9E956A"  alpha=0
+"2%	c #465086"  alpha=0
+"2?	c #556D69"  alpha=0
+"2$	c #A2AB70"  alpha=0
+"2*	c #776550"  alpha=0
+"2=	c #ECCC3B"  alpha=0
+"21	c #C4B649"  alpha=0
+"22	c #A39A41"  alpha=0
+"23	c #E7D033"  alpha=0
+"24	c #B1954E"  alpha=0
+"25	c #C9C635"  alpha=0
+"26	c #EFD235"  alpha=0
+"27	c #8B7850"  alpha=0
+"28	c #96A666"  alpha=0
+"29	c #506281"  alpha=0
+"3!	c #415489"  alpha=0
+"3#	c #40568C"  alpha=0
+"3%	c #3D50AB"  alpha=0
+"3?	c #495080"  alpha=0
+"3$	c #A5A966"  alpha=0
+"3*	c #DFD72E"  alpha=0
+"3=	c #A18B64"  alpha=0
+"31	c #BDA84C"  alpha=0
+"32	c #E9C530"  alpha=0
+"33	c #BFA246"  alpha=0
+"34	c #A4995D"  alpha=0
+"35	c #DDD233"  alpha=0
+"36	c #ACAC69"  alpha=0
+"37	c #484D96"  alpha=0
+"38	c #405685"  alpha=0
+"39	c #3E519B"  alpha=0
+"4!	c #3F5594"  alpha=0
+"4#	c #3A549C"  alpha=0
+"4%	c #425490"  alpha=0
+"4?	c #586175"  alpha=0
+"4$	c #96A569"  alpha=0
+"4*	c #6B6A64"  alpha=0
+"4=	c #D1CC57"  alpha=0
+"41	c #E8D837"  alpha=0
+"42	c #D1CD6B"  alpha=0
+"43	c #6E6F73"  alpha=0
+"44	c #999581"  alpha=0
+"45	c #535972"  alpha=0
+"46	c #404CA9"  alpha=0
+"47	c #3C5490"  alpha=0
+"48	c #3F5395"  alpha=0
+"49	c #42538F"  alpha=0
+"5!	c #395395"  alpha=0
+"5#	c #3B50A2"  alpha=0
+"5%	c #40509A"  alpha=0
+"5?	c #445299"  alpha=0
+"5$	c #63677E"  alpha=0
+"5*	c #6A6D70"  alpha=0
+"5=	c #59677B"  alpha=0
+"51	c #455687"  alpha=0
+"52	c #454E8D"  alpha=0
+"53	c #445391"  alpha=0
+"54	c #3D509F"  alpha=0
+"55	c #3C4F97"  alpha=0
+"56	c #414F9F"  alpha=0
+"!!!#!%!?!$!*!=!1!2!3!4!5!6!7!8"
+"!9#!##!%#%#?#$#*#=#1#2#3#4#5#6"
+"#7#8#9%!%#%%%?%$%*%=%1%2%3%4#8"
+"%5%6%7%8%9?!?#?%???$?*?=?1?2?3"
+"?4?5?6?7?8?9$!$#$%%?$?$$$*$=$1"
+"$2$3$4$5$6$7$8$9*!*#*%*?*$***="
+"*1*2*3*4*5*6*7*8*9=!=#=%=?=$=*"
+"===1=2=3=4=5=6=7=8=91!1#1%1?1$"
+"#21*1=1112131415161718192!2#2%"
+"!92?2$2*2=2122232425262728293!"
+"3#3%3?3$3*3=313233343536373839"
+"4!4#4%4?4$4*4=4142434445464748"
+"495!5#5%!55?5$5*5=515253545556"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x00
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 25 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #474747"  alpha=0
+"!*	c #8A8A8A"  alpha=0
+"!=	c #D2D2D2"  alpha=0
+"!1	c #959595"  alpha=0
+"!2	c #B2B2B2"  alpha=0
+"!3	c #030303"  alpha=0
+"!4	c #E0E0E0"  alpha=0
+"!5	c #282828"  alpha=0
+"!6	c #E8E8E8"  alpha=0
+"!7	c #060606"  alpha=0
+"!8	c #4D4D4D"  alpha=0
+"!9	c #535353"  alpha=0
+"#!	c #AEAEAE"  alpha=0
+"##	c #4C4C4C"  alpha=0
+"#%	c #505050"  alpha=0
+"#?	c #B1B1B1"  alpha=0
+"#$	c #151515"  alpha=0
+"#*	c #E2E2E2"  alpha=0
+"#=	c #040404"  alpha=0
+"#1	c #050505"  alpha=0
+"#2	c #E5E5E5"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!%!!!!"
+"!!!!!*!=!1!!!2!%!!!!"
+"!!!3!4!5!6!7!!!%!!!!"
+"!!!8!%!%!%!9!!!%!!!!"
+"!!#!##!!#%#?!!!%!!!!"
+"#$#*#=!!#1#2#$!%!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x01
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 34 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #EEEEEE"  alpha=0
+"!*	c #F8F8F8"  alpha=0
+"!=	c #5A5A5A"  alpha=0
+"!1	c #8A8A8A"  alpha=0
+"!2	c #D2D2D2"  alpha=0
+"!3	c #959595"  alpha=0
+"!4	c #262626"  alpha=0
+"!5	c #E0E0E0"  alpha=0
+"!6	c #030303"  alpha=0
+"!7	c #282828"  alpha=0
+"!8	c #E8E8E8"  alpha=0
+"!9	c #060606"  alpha=0
+"#!	c #202020"  alpha=0
+"##	c #D1D1D1"  alpha=0
+"#%	c #4D4D4D"  alpha=0
+"#?	c #535353"  alpha=0
+"#$	c #010101"  alpha=0
+"#*	c #ADADAD"  alpha=0
+"#=	c #444444"  alpha=0
+"#1	c #AEAEAE"  alpha=0
+"#2	c #4C4C4C"  alpha=0
+"#3	c #505050"  alpha=0
+"#4	c #B1B1B1"  alpha=0
+"#5	c #808080"  alpha=0
+"#6	c #787878"  alpha=0
+"#7	c #151515"  alpha=0
+"#8	c #E2E2E2"  alpha=0
+"#9	c #040404"  alpha=0
+"%!	c #050505"  alpha=0
+"%#	c #E5E5E5"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!*!=!!"
+"!!!!!1!2!3!!!!!4!5!!"
+"!!!6!5!7!8!9!!#!##!!"
+"!!#%!%!%!%#?#$#*#=!!"
+"!!#1#2!!#3#4#5#6!!!!"
+"#7#8#9!!%!%#!%!%!%!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x02
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 35 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #ECECEC"  alpha=0
+"!*	c #E3E3E3"  alpha=0
+"!=	c #5C5C5C"  alpha=0
+"!1	c #8A8A8A"  alpha=0
+"!2	c #D2D2D2"  alpha=0
+"!3	c #959595"  alpha=0
+"!4	c #2E2E2E"  alpha=0
+"!5	c #F1F1F1"  alpha=0
+"!6	c #030303"  alpha=0
+"!7	c #E0E0E0"  alpha=0
+"!8	c #282828"  alpha=0
+"!9	c #E8E8E8"  alpha=0
+"#!	c #060606"  alpha=0
+"##	c #7C7C7C"  alpha=0
+"#%	c #4D4D4D"  alpha=0
+"#?	c #535353"  alpha=0
+"#$	c #2B2B2B"  alpha=0
+"#*	c #E7E7E7"  alpha=0
+"#=	c #AEAEAE"  alpha=0
+"#1	c #4C4C4C"  alpha=0
+"#2	c #505050"  alpha=0
+"#3	c #B1B1B1"  alpha=0
+"#4	c #313131"  alpha=0
+"#5	c #EBEBEB"  alpha=0
+"#6	c #151515"  alpha=0
+"#7	c #E2E2E2"  alpha=0
+"#8	c #040404"  alpha=0
+"#9	c #050505"  alpha=0
+"%!	c #E5E5E5"  alpha=0
+"%#	c #F9F9F9"  alpha=0
+"%%	c #6B6B6B"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!*!=!!"
+"!!!!!1!2!3!!!!!4!5!!"
+"!!!6!7!8!9#!!!!%##!!"
+"!!#%!%!%!%#?!!#$#*!!"
+"!!#=#1!!#2#3!!#4#5!!"
+"#6#7#8!!#9%!!%%#%%!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x03
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 30 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #1E1E1E"  alpha=0
+"!*	c #F7F7F7"  alpha=0
+"!=	c #8A8A8A"  alpha=0
+"!1	c #D2D2D2"  alpha=0
+"!2	c #959595"  alpha=0
+"!3	c #A2A2A2"  alpha=0
+"!4	c #030303"  alpha=0
+"!5	c #E0E0E0"  alpha=0
+"!6	c #282828"  alpha=0
+"!7	c #E8E8E8"  alpha=0
+"!8	c #060606"  alpha=0
+"!9	c #303030"  alpha=0
+"#!	c #C9C9C9"  alpha=0
+"##	c #4D4D4D"  alpha=0
+"#%	c #535353"  alpha=0
+"#?	c #B9B9B9"  alpha=0
+"#$	c #414141"  alpha=0
+"#*	c #AEAEAE"  alpha=0
+"#=	c #4C4C4C"  alpha=0
+"#1	c #505050"  alpha=0
+"#2	c #B1B1B1"  alpha=0
+"#3	c #151515"  alpha=0
+"#4	c #E2E2E2"  alpha=0
+"#5	c #040404"  alpha=0
+"#6	c #050505"  alpha=0
+"#7	c #E5E5E5"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!!!$!*!!"
+"!!!!!=!1!2!!!!!3!%!!"
+"!!!4!5!6!7!8!9#!!%!!"
+"!!##!%!%!%#%#?#$!%!!"
+"!!#*#=!!#1#2!%!%!%!%"
+"#3#4#5!!#6#7#3!!!%!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x04
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 31 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #8A8A8A"  alpha=0
+"!*	c #D2D2D2"  alpha=0
+"!=	c #959595"  alpha=0
+"!1	c #030303"  alpha=0
+"!2	c #E0E0E0"  alpha=0
+"!3	c #282828"  alpha=0
+"!4	c #E8E8E8"  alpha=0
+"!5	c #060606"  alpha=0
+"!6	c #F6F6F6"  alpha=0
+"!7	c #555555"  alpha=0
+"!8	c #4D4D4D"  alpha=0
+"!9	c #535353"  alpha=0
+"#!	c #353535"  alpha=0
+"##	c #F0F0F0"  alpha=0
+"#%	c #AEAEAE"  alpha=0
+"#?	c #4C4C4C"  alpha=0
+"#$	c #505050"  alpha=0
+"#*	c #B1B1B1"  alpha=0
+"#=	c #323232"  alpha=0
+"#1	c #ECECEC"  alpha=0
+"#2	c #151515"  alpha=0
+"#3	c #E2E2E2"  alpha=0
+"#4	c #040404"  alpha=0
+"#5	c #050505"  alpha=0
+"#6	c #E5E5E5"  alpha=0
+"#7	c #E7E7E7"  alpha=0
+"#8	c #494949"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!%!%!%!!"
+"!!!!!$!*!=!!!%!!!!!!"
+"!!!1!2!3!4!5!6!4!7!!"
+"!!!8!%!%!%!9!!#!##!!"
+"!!#%#?!!#$#*!!#=#1!!"
+"#2#3#4!!#5#6!%#7#8!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x05
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 38 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #454545"  alpha=0
+"!*	c #EDEDED"  alpha=0
+"!=	c #ECECEC"  alpha=0
+"!1	c #8A8A8A"  alpha=0
+"!2	c #D2D2D2"  alpha=0
+"!3	c #959595"  alpha=0
+"!4	c #CBCBCB"  alpha=0
+"!5	c #4F4F4F"  alpha=0
+"!6	c #030303"  alpha=0
+"!7	c #E0E0E0"  alpha=0
+"!8	c #282828"  alpha=0
+"!9	c #E8E8E8"  alpha=0
+"#!	c #060606"  alpha=0
+"##	c #F8F8F8"  alpha=0
+"#%	c #D6D6D6"  alpha=0
+"#?	c #5E5E5E"  alpha=0
+"#$	c #4D4D4D"  alpha=0
+"#*	c #535353"  alpha=0
+"#=	c #FBFBFB"  alpha=0
+"#1	c #353535"  alpha=0
+"#2	c #F2F2F2"  alpha=0
+"#3	c #AEAEAE"  alpha=0
+"#4	c #4C4C4C"  alpha=0
+"#5	c #505050"  alpha=0
+"#6	c #B1B1B1"  alpha=0
+"#7	c #DBDBDB"  alpha=0
+"#8	c #3D3D3D"  alpha=0
+"#9	c #151515"  alpha=0
+"%!	c #E2E2E2"  alpha=0
+"%#	c #040404"  alpha=0
+"%%	c #050505"  alpha=0
+"%?	c #E5E5E5"  alpha=0
+"%$	c #7A7A7A"  alpha=0
+"%*	c #E7E7E7"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!*!=!!"
+"!!!!!1!2!3!!!4!5!!!!"
+"!!!6!7!8!9#!###%#?!!"
+"!!#$!%!%!%#*#=#1#2!!"
+"!!#3#4!!#5#6#7#8!=!!"
+"#9%!%#!!%%%?%$%*!$!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x06
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 34 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #FEFEFE"  alpha=0
+"!*	c #8A8A8A"  alpha=0
+"!=	c #D2D2D2"  alpha=0
+"!1	c #959595"  alpha=0
+"!2	c #4C4C4C"  alpha=0
+"!3	c #B6B6B6"  alpha=0
+"!4	c #030303"  alpha=0
+"!5	c #E0E0E0"  alpha=0
+"!6	c #282828"  alpha=0
+"!7	c #E8E8E8"  alpha=0
+"!8	c #060606"  alpha=0
+"!9	c #BBBBBB"  alpha=0
+"#!	c #464646"  alpha=0
+"##	c #4D4D4D"  alpha=0
+"#%	c #535353"  alpha=0
+"#?	c #2B2B2B"  alpha=0
+"#$	c #D5D5D5"  alpha=0
+"#*	c #010101"  alpha=0
+"#=	c #AEAEAE"  alpha=0
+"#1	c #505050"  alpha=0
+"#2	c #B1B1B1"  alpha=0
+"#3	c #999999"  alpha=0
+"#4	c #676767"  alpha=0
+"#5	c #151515"  alpha=0
+"#6	c #E2E2E2"  alpha=0
+"#7	c #040404"  alpha=0
+"#8	c #050505"  alpha=0
+"#9	c #F7F7F7"  alpha=0
+"%!	c #F8F8F8"  alpha=0
+"%#	c #0A0A0A"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!%!%!$!!"
+"!!!!!*!=!1!!!!!2!3!!"
+"!!!4!5!6!7!8!!!9#!!!"
+"!!##!%!%!%#%#?#$#*!!"
+"!!#=!2!!#1#2#3#4!!!!"
+"#5#6#7!!#8#9%!%#!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x07
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 37 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #6C6C6C"  alpha=0
+"!*	c #DDDDDD"  alpha=0
+"!=	c #6B6B6B"  alpha=0
+"!1	c #8A8A8A"  alpha=0
+"!2	c #D2D2D2"  alpha=0
+"!3	c #959595"  alpha=0
+"!4	c #F3F3F3"  alpha=0
+"!5	c #F2F2F2"  alpha=0
+"!6	c #030303"  alpha=0
+"!7	c #E0E0E0"  alpha=0
+"!8	c #282828"  alpha=0
+"!9	c #E8E8E8"  alpha=0
+"#!	c #060606"  alpha=0
+"##	c #919191"  alpha=0
+"#%	c #909090"  alpha=0
+"#?	c #4D4D4D"  alpha=0
+"#$	c #535353"  alpha=0
+"#*	c #E9E9E9"  alpha=0
+"#=	c #3B3B3B"  alpha=0
+"#1	c #AEAEAE"  alpha=0
+"#2	c #4C4C4C"  alpha=0
+"#3	c #505050"  alpha=0
+"#4	c #B1B1B1"  alpha=0
+"#5	c #EBEBEB"  alpha=0
+"#6	c #383838"  alpha=0
+"#7	c #ECECEC"  alpha=0
+"#8	c #151515"  alpha=0
+"#9	c #E2E2E2"  alpha=0
+"%!	c #040404"  alpha=0
+"%#	c #050505"  alpha=0
+"%%	c #E5E5E5"  alpha=0
+"%?	c #626262"  alpha=0
+"%$	c #D8D8D8"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!*!=!!"
+"!!!!!1!2!3!!!4!?!5!!"
+"!!!6!7!8!9#!##!%#%!!"
+"!!#?!%!%!%#$#*#=!9!!"
+"!!#1#2!!#3#4#5#6#7!!"
+"#8#9%!!!%#%%%?%$#?!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x08
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="10 10 38 2"   Colormode=32
+"!!	c #000000"  alpha=0
+"!#	c #292929"  alpha=0
+"!%	c #FFFFFF"  alpha=0
+"!?	c #373737"  alpha=0
+"!$	c #464646"  alpha=0
+"!*	c #E5E5E5"  alpha=0
+"!=	c #606060"  alpha=0
+"!1	c #8A8A8A"  alpha=0
+"!2	c #D2D2D2"  alpha=0
+"!3	c #959595"  alpha=0
+"!4	c #EDEDED"  alpha=0
+"!5	c #424242"  alpha=0
+"!6	c #D8D8D8"  alpha=0
+"!7	c #030303"  alpha=0
+"!8	c #E0E0E0"  alpha=0
+"!9	c #282828"  alpha=0
+"#!	c #E8E8E8"  alpha=0
+"##	c #060606"  alpha=0
+"#%	c #F3F3F3"  alpha=0
+"#?	c #343434"  alpha=0
+"#$	c #FAFAFA"  alpha=0
+"#*	c #4D4D4D"  alpha=0
+"#=	c #535353"  alpha=0
+"#1	c #5E5E5E"  alpha=0
+"#2	c #D4D4D4"  alpha=0
+"#3	c #F7F7F7"  alpha=0
+"#4	c #AEAEAE"  alpha=0
+"#5	c #4C4C4C"  alpha=0
+"#6	c #505050"  alpha=0
+"#7	c #B1B1B1"  alpha=0
+"#8	c #4E4E4E"  alpha=0
+"#9	c #CBCBCB"  alpha=0
+"%!	c #151515"  alpha=0
+"%#	c #E2E2E2"  alpha=0
+"%%	c #040404"  alpha=0
+"%?	c #050505"  alpha=0
+"%$	c #F0F0F0"  alpha=0
+"%*	c #484848"  alpha=0
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!#!%!?!!!$!*!=!!"
+"!!!!!1!2!3!!!4!5!6!!"
+"!!!7!8!9#!###%#?#$!!"
+"!!#*!%!%!%#=#1#2#3!!"
+"!!#4#5!!#6#7!!#8#9!!"
+"%!%#%%!!%?!*!%%$%*!!"
+"!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!"
+;1234567890
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x09
+;GRMN_TYPE: //
+String1=0x02,Rote E8 auf weiÃŸem Grund
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 11 3 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!#############!"
+"!#############!"
+"!##%%%%##%%###!"
+"!##%####%##%##!"
+"!##%%%###%%###!"
+"!##%####%##%##!"
+"!##%####%##%##!"
+"!##%%%%##%%###!"
+"!#############!"
+"!!!!!!!!!!!!!!!"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0a
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="15 14 2 1"   Colormode=32
+"!	c #FFFFFF"  alpha=0
+"#	c #C7401B"  alpha=0
+"!!!!!!!!!!!!!!!"
+"!!!!!!!##!!!!!!"
+"!!!!!!##!##!!!!"
+"!!!!!##!####!!!"
+"!!!!!#!#####!!!"
+"!!!!#!!!#!!##!!"
+"!!!###!!###!#!!"
+"!!#!##!!##!!##!"
+"!##!!!!!!#####!"
+"!####!!!!!!#!#!"
+"!!#!!!!##!!!!#!"
+"!!!#!###!#!!#!!"
+"!!!!!###!!##!!#"
+"!!!!!!!!!######"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0b
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="12 12 14 1"   Colormode=32
+"!	c #000000"  alpha=15
+"#	c #000000"  alpha=13
+"%	c #3F3F3F"  alpha=0
+"?	c #181818"  alpha=0
+"$	c #000000"  alpha=0
+"*	c #080808"  alpha=0
+"=	c #000000"  alpha=11
+"1	c #C0C0C0"  alpha=0
+"2	c #FFFFFF"  alpha=0
+"3	c #F7F7F7"  alpha=0
+"4	c #CFCFCF"  alpha=0
+"5	c #DFDFDF"  alpha=0
+"6	c #101010"  alpha=0
+"7	c #9F9F9F"  alpha=0
+"!!#%?$$*%#!!"
+"!=$122231$=!"
+"#$42222225$#"
+"%1222222221%"
+"622222222226"
+"$2222222222$"
+"?2222222222$"
+"622222222226"
+"%1222222227%"
+"#$42222225$#"
+"!=$122227$=!"
+"!!#%?$$*%#!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0c
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="12 12 9 1"   Colormode=32
+"!	c #000000"  alpha=15
+"#	c #000000"  alpha=13
+"%	c #3F3F3F"  alpha=0
+"?	c #181818"  alpha=0
+"$	c #000000"  alpha=0
+"*	c #080808"  alpha=0
+"=	c #000000"  alpha=11
+"1	c #0000FF"  alpha=0
+"2	c #101010"  alpha=0
+"!!#%?$$*%#!!"
+"!=$111111$=!"
+"#$11111111$#"
+"%1111111111%"
+"211111111112"
+"$1111111111$"
+"?1111111111$"
+"211111111112"
+"%1111111111%"
+"#$11111111$#"
+"!=$111111$=!"
+"!!#%?$$*%#!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0d
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="12 12 9 1"   Colormode=32
+"!	c #000000"  alpha=15
+"#	c #000000"  alpha=13
+"%	c #3F3F3F"  alpha=0
+"?	c #181818"  alpha=0
+"$	c #000000"  alpha=0
+"*	c #080808"  alpha=0
+"=	c #000000"  alpha=11
+"1	c #FF0000"  alpha=0
+"2	c #101010"  alpha=0
+"!!#%?$$*%#!!"
+"!=$111111$=!"
+"#$11111111$#"
+"%1111111111%"
+"211111111112"
+"$1111111111$"
+"?1111111111$"
+"211111111112"
+"%1111111111%"
+"#$11111111$#"
+"!=$111111$=!"
+"!!#%?$$*%#!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0e
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="12 12 9 1"   Colormode=32
+"!	c #000000"  alpha=15
+"#	c #000000"  alpha=13
+"%	c #3F3F3F"  alpha=0
+"?	c #181818"  alpha=0
+"$	c #000000"  alpha=0
+"*	c #080808"  alpha=0
+"=	c #000000"  alpha=11
+"1	c #FFFF00"  alpha=0
+"2	c #101010"  alpha=0
+"!!#%?$$*%#!!"
+"!=$111111$=!"
+"#$11111111$#"
+"%1111111111%"
+"211111111112"
+"$1111111111$"
+"?1111111111$"
+"211111111112"
+"%1111111111%"
+"#$11111111$#"
+"!=$111111$=!"
+"!!#%?$$*%#!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x0f
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 2 1"   Colormode=32
+"!	c #FFD800"  alpha=0
+"#	c #FF0000"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!#######!!!"
+"!!!#######!!!"
+"!!!#######!!!"
+"!!!#######!!!"
+"!!!#######!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x10
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 2 1"   Colormode=32
+"!	c #FF0000"  alpha=0
+"#	c #000000"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"#############"
+"#############"
+"#############"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x11
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 8 1"   Colormode=32
+"!	c #000000"  alpha=0
+"#	c #3F3F3F"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #5F5F5F"  alpha=0
+"$	c #7F7F7F"  alpha=0
+"*	c #1E1E1E"  alpha=0
+"=	c #CFCFCF"  alpha=0
+"1	c #9F9F9F"  alpha=0
+"!!!!#%?!!!!!!"
+"!!!!#%$!!!!!!"
+"!!!!?%*!!!!!!"
+"!!!!=%?!!!!!!"
+"!!!!=%=!!!!!!"
+"!!!!?%?$!!!!!"
+"!!!!1=1!#!!!!"
+"!!!!=#=!!!!!!"
+"!!!?%!%$!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x12
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 8 1"   Colormode=32
+"!	c #BC6823"  alpha=0
+"#	c #3F3F3F"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #5F5F5F"  alpha=0
+"$	c #7F7F7F"  alpha=0
+"*	c #1E1E1E"  alpha=0
+"=	c #CFCFCF"  alpha=0
+"1	c #9F9F9F"  alpha=0
+"!!!!#%?!!!!!!"
+"!!!!#%$!!!!!!"
+"!!!!?%*!!!!!!"
+"!!!!=%?!!!!!!"
+"!!!!=%=!!!!!!"
+"!!!!?%?$!!!!!"
+"!!!!1=1!#!!!!"
+"!!!!=#=!!!!!!"
+"!!!?%!%$!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x13
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 8 1"   Colormode=32
+"!	c #0026FF"  alpha=0
+"#	c #3F3F3F"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #5F5F5F"  alpha=0
+"$	c #7F7F7F"  alpha=0
+"*	c #1E1E1E"  alpha=0
+"=	c #CFCFCF"  alpha=0
+"1	c #9F9F9F"  alpha=0
+"!!!!#%?!!!!!!"
+"!!!!#%$!!!!!!"
+"!!!!?%*!!!!!!"
+"!!!!=%?!!!!!!"
+"!!!!=%=!!!!!!"
+"!!!!?%?$!!!!!"
+"!!!!1=1!#!!!!"
+"!!!!=#=!!!!!!"
+"!!!?%!%$!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x14
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 7 1"   Colormode=32
+"!	c #BC6823"  alpha=0
+"#	c #E2BD00"  alpha=0
+"%	c #CE9211"  alpha=0
+"?	c #D19510"  alpha=0
+"$	c #CE9111"  alpha=0
+"*	c #D49A0E"  alpha=0
+"=	c #D2980F"  alpha=0
+"!!!!!!!!!!!!!"
+"!#%!!!!!!!!!!"
+"!####?!!!!!!!"
+"!#######$!!!!"
+"!##########!!"
+"!#######*!!!!"
+"!####*!!!!!!!"
+"!#=!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x15
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 6 1"   Colormode=32
+"!	c #BC6823"  alpha=0
+"#	c #FF0000"  alpha=0
+"%	c #E64808"  alpha=0
+"?	c #E84A07"  alpha=0
+"$	c #E94C06"  alpha=0
+"*	c #E84B07"  alpha=0
+"!!!!!!!!!!!!!"
+"!#%!!!!!!!!!!"
+"!####?!!!!!!!"
+"!#######%!!!!"
+"!##########!!"
+"!#######$!!!!"
+"!####$!!!!!!!"
+"!#*!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x16
+;GRMN_TYPE: //
+String1=0x02,Roter Fuchs auf gelben Hintergrund
+ExtendedLabels=N
+DayXpm="15 10 91 2"   Colormode=32
+"!!	c #FFDD00"  alpha=0
+"!#	c #FFDC00"  alpha=0
+"!%	c #FEDC00"  alpha=0
+"!?	c #FFE000"  alpha=0
+"!$	c #F6B209"  alpha=0
+"!*	c #F5A90D"  alpha=0
+"!=	c #FFDC05"  alpha=0
+"!1	c #FEDD00"  alpha=0
+"!2	c #FFDF00"  alpha=0
+"!3	c #FFE100"  alpha=0
+"!4	c #FFE300"  alpha=0
+"!5	c #FFE800"  alpha=0
+"!6	c #EE5519"  alpha=0
+"!7	c #EC421C"  alpha=0
+"!8	c #FFDD06"  alpha=0
+"!9	c #FFDE00"  alpha=0
+"#!	c #FFE301"  alpha=0
+"##	c #FBCD05"  alpha=0
+"#%	c #FBC705"  alpha=0
+"#?	c #F9BB08"  alpha=0
+"#$	c #F8A80C"  alpha=0
+"#*	c #F26F16"  alpha=0
+"#=	c #ED2124"  alpha=0
+"#1	c #ED1C24"  alpha=0
+"#2	c #FAC008"  alpha=0
+"#3	c #FFE400"  alpha=0
+"#4	c #FBC908"  alpha=0
+"#5	c #EE4F1A"  alpha=0
+"#6	c #EE3120"  alpha=0
+"#7	c #EF3221"  alpha=0
+"#8	c #EF3021"  alpha=0
+"#9	c #EE2B23"  alpha=0
+"%!	c #ED2024"  alpha=0
+"%#	c #EC1C23"  alpha=0
+"%%	c #F16F1A"  alpha=0
+"%?	c #F18711"  alpha=0
+"%$	c #FEDB04"  alpha=0
+"%*	c #F38813"  alpha=0
+"%=	c #ED2C21"  alpha=0
+"%1	c #ED1A26"  alpha=0
+"%2	c #ED1B24"  alpha=0
+"%3	c #ED1B25"  alpha=0
+"%4	c #ED1725"  alpha=0
+"%5	c #F06019"  alpha=0
+"%6	c #FEDC01"  alpha=0
+"%7	c #FED702"  alpha=0
+"%8	c #FFDF01"  alpha=0
+"%9	c #F6A30E"  alpha=0
+"?!	c #EC351F"  alpha=0
+"?#	c #ED3E1D"  alpha=0
+"?%	c #EE571E"  alpha=0
+"??	c #ED1726"  alpha=0
+"?$	c #ED1C23"  alpha=0
+"?*	c #EE1B25"  alpha=0
+"?=	c #EB1424"  alpha=0
+"?1	c #F9BA0A"  alpha=0
+"?2	c #FFDD01"  alpha=0
+"?3	c #FAC205"  alpha=0
+"?4	c #F16B17"  alpha=0
+"?5	c #F27116"  alpha=0
+"?6	c #F7B00A"  alpha=0
+"?7	c #F8AF0F"  alpha=0
+"?8	c #EE5819"  alpha=0
+"?9	c #F27C16"  alpha=0
+"$!	c #F17314"  alpha=0
+"$#	c #F9BE0B"  alpha=0
+"$%	c #F17C16"  alpha=0
+"$?	c #E94519"  alpha=0
+"$$	c #FECD0A"  alpha=0
+"$*	c #FFE402"  alpha=0
+"$=	c #EB5F17"  alpha=0
+"$1	c #FED804"  alpha=0
+"$2	c #F59B0E"  alpha=0
+"$3	c #FAC408"  alpha=0
+"$4	c #FFE502"  alpha=0
+"$5	c #F0960D"  alpha=0
+"$6	c #F59C0F"  alpha=0
+"$7	c #FFDF02"  alpha=0
+"$8	c #F08410"  alpha=0
+"$9	c #F8B50A"  alpha=0
+"*!	c #F8B908"  alpha=0
+"*#	c #FFE500"  alpha=0
+"*%	c #F39C0D"  alpha=0
+"*?	c #FDD704"  alpha=0
+"*$	c #EF7214"  alpha=0
+"**	c #FED903"  alpha=0
+"*=	c #FFDC01"  alpha=0
+"*1	c #FFE401"  alpha=0
+"*2	c #FFDC04"  alpha=0
+"*3	c #F8BC0A"  alpha=0
+"*4	c #FCD204"  alpha=0
+"!!!#!!!!!!!!!!!!!!!%!?!$!*!=!1"
+"!#!!!!!!!1!!!2!?!3!4!5!6!7!8!9"
+"!!!!!!!%!2#!###%#?#$#*#=#1#2!3"
+"!!!%!!#3#4#5#6#7#8#9%!%#%%%?#3"
+"!%!?%$%*%=%1%2%3%3%3%4%5%6%7!!"
+"%8%9?!%3?#?%???$#1?*?=?1!9?2?2"
+"?3?4?5?6?7?8?9$!$#$%$?$$!!!%!!"
+"!9#3#3$*$=$1$2$3$4$5%9$6!2!#!!"
+"!!!!!!$7$8!?$9*!*#*%*?*$**!!!!"
+"?2?2*=!%*1!%!?!?!%*2%8*3*4!!?2"
+;123456789012345
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x17
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="14 9 2 1"   Colormode=32
+"!	c #FFFFFF"  alpha=0
+"#	c #000000"  alpha=0
+"!!##########!!"
+"!!!!######!!!!"
+"#!!!!!##!!!!!#"
+"###!!!!!!!!###"
+"#####!!!!#####"
+"###!!!!!!!!###"
+"#!!!!!##!!!!!#"
+"!!!!######!!!!"
+"!!##########!!"
+;12345678901234
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x18
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="12 12 9 1"   Colormode=32
+"!	c #000000"  alpha=15
+"#	c #FF0000"  alpha=13
+"%	c #FF0000"  alpha=3
+"?	c #FF0000"  alpha=0
+"$	c #FFA8A8"  alpha=0
+"*	c #FFFFFF"  alpha=0
+"=	c #FFD8D8"  alpha=0
+"1	c #FF0202"  alpha=15
+"2	c #FF0000"  alpha=1
+"!!#%????%#!!"
+"!#?$****$?#!"
+"#?=******=?#"
+"%$********$%"
+"?**********?"
+"?**********?"
+"?**********?"
+"?**********?"
+"%$********$1"
+"#?=******=?2"
+"!#?$****$?#!"
+"!!#%????%#!!"
+;123456789012
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x19
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 8 2 1"   Colormode=32
+"!	c #0026FF"  alpha=0
+"#	c #267F00"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"#############"
+"#############"
+"#############"
+"#############"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x034
+SubType=0x1a
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="13 9 2 1"   Colormode=32
+"!	c #FF0000"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"#############"
+"#############"
+"#############"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!"
+;1234567890123
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x00
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 4 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #61A246"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #B5D3A9"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!#%!!!!"
+"!!!?%!!!!"
+"!!!!%!!!!"
+"!!!!%!!!!"
+"!!!!%!!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x01
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 2 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!##!!!!"
+"!!!!!#!!!"
+"!!!!#!!!!"
+"!!!#!!!!!"
+"!!!###!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x02
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 2 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!##!!!!"
+"!!!!!#!!!"
+"!!!!#!!!!"
+"!!!!!#!!!"
+"!!!##!!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x03
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 2 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!!!#!!!"
+"!!!!##!!!"
+"!!!#!#!!!"
+"!!!####!!"
+"!!!!!#!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x04
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 9 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #F7FAF6"  alpha=0
+"?	c #ECF3E9"  alpha=0
+"$	c #81B56C"  alpha=0
+"*	c #529934"  alpha=0
+"=	c #F4F8F3"  alpha=0
+"1	c #F2F7F0"  alpha=0
+"2	c #77AF60"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!###!!!"
+"!!!#!!!!!"
+"!!!%?$!!!"
+"!!!!*=!!!"
+"!!!1?2!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x05
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 15 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #70AA57"  alpha=0
+"%	c #F2F7F0"  alpha=0
+"?	c #EEF5EC"  alpha=0
+"$	c #E2EEDE"  alpha=0
+"*	c #63A348"  alpha=0
+"=	c #FDFDFD"  alpha=0
+"1	c #E3EEDF"  alpha=0
+"2	c #86B771"  alpha=0
+"3	c #E9F2E6"  alpha=0
+"4	c #569B39"  alpha=0
+"5	c #F7FAF6"  alpha=0
+"6	c #6EA955"  alpha=0
+"7	c #E1EDDC"  alpha=0
+"8	c #75AD5D"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!#%?!!!"
+"!!!$*!!!!"
+"!!!=12!!!"
+"!!!345!!!"
+"!!!678!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x06
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 11 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #FFFFFF"  alpha=0
+"%	c #FEFEFE"  alpha=0
+"?	c #68A64E"  alpha=0
+"$	c #BAD6AE"  alpha=0
+"*	c #D1E3C9"  alpha=0
+"=	c #529934"  alpha=0
+"1	c #61A246"  alpha=0
+"2	c #C2DBB8"  alpha=0
+"3	c #CBE0C2"  alpha=0
+"4	c #599D3D"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!##%!!!"
+"!!!!?$!!!"
+"!!!!*=!!!"
+"!!!12!!!!"
+"!!!34!!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x07
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 13 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #81B56C"  alpha=0
+"%	c #E2EDDD"  alpha=0
+"?	c #81B46B"  alpha=0
+"$	c #F4F8F3"  alpha=0
+"*	c #549A37"  alpha=0
+"=	c #F3F8F2"  alpha=0
+"1	c #AACD9C"  alpha=0
+"2	c #FFFFFF"  alpha=0
+"3	c #A9CC9A"  alpha=0
+"4	c #579C3A"  alpha=0
+"5	c #80B46A"  alpha=0
+"6	c #E1EDDC"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!#%?!!!"
+"!!!$*=!!!"
+"!!!123!!!"
+"!!!$4=!!!"
+"!!!565!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x08
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 15 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #72AC5A"  alpha=0
+"%	c #E0ECDB"  alpha=0
+"?	c #6BA852"  alpha=0
+"$	c #F6F9F5"  alpha=0
+"*	c #579C3A"  alpha=0
+"=	c #E8F1E4"  alpha=0
+"1	c #86B771"  alpha=0
+"2	c #E2EEDE"  alpha=0
+"3	c #FCFDFC"  alpha=0
+"4	c #63A348"  alpha=0
+"5	c #E2EDDD"  alpha=0
+"6	c #EEF5EC"  alpha=0
+"7	c #F4F8F3"  alpha=0
+"8	c #70AB58"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!!!#%?!!!"
+"!!!$*=!!!"
+"!!!123!!!"
+"!!!!45!!!"
+"!!!678!!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x09
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 14 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #61A246"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #71AB59"  alpha=0
+"$	c #E5EFE1"  alpha=0
+"*	c #B5D3A9"  alpha=0
+"=	c #EAF2E7"  alpha=0
+"1	c #5FA043"  alpha=0
+"2	c #FDFDFD"  alpha=0
+"3	c #2B8206"  alpha=0
+"4	c #E9F2E6"  alpha=0
+"5	c #5EA042"  alpha=0
+"6	c #E6F0E2"  alpha=0
+"7	c #73AC5B"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!#%!!?$?!"
+"!*%!!=1=!"
+"!!%!!232!"
+"!!%!!454!"
+"!!%!!?67!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x0a
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 4 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #61A246"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #B5D3A9"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!#%!!#%!!"
+"!?%!!?%!!"
+"!!%!!!%!!"
+"!!%!!!%!!"
+"!!%!!!%!!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]
+
+
+[_point]
+Type=0x035
+SubType=0x0b
+;GRMN_TYPE: //
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+DayXpm="9 9 15 1"   Colormode=32
+"!	c #267F00"  alpha=0
+"#	c #61A246"  alpha=0
+"%	c #FFFFFF"  alpha=0
+"?	c #F0F6EE"  alpha=0
+"$	c #F9FBF9"  alpha=0
+"*	c #7FB369"  alpha=0
+"=	c #B5D3A9"  alpha=0
+"1	c #3F8E1E"  alpha=0
+"2	c #EDF4EB"  alpha=0
+"3	c #94C082"  alpha=0
+"4	c #A3C893"  alpha=0
+"5	c #84B66F"  alpha=0
+"6	c #C3DBB9"  alpha=0
+"7	c #2B8206"  alpha=0
+"8	c #FEFEFE"  alpha=0
+"!!!!!!!!!"
+"!!!!!!!!!"
+"!#%!!?$*!"
+"!=%!!!12!"
+"!!%!!!34!"
+"!!%!!567!"
+"!!%!!8%%!"
+"!!!!!!!!!"
+"!!!!!!!!!"
+;123456789
+[end]

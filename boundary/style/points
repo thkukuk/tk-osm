@@ -1,0 +1,11 @@
+# -------------------------------------------------------------------
+# admin_centre (Städte/Dörfer)
+
+boundary2=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0100 level 5]
+boundary4=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0600 level 4]
+boundary5=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0b00 level 4]
+boundary6=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0b00 level 3]
+boundary8=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0b00 level 3]
+boundary9=yes & mkgmap:area2poi!=true & place=* & name=*  [0x0b00 level 1]
+boundary10=yes & mkgmap:area2poi!=true & place=* & name=* [0x0b00 level 0]
+boundary11=yes & mkgmap:area2poi!=true & place=* & name=* [0x0b00 level 0]

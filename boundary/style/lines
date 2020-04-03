@@ -1,0 +1,14 @@
+# -------------------------------------------------------------------
+# Boundarys
+
+# We use the continue statement, to make sure that streets, rivers, ...
+# additional tagged as boundary will still be drawn.
+
+boundary2=yes {name '${mkgmap:boundary2_name}'} [0x1e level 6 continue]
+boundary4=yes {name '${mkgmap:boundary4_name}'} [0x1d level 5 continue]
+boundary5=yes {name '${mkgmap:boundary5_name}'} [0x1c level 4 continue]
+boundary6=yes {name '${mkgmap:boundary6_name}'} [0x1c level 3 continue]
+boundary8=yes {name '${mkgmap:boundary8_name}'} [0x1c level 3 continue]
+boundary9=yes {name '${mkgmap:boundary9_name}'} [0x29 level 1 continue]
+boundary10=yes {name '${mkgmap:boundary10_name}'} [0x29 level 0 continue]
+boundary11=yes {name '${mkgmap:boundary11_name}'} [0x29 level 0 continue]

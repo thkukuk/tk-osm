@@ -1,0 +1,320 @@
+# -------------------------------------------------------------------
+# Adress mapping
+
+addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
+
+include 'inc/address_pre';
+
+name!=* & place_name=* { name '${place_name}' }
+name!=* & loc_name=* { name '${loc_name}' }
+
+# Delete building=no, only leads to wrong results
+building=no {delete building}
+
+# If shop=no or none, delete it, so we ignore it
+shop=no | shop=none             { delete shop; }
+
+# -------------------------------------------------------------------
+# Öffnungszeiten
+
+opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hours}'}
+
+#ifndef STREETS
+#
+## -------------------------------------------------------------------
+## Flughafen
+#aeroway=airport 				[0x07 level 4]
+#aeroway=apron					[0x07 level 4]
+#aeroway=helipad					[0x0e level 3]
+#aeroway=aerodrome                               [0x0f level 3]
+#
+## -------------------------------------------------------------------
+## Gebäude
+#
+#amenity=cafe | amenity=fast_food | amenity=restaurant | amenity=food_court [0x10 level 3]
+#amenity=grave_yard				[0x1a level 4]
+## amenity hospital could also be the whole area
+#amenity=hospital & building=*			[0x0b level 4]
+#amenity=nursing_home				[0x0b level 3]
+#amenity=parking & parking=underground		[0x34 level 3]
+#amenity=parking & (building=* | parking=multi-storey)
+#						[0x06 level 3]
+#amenity=parking					[0x05 level 3]
+#amenity=prison					[0x04 level 3]
+## amenity=supermarket is superceded by shop=supermarket or landuse=retail
+#amenity=supermarket | shop=supermarket		[0x08 level 3]
+## Whole campus/area, not a special building
+#amenity=university & building!=*		[0x0a level 4]
+#amenity=kindergarten & building!=*		[0x0a level 4]
+#amenity=school & building!=*			[0x0a level 4]
+#amenity=college & building!=*			[0x0a level 4]
+#amenity=place_of_worship			[0x10f06 level 3]
+#amenity=bicycle_parking
+#	{name '${name} (${capacity} Stellplätze)' | '${name}'}
+#						[0x2f level 3]
+#
+#healthcare=* 					[0x0b level 3]
+#
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Flächennutzung
+
+#ifndef STREETS
+#
+## use nature_reserve at first
+#leisure=nature_reserve				[0x16 level 5 continue]
+#landuse=allotments				[0x4e level 4]
+#landuse=basin & sport=swimming | amenity=swimming_pool |
+#	leisure=swimming_pool | (natural=water & sport=*)
+#	{ name '${name} (${description})' | '${description}' | '${name}' }
+#				[0x3f level 3 default_name 'Schwimmbecken']
+#landuse=basin					[0x40 level 3]
+#landuse=cemetary & cemetary!=sea		[0x1a level 3]
+#landuse=cemetery & cemetery!=sea		[0x1a level 3]
+#endif /* STREETS */
+landuse=commercial {name '${name}' | '${mkgmap:city}'}
+						[0x0c level 4]
+#ifndef STREETS
+#landuse=construction				[0x0c level 4]
+#landuse=farmyard				[0x2b level 3]
+#landuse=farm | landuse=farmland			[0x2a level 4]
+#endif /* STREETS */
+landuse=wood {set landuse=forest}
+# draw only generic forest/wood in higher zoomlevel
+landuse=forest | natural=wood			[0x50 level 4-5 continue]
+landuse=forest & leaf_type=needleleaved		[0x1101d level 3]
+landuse=forest & leaf_type=broadleaved		[0x1101e level 3]
+landuse=forest & leaf_type=mixed		[0x1101f level 3]
+# wood= is depreated and replaced by leaf_type
+landuse=forest & wood=coniferous		[0x1101d level 3]
+landuse=forest & wood=deciduous			[0x1101e level 3]
+landuse=forest & wood=mixed			[0x1101f level 3]
+landuse=forest | natural=wood			[0x50 level 3]
+#ifndef STREETS
+#landuse=greenfield				[0x17 level 4]
+#landuse=landfill				[0x24 level 4]
+#landuse=brownfield				[0x25 level 4]
+#endif /* STREETS */
+landuse=industrial {name '${name}' | '${mkgmap:city}'}
+						[0x0c level 4]
+#ifndef STREETS
+#landuse=meadow | landuse=grass 			[0x35 level 4]
+#landuse=quarry					[0x2d level 3]
+#landuse=recreation_ground 			[0x35 level 4]
+#endif /* STREETS */
+landuse=reservoir 				[0x40 level 3]
+# Same as place village
+landuse=residential	{name '${name}' | '${mkgmap:city}' | 'Residential'}
+						[0x03 level 5]
+#ifndef STREETS
+#landuse=retail & building!=yes {name '${name}' | '${mkgmap:city}'}
+#						[0x27 level 4]
+#landuse=village_green				[0x35 level 4]
+#landuse=vineyard				[0x2c level 4]
+## use meadow for orchard for now
+#landuse=orchard					[0x35 level 4]
+#landuse=railway					[0x29 level 4]
+#endif /* STREETS */
+
+#ifndef STREETS
+#leisure=common					[0x17 level 4]
+#leisure=garden					[0x17 level 3]
+#leisure=golf_course				[0x18 level 3]
+#leisure=ice_rink				[0x19 level 3]
+## leisure=marina should not be rendered as a blue area anymore
+## It should be rendered as a line instead.
+##leisure=marina					[0x09 level 4]
+#leisure=park					[0x17 level 4]
+#leisure=pitch & sport=table_tennis
+#	{name '${name} (Tischtennis)' | 'Tischtennis'}
+#						[0x1c level 3]
+#leisure=pitch & sport=soccer
+#	{name '${name} (Fußball)' | 'Fußball'}
+#						[0x1c level 3]
+#leisure=pitch & sport=team_handball
+#	{name '${name} (Handball)' | 'Handball'}
+#						[0x1c level 3]
+#leisure=pitch & sport=archery
+#	{name '${name} (Bogenschießen)' | 'Bogenschießen'}
+#						[0x1c level 3]
+#leisure=pitch & sport=tennis
+#	{name '${name} (Tennis)' | 'Tennis'}
+#						[0x1d level 3]
+#leisure=pitch & sport=equestrian
+#	{name '${name} (Pferdesport)' | 'Pferdesport'}
+#						[0x1c level 3]
+#leisure=pitch
+#	{name '${name} (${sport})' | '${sport}' | '${name}' | 'Spielfeld'}
+#						[0x1c level 3]
+#leisure=playground				[0x1b level 3]
+#leisure=recreation_ground			[0x35 level 4]
+#leisure=sports_center | leisure=sports_centre
+#	{name '${name} (${sport})' | '${sport}' | '${name}' | 'Sportzentrum'}
+#						[0x19 level 3]
+#leisure=stadium {name '${name} (${sport})' | '${sport}' | '${name}'}
+#						[0x19 level 3]
+#leisure=track {name '${name} (${sport})' | '${name}'}
+#						[0x1d level 3]
+#leisure=water_park {name '${name} (${operator})' | '${name}'}
+#						[0x33 level 4]
+#endif /* STREETS */
+
+# Military area
+
+# landuse=military is only background, hopefully military=*
+# will come later. And don't draw it on sea (military!=naval_base)
+landuse=military & military=*                   [0x37 level 4 continue]
+#ifndef STREETS
+#military=airfield				[0x04 level 4]
+##military=barracks				[0x04 level 4]
+#military=barracks {add building=yes}
+#endif /* STREETS */
+military=danger_area				[0x04 level 4]
+military=range 					[0x04 level 4]
+# At the end again if a military=* is missing
+landuse=military & military!=*			[0x04 level 4]
+
+# natural keys
+natural=glacier					[0x4d level 5]
+#ifndef STREETS
+#natural=marsh					[0x51 level 4]
+#natural=mud					[0x51 level 4]
+#natural=wetland					[0x51 level 4]
+#natural=scrub					[0x4f level 4]
+#natural=reef					[0x41 level 4]
+#endif /* STREETS */
+natural=water 			 		[0x3c level 5]
+toponym=water & name=*				[0x3e level 7 continue]
+toponym=water & name=*				[0x3e level 6]
+natural=waterfall | waterway=waterfall | waterway=rapids
+						[0x47 level 4]
+#ifndef STREETS
+#natural=heath					[0x14 level 4]
+#natural=cliff & area=yes			[0x31 level 4]
+#natural=beach					[0x3d level 4]
+#natural=scree					[0x53 level 4]
+#endif /* STREETS */
+
+place=city {name '${name}' | '${mkgmap:city}'}
+						[0x01 level 5]
+place=town {name '${name}' | '${mkgmap:city}'}
+						[0x02 level 5]
+place=suburb {name '${name}' | '${mkgmap:city}'}
+						[0x02 level 5]
+place=village {name '${name}' | '${mkgmap:city}'}
+						[0x03 level 5]
+place=hamlet {name '${name}' | '${mkgmap:city}'}
+						[0x03 level 5]
+place=comunidad {name '${name}' | '${mkgmap:city}'}
+						[0x03 level 5]
+place='zona urbana' {name '${name}' | '${mkgmap:city}'}
+						[0x03 level 5]
+place=island {name '${name}' | '${mkgmap:region}' | '${mkgmap:country}'}
+						[0x26 level 5]
+place=islet {name '${name}' | '${mkgmap:region}' | '${mkgmap:country}'}
+						[0x26 level 5]
+
+#ifndef STREETS
+#tourism=camp_site				[0x2e level 3]
+#tourism=zoo					[0x1f level 4]
+#
+#shop=* { name  '${name} (${operator})' | '${operator}' | '${name}' }
+#						[0x08 level 3]
+#endif /* STREETS */
+
+# squares and plazas
+highway=pedestrian & area=yes			[0x12 level 1]
+highway=residential & area=yes			[0x11 level 2]
+highway=living_street & area=yes		[0x11 level 2]
+# other highways that have area=yes set must be parking lots
+highway=* & area=yes				[0x05 level 3]
+
+#ifndef STREETS
+#(railway=platform | public_transport=platform) & tunnel!=yes & area=yes
+#	{add access = no; add foot = yes}
+#						[0x22 level 3]
+#endif /* STREETS */
+
+waterway=riverbank|(waterway=dock & dock=tidal)	[0x46 level 3]
+
+#ifndef STREETS
+#historic=museum | historic=memorial 		[0x1e level 3]
+#historic=archaeological_site | historic=ruins 	[0x1e level 3]
+#historic=* & ruins=yes				[0x1e level 3]
+#
+#man_made=pier & area!=no	[0x13 level 2 default_name 'Pier']
+#man_made=quay & area!=no	[0x13 level 2 default_name 'Kai']
+#man_made=breakwater & area=yes	[0x30 level 2 default_name 'Wellenbrecher']
+#man_made=reinforced_slope	[0x31 level 2]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Zootiere
+
+#ifndef STREETS
+#attraction=animal {name '${name} (${animal})' | '${name}' | '${animal}'}
+#						[0x20 level 3]
+#endif /* STREETS */
+# -------------------------------------------------------------------
+# Gebäude
+
+#ifndef STREETS
+#
+## man_made to convert to POI
+#man_made=tower & building!=yes			[0x10900 level 1]
+#
+#barrier=city_wall & area=yes			[0x21 level 1 default_name 'City wall']
+#
+## building tag should be last
+## Garagen
+#building=garage | building=garages 		[0x10f05 level 1]
+## roof
+#building=roof
+#	{name '${name} (${addr:street} ${addr:housenumber})' |
+#		'${addr:street} ${addr:housenumber}' |
+#		'${name} ${addr:housename}' |
+#		'${addr:housename}' |
+#		'${name}' | '${addr:housenumber}' }
+#						[0x10f04 level 1]
+## public building or museum
+#building=* & (amenity=public_building | tourism=museum)
+#		{name '${name} (${addr:street} ${addr:housenumber})' |
+#			'${addr:street} ${addr:housenumber}' |
+#			'${name} ${addr:housename}' |
+#			'${addr:housename}' |
+#			'${name}' | '${addr:housenumber}'}
+#						[0x10f06 level 1]
+#
+## If there is a name, it's most likely that we will see it as POI again.
+#building=* & (tourism=* | amenity=* | sport=* | shop=* | craft=*)
+#	{name '${addr:street} ${addr:housenumber} (${addr.housename})' |
+#		 '${addr:street} ${addr:housenumber}' |
+#		 '${addr:housename}' |
+#		 '${name}' | '${addr:housenumber}'}
+#						[0x10900 level 1]
+#building=*
+#	{name '${name} (${addr:street} ${addr:housenumber})' |
+#		'${addr:street} ${addr:housenumber} (${addr:housename})' |
+#		'${addr:street} ${addr:housenumber}' |
+#		'${addr:housename}' |
+#		'${name}' | '${addr:housenumber}' }
+#						[0x10900 level 1]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# background
+natural=sea					[0x32 level 7 continue]
+natural=land					[0x26 level 7 continue]
+natural=sea {add mkgmap:skipSizeFilter=true}	[0x32 level 6]
+natural=land					[0x26 level 6]
+#natural=background				[0x4b level 6]
+
+# -------------------------------------------------------------------
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+
+# we need addrees info from buildings for the address search
+include 'inc/address';
+
+name=* { name '${name}' }

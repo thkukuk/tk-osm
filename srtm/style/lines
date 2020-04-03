@@ -1,0 +1,17 @@
+# -------------------------------------------------------------------
+# Contours take their name from the elevation setting.
+
+# Using ele>0 only avoids useless lines at the ocean, but
+# we will not get lines for deep canyons, too. So only ignore
+# the 0 contour line.
+
+contour=elevation & (ele ~ '\d*000' | ele ~ '\d*250' |
+	 ele ~ '\d*500' | ele ~ '\d*750')
+	{ name '${ele|conv:m=>ft}'; }		[0x21 level 3-3 continue]
+
+contour=elevation & contour_ext=elevation_minor & (ele > 0 | ele < 0)
+	{ name '${ele|conv:m=>ft}'; }		[0x20 level 0]
+contour=elevation & contour_ext=elevation_medium & (ele > 0 | ele < 0)
+	{ name '${ele|conv:m=>ft}'; }		[0x21 level 1]
+contour=elevation & contour_ext=elevation_major & (ele > 0 | ele < 0)
+ 	{ name '${ele|conv:m=>ft}'; }		[0x22 level 2]

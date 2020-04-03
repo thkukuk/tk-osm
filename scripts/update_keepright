@@ -1,0 +1,29 @@
+#!/bin/bash
+
+DBNAME="keepright_errors.txt.bz2"
+
+if [ -f data/keepright/src/$DBNAME ]; then
+  UPDATE=`echo $(((($(date +%s)-$(stat -c %Y data/keepright/src/$DBNAME)))/86400))`
+else
+  UPDATE=1;
+fi
+if [ $UPDATE -ne 0 ]; then
+  rm -f data/keepright/src/$DBNAME
+  wget -nv http://keepright.ipax.at/$DBNAME -P data/keepright/src
+  if [ $? -ne 0 ] ; then
+        echo "Download of keepright data failed!"
+        exit 1
+  fi
+  bzcat data/keepright/src/$DBNAME | osmmaps/scripts/keepright2osm.pl | gzip -9f > data/keepright/src/keepright-dump.osm.gz
+  if [ $? -ne 0 ] ; then
+	echo "Conversion of keepright data failed!"
+	exit 1
+  fi
+  stat -c %y  data/keepright/src/$DBNAME | sed -e 's|\..*||g' -e 's| |T|g' > data/keepright/src/timestamp.txt
+fi
+
+osmmaps/scripts/extract_countries data/keepright/src data/keepright
+if [ $? -ne 0 ] ; then
+  echo "extracting countrys failed"
+  exit 2
+fi

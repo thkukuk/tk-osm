@@ -1,0 +1,21 @@
+route_icn=* { set route_name='${route_name}, ${route_icn}' |
+		'${route_icn}' }
+route_ncn=* { set route_name='${route_name}, ${route_ncn}' |
+		'${route_ncn}'}
+route_rcn=* { set route_name='${route_name}, ${route_rcn}' |
+		'${route_rcn}'}
+route_lcn=* { set route_name='${route_name}, ${route_lcn}' |
+		'${route_lcn}'}
+route_tcn=* { set route_name='${route_name}, ${route_tcn}' |
+                   '${route_tcn}'}
+
+
+route_icn=* {name '${route_name}'; set bicycle=yes} [0x10f01 level 4-6 continue]
+route_icn=* {name '${route_name}'; set bicycle=yes} [0x01 road_class=4 level 3]
+route_ncn=* {name '${route_name}'; set bicycle=yes} [0x10f02 level 4-5 continue]
+route_ncn=* {name '${route_name}'; set bicycle=yes} [0x02 road_class=4 level 3]
+route_rcn=* {name '${route_name}'; set bicycle=yes} [0x10f03 level 4-4 continue]
+route_rcn=* {name '${route_name}'; set bicycle=yes} [0x03 road_class=4 level 3]
+route_lcn=* {name '${route_name}'; set bicycle=yes} [0x04 road_class=4 level 3]
+# tcn is "touristic", nothing official, but used. Map as regional
+route_tcn=* {name '${route_name}'; set bicycle=yes} [0x03 road_class=4 level 3]

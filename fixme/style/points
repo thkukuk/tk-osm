@@ -1,0 +1,15 @@
+
+#include 'locator';
+
+# Openstreetbugs:
+type = '0' {name 'Bug: ${text}'} [0x7111 level 3]
+# don't show fixed bugs
+#type = '1' {name '${text}'} [0x7112 level 3]
+
+#note=* {name 'Notiz: ${note}'} [0x7110 level 3]
+note=* & (note ~ 'FIXME.*' | note ~ 'fixme.*' |note ~ 'Fixme.*')
+	{name 'Notiz: ${note}'}
+		[0x7111 level 3]
+fixme=* | FIXME=* | Fixme=*
+	{name 'Fixme: ${fixme}' | 'Fixme: ${FIXME}' | 'Fixme: ${Fixme}' } 
+		[0x7111 level 3]

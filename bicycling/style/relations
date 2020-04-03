@@ -1,0 +1,53 @@
+# Relations-Style for the bicyclepath network as additional 
+# transparent layer.
+
+network=icn {
+	apply {
+		set route_icn='$(route_icn), ${name} (${ref})' | 
+		     '$(route_icn), ${name}' | 
+		     '$(route_icn), ${ref}' | '${name} (${ref})'  | 
+		     '${name}' | '${ref}'
+	}
+}
+
+
+
+network=ncn {
+	apply {
+		set route_ncn='$(route_ncn), ${name} (${ref})' | 
+		     '$(route_ncn), ${name}' | 
+		     '$(route_ncn), ${ref}' | '${name} (${ref})'  | 
+		     '${name}' | '${ref}'
+	}
+}
+
+
+
+network=rcn {
+	apply {
+		set route_rcn='$(route_rcn), ${name} (${ref})' | 
+		     '$(route_rcn), ${name}' | 
+		     '$(route_rcn), ${ref}' | '${name} (${ref})'  | 
+		     '${name}' | '${ref}'
+	}
+}
+
+
+network=lcn {
+	apply {
+		set route_lcn='$(route_lcn), ${name} (${ref})' | 
+		     '$(route_lcn), ${name}' | 
+		     '$(route_lcn), ${ref}' | '${name} (${ref})'  | 
+		     '${name}' | '${ref}'
+	}
+}
+
+network=tcn {
+        apply {
+                set route_tcn='$(route_tcn), ${name} (${ref})' |
+                     '$(route_tcn), ${name}' |
+                     '$(route_tcn), ${ref}' | '${name} (${ref})'  |
+                     '${name}' | '${ref}'
+        }
+}
+

@@ -1,0 +1,7 @@
+
+##include 'locator';
+
+#note=*  {name 'Notiz: ${note}'} [0x36 level 3]
+(fixme = * | FIXME=* |Fixme=*) & boundary!=* & landuse!=*
+	{name 'Fixme: ${fixme}' | 'Fixme: ${FIXME}' | 'Fixme: ${Fixme}'}
+		[0x36 level 2]

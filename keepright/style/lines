@@ -1,0 +1,11 @@
+
+##include 'locator';
+
+# If something is not meant to have a name, record this so
+# that it doesn't get highlighted.
+noname=yes { name 'deliberately does not have a name' }
+
+# 
+# Fixme tags are part of Fixme layer
+
+# Streets without name should be part of Fixme, too.

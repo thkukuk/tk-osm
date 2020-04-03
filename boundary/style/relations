@@ -1,0 +1,94 @@
+
+#
+# You can have rules for relations.  Usually you will set tags on the
+# elements that make up the relation.
+#
+
+# country borders/national borders
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=2
+& name=*
+{ apply
+  {
+    set boundary2=yes;
+    set mkgmap:boundary2_name='$(mkgmap:boundary2_name)/${name}' | '${name}';
+  }
+}
+
+# federal states border (Bundesland)
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=4
+& name=*
+{ apply
+  {
+    set boundary4=yes;
+    set mkgmap:boundary4_name='$(mkgmap:boundary4_name)/${name}' | '${name}';
+  }
+}
+
+
+# state-district border (Regierungsbezirk)
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=5
+& name=*
+{ apply
+  {
+    set boundary5=yes;
+    set mkgmap:boundary5_name='$(mkgmap:boundary5_name)/${name}' | '${name}';
+  }
+}
+
+# county borders (Landkreise/Kreise/kreisfreie Städte)
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=6
+& name=*
+{ apply
+  {
+    set boundary6=yes;
+    set mkgmap:boundary6_name='$(mkgmap:boundary6_name)/${name}' | '${name}';
+  }
+}
+
+# Towns, Municipalities/City-districts (Stadt,Gemainde)
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=8
+& name=*
+{ apply
+  {
+    set boundary8=yes;
+    set mkgmap:boundary8_name='$(mkgmap:boundary8_name)/${name}' | '${name}';
+  }
+}
+
+# Stadtbezirk/Gemeindeteil mit Selbstverwaltung
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=9
+& name=*
+{ apply
+  {
+    set boundary9=yes;
+    set mkgmap:boundary9_name='$(mkgmap:boundary9_name)/${name}' | '${name}';
+  }
+}
+
+# Stadtteil/Gemeindeteil ohne Selbstverwaltung
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=10
+& name=*
+{ apply
+  {
+    set boundary10=yes;
+    set mkgmap:boundary10_name='$(mkgmap:boundary10_name)/${name}' | '${name}';
+  }
+}
+
+# Statistical or historical Stadtviertel
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=11
+& name=*
+{ apply
+  {
+    set boundary11=yes;
+    set mkgmap:boundary11_name='$(mkgmap:boundary11_name)/${name}' | '${name}';
+  }
+}

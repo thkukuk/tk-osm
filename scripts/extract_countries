@@ -1,0 +1,91 @@
+#!/bin/bash
+
+INPUTDIR=${1:-data/planet}
+DATADIR=${2:-data/osm}
+
+set -o nounset
+#set -o errexit
+
+onerror ()
+{
+  cleanup 2
+}
+
+cleanup ()
+{
+  rm -rf .tmp
+  popd > /dev/null
+  exit $1
+}
+
+trap onerror INT TERM
+
+print_date ()
+{
+  echo -n "Timestamp: "
+  date +"%F %k:%M"
+}
+
+extract ()
+{
+# Arguments:
+# $1 - Input file
+# $2 - name of country
+  echo "Extracting $2 ..."
+  osmconvert $1 -B=osmmaps/scripts/poly/$2.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=${DATADIR}/.tmp/$2.osm.pbf
+  if [ $? -ne 0 ] ; then
+    echo "osmconvert failed extracting $2"
+    exit 2
+  fi
+}
+
+# check timestamp.txt content if we have a newer input file
+cmp -s ${INPUTDIR}/timestamp.txt ${DATADIR}/timestamp.txt
+if [ $? -eq 0 ] ; then
+  echo "No new input file to extract from"
+  exit 1
+fi
+
+INPUT=`/bin/ls ${INPUTDIR}/*-*.osm.* | sort -r | head -1`
+
+echo "Extract countries from $INPUT ..."
+
+rm -rf ${DATADIR}/.tmp
+mkdir -p ${DATADIR}/.tmp || exit 2
+
+WORLD_COUNTRIES="europe usa usa-caribbean usa-hawaii usa-alaska canada india new_zealand singapore"
+EUROPE_COUNTRIES="DACH benelux channel_islands croatia czech_republic ireland italy france scandinavia great_britain portugal spain canary_islands iceland germany"
+USA_COUNTRIES="usa-northeast usa-west usa-midwest usa-south"
+
+export -f extract
+export DATADIR
+
+print_date
+
+parallel --jobs 6 --halt now,fail=1 extract ::: $INPUT ::: ${WORLD_COUNTRIES}
+if [ $? -ne 0 ] ; then
+  echo "parallel extracting failed"
+  exit 2
+fi
+
+print_date
+
+parallel --halt now,fail=1 extract ::: ${DATADIR}/.tmp/europe.osm.pbf ::: ${EUROPE_COUNTRIES}
+if [ $? -ne 0 ] ; then
+  echo "parallel extracting failed"
+  exit 2
+fi
+
+print_date
+
+parallel --halt now,fail=1 extract ::: ${DATADIR}/.tmp/usa.osm.pbf ::: ${USA_COUNTRIES}
+if [ $? -ne 0 ] ; then
+  echo "parallel extracting failed"
+  exit 2
+fi
+
+print_date
+
+mv ${DATADIR}/.tmp/* ${DATADIR}/
+cp -av ${INPUTDIR}/timestamp.txt ${DATADIR}/timestamp.txt
+rmdir ${DATADIR}/.tmp

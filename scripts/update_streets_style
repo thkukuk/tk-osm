@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in lines points polygons ; do
+   scripts/ppp.pl basemap/style/$i streets/style/$i -DSTREETS
+done
+for i in options relations inc/access inc/access_country inc/roadspeed ; do
+   cp basemap/style/$i streets/style/$i
+done

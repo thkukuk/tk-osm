@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -o nounset
+set -o errexit
+
+onerror ()
+{
+  cleanup 2
+}
+
+cleanup ()
+{
+  rm -rf .tmp
+  popd > /dev/null
+  exit $1
+}
+
+trap onerror INT TERM
+
+pushd data/planet > /dev/null
+
+rm -rf .tmp
+mkdir .tmp || cleanup 2
+
+CURRENT=`/bin/ls planet-*.osm.pbf | sort -r | head -1`
+NEXT=`date "+%Y%m%d%H%M%S"`
+
+echo `date +%Y-%m-%dT%H:%M:%SZ` > .tmp/timestamp.txt
+
+osmupdate --max-merge=20 $CURRENT .tmp/planet-${NEXT}.osm.pbf
+if [ $? -ne 0 ] ; then
+  echo "osmupdate failed!"
+  cleanup 2
+fi
+
+if [ ! -f .tmp/planet-${NEXT}.osm.pbf ]; then
+  echo "planet-${NEXT}.osm.pbf does not exist!"
+  cleanup 2
+fi
+
+mv .tmp/timestamp.txt .
+mv .tmp/planet-${NEXT}.osm.pbf .
+# cleanup old files
+rm -vf `/bin/ls planet-*.osm.pbf | sort | head -n -3` ||:
+
+rm -rf .tmp
+
+popd > /dev/null

@@ -1,0 +1,30 @@
+# -------------------------------------------------------------------
+# Adress mapping
+
+include 'inc/address';
+
+# -------------------------------------------------------------------
+# Lösche disused POI
+disused=yes & (amenity=* | shop=*)
+        { delete amenity; delete shop; }
+
+# -------------------------------------------------------------------
+# Öffnungszeiten
+
+opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hours}'}
+
+# -------------------------------------------------------------------
+# Essen
+
+amenity=fast_food & name ~ 'Kentucky Fried Chicken.*'
+						[0x1606 level 1]
+amenity=fast_food & name ~ 'Pizza Hut.*'	[0x1604 level 2]
+amenity=fast_food & cuisine ~ '.*[Pp]izza.*'    [0x1605 level 2]
+amenity=fast_food & cuisine ~ '.*[Pp]izzeria.*' [0x1605 level 2]
+amenity=fast_food & cuisine ~ 'burger' & name ~ 'Burger King'
+						[0x1601 level 3]
+amenity=fast_food & cuisine ~ 'burger' & name ~ 'McDonald.*'
+						[0x1602 level 3]
+amenity=fast_food & cuisine ~ 'burger'          [0x1603 level 2]
+amenity=fast_food                               [0x161f level 0]
+

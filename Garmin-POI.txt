@@ -1,0 +1,118 @@
+Attraktionen
+- Arena/Rennbahn:		0x2c08
+- Museum/Historisches:		0x2c02, 0x2c11
+- Park/Garten:			0x2c00, 0x2c06, 0x491a-0x491f, 0x4a16-0x4a1f,
+				0x640e
+- Saal/Auditorium:		0x2c09
+- Sehenswürdigkeit:		0x2c04, 0x2c07 (Zoo), 0x5200-0x521f
+- Weingut:			0x2c0a
+
+Autoservices
+- Automobilclub:		0x2f0d
+- Autoreparatur:		0x2f03
+- Autovermietung:		0x2f02
+- Autowaschanlage:		0x2f0e
+- Abschleppdienst:		0x2f0a
+- Händler/Autoteile:		0x2f07, 0x3100-0x311f
+- Parkplatz:			0x2f0b, 0x4d00-0x4d1f
+- Rastplatz (Toiletten):	0x2f0c, 0x4e00-0x4e1f
+- Besucherinformation (Rastpl.):0x4c00-0x4c1f
+- Truckstop:			0x2f16
+
+Bank/Geldautomat:		0x2f06, 0x2f1d, 0x2f1e
+
+Beförderungsmittel/Verkehrsmittel:
+- Autovermietung:		0x2f02
+- Bahnhof (Landverkehr):	0x2f08, 0x2f1f
+- Flughafen (Luftverkehr):	0x2f04, 0x5900-0x591f (0x5904 Helipad)
+- Transitservice:		0x2f17
+
+Einkaufsmöglichkeiten:
+- Apotheke/Drogerie:		0x2e05
+- Bedarfsartikel:		0x2e06
+- Bekleidung:			0x2e07
+- Computer/Software:		0x2e0b
+- Einkaufszentrum:		0x2e04, 0x2e0d (Garmin)
+- Einrichtungsgegenstände:	0x2e09
+- Gemischtwaren:		0x2e00, 0x2e03
+- Haus und Garten:		0x2e08
+- Kaufhaus:			0x2e01
+- Lebensmittel:			0x2e02
+- Spezialitäteneinzelhandel:	0x2e0a
+
+Essen & Trinken:
+- Amerikanisch:			0x2a01, 0x2a1b
+- Cafe:				0x2a0e
+- Asiatisch:			0x2a02
+- Chinesisch:			0x2a04
+- Deutsch:			0x2a10
+- Englisch:			0x2a11
+- Feinkostladen:		0x2a0d
+- Deli/Bäckerei:		0x2a05
+- Französisch:			0x2a0f
+- Grill/Barbecue-Restaurant:	0x2a03
+- International:		0x2a06, 0x2a13-0x2a1f
+- Italienisch:			0x2a08
+- Pizza:			0x2a0a
+- Meeresfrüchte:		0x2a0b
+- Mexikanisch:			0x2a09
+- Schnellimbiss:		0x2a07
+- Sonstige:			0x2a00, 0x4500-0x451f
+- Spezialitäten:		0x2a12
+- Steak/Grill:			0x2a0c
+
+Freizeit
+- Arena/Rennbahn:		0x2c08, 0x2c13 (Garmin)
+- Golfplatz: 			0x2d05, 0x4000-0x401f, 0x2d12 (Garmin)
+				0x4010-0x401f (Mapsource)
+- Sportflugplatz:		0x2d0b
+- Park/Garten:			0x2c06, 0x491a-0x491f, 0x4a16-0x4a1f, 0x640e
+- Skizentrum/Skiort:		0x2d06, 0x5300-0x531f
+- Bowling-Center:		0x2d07
+- Eisbahn:			0x2d08
+- Schwimmbad:			0x2d09, 0x5400-0x541f
+- Sport/Fitnesscenter:		0x2d0a, 0x5c00-0x5c1f, 0x2d13 (Garmin)
+- Vergnügungspark/Themenpark	0x2c01
+
+Gemeinde
+- Andachtsort:			0x2c0b, 0x6404
+- Bibliothek:			0x2c03
+- Feuerwehr:			0x3008
+- Gemeindezentrum:		0x3005, 0x300a (Garmin)
+- Gericht:			0x3004
+- Grenzübergang:		0x3006
+- Polizeistation:		0x3001
+- Postamt:			0x2f05, 0x640f
+- Rathaus:			0x3003
+- Regierungsstelle:		0x3000, 0x3007
+- Schule:			0x2c05, 0x6410
+- Versorgungsbetrieb:		0x2f15
+
+Kraftstoff:
+- Autokraftstoff:		0x2f01, 0x4400-0x441f
+- Bedarfsartikel:		0x2e06
+- Truckstop:			0x2f16
+
+Krankenhaus:			0x3002, 0x4b00-0x4b1f, 0x6408
+
+Sonstige:
+- Dienstleistungen für Einzelpersonen:	0x2f10
+- Dienstleistungen für Unternehmen:	0x2f11
+- GARMIN-Händler:			0x2f0f
+- Kommunikation:			0x2f12
+- Reparaturservice:			0x2f13
+- Sonstige:				0x2f00
+- Sozialeinrichtungen:			0x2f14
+- Yachthafen/Reparatur & Lager:		0x2f09, 0x4300-0x431f
+
+Unterhaltung:
+- Bar/Nachtclub:		0x2d03, 0x2d0d, 0x2d0e, 0x4600-0x461f
+- Casino:			0x2d04
+- Kino:				0x2d03, 0x2d10, 0x2d11
+- Saal/Auditorium:		0x2c09
+- Theater:			0x2d00, 0x2d01, 0x2d11
+
+Unterkunft:
+- Campingplatz/Wohnmobil-Park:	0x2b03, 0x2b05, 0x2b06, 0x4800-0x481f
+- Trainingscamp (Sport):	0x2b07
+- Hotel/Motel:			0x2b00, 0x2b01, 0x2b02, 0x2b04

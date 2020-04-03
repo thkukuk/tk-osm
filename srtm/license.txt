@@ -1,0 +1,1 @@
+SRTM Data available from the U.S. Geological Survey (http://eros.usgs.gov/#/About_Us/Customer_Service/Data_Citation) and Jonathan de Ferranti (http://www.viewfinderpanoramas.org/dem3.html). It is free for private use.

@@ -1,0 +1,374 @@
+#!/bin/bash
+
+COUNTRY=${1:-DACH}
+SPLITTER_MAXNODES=1400000
+#SPLITTER_MAXNODES=700000
+SPLITTER_OVERLAP="0 --keep-complete=true"
+SPLITTER_OVERLAP_OLD=10000
+
+# URL COUNTRY SUFFIX
+DownloadSource()
+{
+  local UPDATE=0
+  local URL=$1
+  local OSMDATA=$2.$3
+
+  if [ x"$URL" != x -a ! -f no-download ]; then
+    mkdir -p data/osm
+    cd data/osm
+    if [ -f $OSMDATA ]; then
+      UPDATE=`echo $(((($(date +%s)-$(stat -c %Y ${OSMDATA})))/86400))`
+    else
+      UPDATE=1;
+    fi
+    if [ $UPDATE -ne 0 ]; then
+      test -f $OSMDATA && mv -f $OSMDATA $OSMDATA.tmp
+      wget -nv ${URL}${OSMDATA}
+      if [ $? -ne 0 ]; then
+         echo "wget failed!"
+         test -f $OSMDATA.tmp && mv -f  $OSMDATA.tmp $OSMDATA
+         exit 1
+      fi
+      test -f $OSMDATA.tmp && rm -f $OSMDATA.tmp
+    fi
+    cd ../..
+  fi
+}
+
+# Split country osm data into tiles
+SplitIntoTiles()
+{
+SRCDIR=$1
+OUTPUTDIR=build/$COUNTRY/$2
+
+rm -rf $OUTPUTDIR
+mkdir -p $OUTPUTDIR
+if [ -f osmmaps/basemap/areas.$COUNTRY.list -a "$OUTPUTDIR" == "tiles" ]; then
+	AREALIST="--split-file=osmmaps/basemap/areas.$COUNTRY.list"
+fi
+
+PRECOMP_SEA=""
+if [ -e data/sea/current ]; then
+  PRECOMP_SEA="--precomp-sea=data/sea/current"
+fi
+
+#case "$COUNTRY" in
+#  *)
+#  NOTRIM="--no-trim"
+#  ;;
+#esac
+#wget http://download.geonames.org/export/dump/cities15000.zip
+tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP} --max-areas=1024 $NOTRIM $PRECOMP_SEA --geonames-file=osmmaps/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
+RETVAL=$?
+#if [ $RETVAL -eq 255 ] ; then
+#   tilesplitter --mapid=$TILEID --max-nodes=${SPLITTER_MAXNODES} --overlap=${SPLITTER_OVERLAP_OLD} --max-areas=1024  $NOTRIM $PRECOMP_SEA --geonames-file=osmmaps/scripts/cities/${COUNTRY_ABBR}.txt  --description="$DESC" --output=pbf --output-dir=$OUTPUTDIR $SRCDIR/$COUNTRY.$SUFFIX $AREALIST
+#   RETVAL=$?
+#fi
+if [ $RETVAL -ne 0 -o ! -f $OUTPUTDIR/${TILEID}.osm.pbf ] ; then
+  echo "tilesplitter failed!"
+  exit 1
+fi
+test -f $SRCDIR/timestamp.txt && cp -v $SRCDIR/timestamp.txt $OUTPUTDIR
+}
+
+SUFFIX="osm.pbf"
+
+case "$COUNTRY" in
+SRTM-*)
+  COUNTRY=${COUNTRY##SRTM-}
+  MAPS="srtm"
+  SPLITTER_MAXNODES=3000000
+  case "$COUNTRY" in
+  benelux)
+    TILEID=71700501
+    COUNTRY_ABBR="BNL"
+    ;;
+  channel_islands)
+    TILEID=72200001
+    COUNTRY_ABBR="GBR"
+    ;;
+  croatia)
+    TILEID=72300001
+    COUNTRY_ABBR="HRV"
+    ;;
+  czech_republic)
+    TILEID=71300501
+    COUNTRY_ABBR="CZE"
+    ;;
+  DACH)
+    TILEID=71208001
+    COUNTRY_ABBR="DACH"
+    ;;
+  europe)
+    TILEID=71105001
+    COUNTRY_ABBR="EU"
+    ;;
+  france)
+    TILEID=71609001
+    COUNTRY_ABBR="FRA"
+    ;;
+  iceland)
+    TILEID=72550501
+    COUNTRY_ABBR="ISL"
+    ;;
+  india)
+    TILEID=72102001
+    COUNTRY_ABBR="IND"
+    ;;
+  ireland)
+    TILEID=71340501
+    COUNTRY_ABBR="IRL"
+    ;;
+  italy)
+    TILEID=71809001
+    COUNTRY_ABBR="ITA"
+    ;;
+  canada)
+    TILEID=71408001
+    COUNTRY_ABBR="CAN"
+    ;;
+  portugal)
+    TILEID=72502001
+    COUNTRY_ABBR="PRT"
+    ;;
+  scandinavia)
+    TILEID=71909001
+    COUNTRY_ABBR="DNS"
+    ;;
+  spain)
+    TILEID=72402001
+    COUNTRY_ABBR="ESP"
+    ;;
+  canary_islands)
+    TILEID=72402701
+    COUNTRY_ABBR="ESP"
+    ;;
+  usa*)
+    TILEID=71510001
+    COUNTRY_ABBR="USA"
+    ;;
+  new_zealand)
+    TILEID=72601001
+    COUNTRY_ABBR="NZL"
+    ;;
+  singapore)
+    TILEID=72661001
+    COUNTRY_ABBR="SGP"
+    ;;
+  great_britain)
+    TILEID=72000001
+    COUNTRY_ABBR="GBR"
+    ;;
+  germany)
+    TILEID=71690001
+    COUNTRY_ABBR="DEU"
+    ;;
+  *)
+    echo "SRTM-Country unknown!"
+    exit 1
+    ;;
+  esac
+  ;;
+DACH)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright address fixme
+  TILEID=71200001
+  COUNTRY_ABBR="DACH"
+  ;;
+germany)
+  MAPS="basemap"
+  TILEID=71690001
+  COUNTRY_ABBR="DEU"
+  ;;
+europe)
+  MAPS="basemap bicycling oepnv wanderwege" # marine streets keepright fixme
+  TILEID=71100001
+  COUNTRY_ABBR="EU"
+  #SPLITTER_MAXNODES=1200000
+  ;;
+benelux)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71700001
+  COUNTRY_ABBR="BNL"
+  ;;
+channel_islands)
+  MAPS="basemap bicycling oepnv" # wanderwege keepright marine fixme
+  TILEID=72200001
+  COUNTRY_ABBR="GBR"
+  ;;
+croatia)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright marine fixme
+  TILEID=72300001
+  COUNTRY_ABBR="HRV"
+  ;;
+czech_republic)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71300001
+  COUNTRY_ABBR="CZE"
+  ;;
+ireland)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71340001
+  COUNTRY_ABBR="IRL"
+  ;;
+france)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71600001
+  COUNTRY_ABBR="FRA"
+  ;;
+great_britain)
+  MAPS="basemap bicycling oepnv wanderwege" # keepright marine fixme
+  TILEID=72000001
+  COUNTRY_ABBR="GBR"
+  ;;
+iceland)
+  MAPS="basemap wanderwege oepnv bicycling" # marine keepright fixme
+  TILEID=72550001
+  COUNTRY_ABBR="ISL"
+  ;;
+india)
+  MAPS="basemap" # bicycling oepnv marine wanderwege keepright fixme
+  TILEID=72100001
+  COUNTRY_ABBR="IND"
+  ;;
+italy)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71800001
+  COUNTRY_ABBR="ITA"
+  ;;
+canada)
+  MAPS="basemap wanderwege" # bicycling oepnv marine keepright fixme
+  TILEID=71400001
+  COUNTRY_ABBR="CAN"
+  SPLITTER_MAXNODES=1200000
+  ;;
+usa*)
+  MAPS="basemap" # oepnv wanderwege bicycling marine keepright fixme
+  COUNTRY_ABBR="USA"
+  case "$COUNTRY" in
+    usa-northeast)
+      TILEID=71500001
+      ;;
+    usa-west)
+      TILEID=71500501
+      ;;
+    usa-midwest)
+      TILEID=71501001
+      ;;
+    usa-south)
+      TILEID=71501501
+      ;;
+    usa-caribbean)
+      TILEID=71520001
+      ;;
+  esac
+  ;;
+portugal)
+  MAPS="basemap bicycling oepnv wanderwege" # marine
+  TILEID=72500001
+  COUNTRY_ABBR="PRT"
+  ;;
+scandinavia)
+  MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+  TILEID=71900001
+  COUNTRY_ABBR="DNS"
+  ;;
+spain)
+  MAPS="basemap bicycling oepnv wanderwege" # marine
+  TILEID=72400001
+  COUNTRY_ABBR="ESP"
+  ;;
+canary_islands)
+  MAPS="basemap bicycling oepnv wanderwege" # marine
+  TILEID=72400201
+  COUNTRY_ABBR="ESP"
+  ;;
+new_zealand)
+  MAPS="basemap wanderwege" # bicycling oepnv marine
+  TILEID=72600001
+  COUNTRY_ABBR="NZL"
+  ;;
+singapore)
+  MAPS="basemap" # bicycling oepnv wanderwege marine
+  TILEID=72660001
+  COUNTRY_ABBR="SGP"
+  ;;
+*)
+  echo "Country unknown!"
+  exit 1
+  ;;
+esac
+
+CAPCOUNTRY=`echo $COUNTRY | sed -e 's/^us-/US_/' -e 's/^usa-/USA_/' -e 's/^usa/USA/' | sed -e 's/\(.\)\(.*\)/\u\1\2/' | sed -e 's/\(.*\)_\(.\)\(.*\)/\1_\u\2\3/'`
+DESC="TK-${CAPCOUNTRY}-Tile"
+
+BASE_IS_SPLITTED=NO
+KEEPRIGHT_IS_SPLITTED=NO
+OSMBUGS_IS_SPLITTED=NO
+MARINE_IS_SPLITTED=NO
+LAYER_IS_SPLITTED=NO
+
+for style in $MAPS ; do
+  CAPSTYLE=`echo $style | sed -e 's/\(.\)\(.*\)/\u\1\2/'`
+
+  case "$style" in
+  srtm)
+    SplitIntoTiles data/srtm tiles-srtm
+    ;;
+  osb)
+    CAPSTYLE="OSB"
+    if [ "$OSMBUGS_IS_SPLITTED" == "NO" ] ; then
+      /usr/bin/time osmmaps/scripts/update_osmbugs
+      if [ $? -ne 0 ] ; then
+        echo "update_osmbugs for $COUNTRY failed!"
+      else
+        SplitIntoTiles data/osmbugs tiles-osmbugs
+        OSMBUGS_IS_SPLITTED=YES
+      fi
+    fi
+    ;;
+  keepright)
+    CAPSTYLE="KeepRight"
+    if [ "$KEEPRIGHT_IS_SPLITTED" == "NO" ] ; then
+      /usr/bin/time osmmaps/scripts/update_keepright
+      if [ $? -eq 1 ] ; then
+        echo "update_keepright for $COUNTRY failed!"
+      else 
+        TMPMAXNODES=$SPLITTER_MAXNODES
+        SPLITTER_MAXNODES=20000
+        SplitIntoTiles data/keepright tiles-keepright
+        SPLITTER_MAXNODES=$TMPMAXNODES
+        KEEPRIGHT_IS_SPLITTED=YES
+      fi
+    fi
+    ;;
+  #bicycling|hiking|oepnv|wanderwege|marine)
+  #  if [ "$LAYER_IS_SPLITTED" == "NO" ] ; then
+  #    TMPMAXNODES=$SPLITTER_MAXNODES
+  #    SPLITTER_MAXNODES=6000000
+  #    SplitIntoTiles data/osm tiles-layer
+  #    SPLITTER_MAXNODES=$TMPMAXNODES
+  #    LAYER_IS_SPLITTED=YES
+  #  fi
+  #  ;;
+  *)
+    if [ "$BASE_IS_SPLITTED" == "NO" ] ; then
+      SplitIntoTiles data/osm tiles
+      BASE_IS_SPLITTED=YES
+    fi
+    ;;
+  esac
+  echo "Building $style ..."
+  rm -rf build/$COUNTRY/$style
+
+  /usr/bin/time osmmaps/scripts/create_map $style $COUNTRY $COUNTRY_ABBR
+  if [ $? -ne 0 ] ; then
+    echo "create_map for $style failed!"
+    exit 1
+  fi
+
+  /usr/bin/time osmmaps/scripts/create_7z $style $COUNTRY
+  if [ $? -ne 0 ] ; then
+    echo "create_7z for $style failed!"
+    exit 1
+  fi
+done

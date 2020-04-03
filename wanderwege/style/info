@@ -1,0 +1,13 @@
+
+# A short one line description of the style
+#
+summary: Der Wanderwege Layer
+
+# Version of the style itself
+#
+version=1.0
+
+# A longer description of the style.
+description {
+Layer der einige Wanderwage mit Wegfarbe und Symbol enthält.
+}

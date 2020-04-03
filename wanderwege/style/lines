@@ -1,0 +1,814 @@
+# Lines-File for the Wanderwege layer.
+
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10303 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{set saw_blue_56=yes; set saw_yellow_56=yes; set saw_green_56=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10306 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10303 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10306 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a03 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{set saw_blue=yes; set saw_yellow=yes; set saw_green=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a06 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10303 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{set saw_blue_56=yes; set saw_yellow_56=yes; set saw_red_56=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10307 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10303 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10307 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a03 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{set saw_blue=yes; set saw_yellow=yes; set saw_red=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a07 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10303 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_blue_56=yes; set saw_yellow_56=yes; set saw_black_56=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10303 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a03 level 3 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{set saw_blue=yes; set saw_yellow=yes; set saw_black=yes;
+	 name '${route_blue_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10304 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{set saw_blue_56=yes; set saw_green_56=yes; set saw_red_56=yes;
+	 name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10307 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10304 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10307 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a04 level 3 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{set saw_blue=yes; set saw_green=yes; set saw_red=yes;
+	 name '${route_blue_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a07 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10304 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_blue_56=yes; set saw_green_56=yes; set saw_black_56=yes;
+	 name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10304 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a04 level 3 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{set saw_blue=yes; set saw_green=yes; set saw_black=yes;
+	 name '${route_blue_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{set saw_blue_56=yes; set saw_red_56=yes; set saw_green_56=yes;
+	 name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a05 level 3 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{set saw_blue=yes; set saw_red=yes; set saw_green=yes;
+	 name '${route_blue_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a06 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10300 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 5-6 continue]
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_blue_56=yes; set saw_red_56=yes; set saw_black_56=yes;
+	 name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10300 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a00 level 3 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a05 level 3 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{set saw_blue=yes; set saw_red=yes; set saw_black=yes;
+	 name '${route_blue_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10301 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10304 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_red=* & saw_red_56!=*
+	{set saw_yellow_56=yes; set saw_green_56=yes; set saw_red_56=yes;
+	 name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10307 level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10301 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10304 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10307 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a01 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a04 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_red=* & saw_red!=*
+	{set saw_yellow=yes; set saw_green=yes; set saw_red=yes;
+	 name '${route_yellow_name}, ${route_green_name}, ${route_red_name}'}
+		[0x10a07 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10301 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10304 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_yellow_56=yes; set saw_green_56=yes; set saw_black_56=yes;
+	 name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10301 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10304 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a01 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a04 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=* &
+	route_black=* & saw_black!=*
+	{set saw_yellow=yes; set saw_green=yes; set saw_black=yes;
+	 name '${route_yellow_name}, ${route_green_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10301 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{set saw_yellow_56=yes; set saw_red_56=yes; set saw_green_56=yes;
+	 name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10301 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a01 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a05 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{set saw_yellow=yes; set saw_red=yes; set saw_green=yes;
+	 name '${route_yellow_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a06 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10301 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 5-6 continue]
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_yellow_56=yes; set saw_red_56=yes; set saw_black_56=yes;
+	 name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10301 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a01 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a05 level 3 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{set saw_yellow=yes; set saw_red=yes; set saw_black=yes;
+	 name '${route_yellow_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10302 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10303 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_green=* & saw_green_56!=*
+	{set saw_green_56=yes; set saw_yellow_56=yes; set saw_green_56=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10306 level 5-6 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10302 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10303 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10306 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a02 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a03 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_green=* & saw_green!=*
+	{set saw_green=yes; set saw_yellow=yes; set saw_green=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_green_name}'}
+		[0x10a06 level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10302 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10303 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_red=* & saw_red_56!=*
+	{set saw_green_56=yes; set saw_yellow_56=yes; set saw_red_56=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10307 level 5-6 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10302 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10303 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10307 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a02 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a03 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_red=* & saw_red!=*
+	{set saw_green=yes; set saw_yellow=yes; set saw_red=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_red_name}'}
+		[0x10a07 level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10302 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10303 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_yellow=* & saw_yellow_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_green_56=yes; set saw_yellow_56=yes; set saw_black_56=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10302 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10303 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a02 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a03 level 3 continue]
+route_green=* & saw_green!=* & route_yellow=* & saw_yellow!=* &
+	route_black=* & saw_black!=*
+	{set saw_green=yes; set saw_yellow=yes; set saw_black=yes;
+	 name '${route_green_name}, ${route_yellow_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10302 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_green=* & saw_green_56!=*
+	{set saw_green_56=yes; set saw_red_56=yes; set saw_green_56=yes;
+	 name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 5-6 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10302 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10305 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10306 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a02 level 3 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a05 level 3 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_green=* & saw_green!=*
+	{set saw_green=yes; set saw_red=yes; set saw_green=yes;
+	 name '${route_green_name}, ${route_red_name}, ${route_green_name}'}
+		[0x10a06 level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10302 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 5-6 continue]
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=* &
+	route_black=* & saw_black_56!=*
+	{set saw_green_56=yes; set saw_red_56=yes; set saw_black_56=yes;
+	 name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 5-6 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10302 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10305 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10308 level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a02 level 3 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a05 level 3 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=* &
+	route_black=* & saw_black!=*
+	{set saw_green=yes; set saw_red=yes; set saw_black=yes;
+	 name '${route_green_name}, ${route_red_name}, ${route_black_name}'}
+		[0x10a08 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_yellow=* & saw_yellow_56!=*
+	{set saw_blue_56=yes; set saw_yellow_56=yes;
+	 name '${route_blue_name}, ${route_yellow_name}'}
+		[0x10f05 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=*
+	{name '${route_blue_name}, ${route_yellow_name}'}
+		[0x10f05 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_yellow=* & saw_yellow!=*
+	{set saw_blue=yes; set saw_yellow=yes;
+	 name '${route_blue_name}, ${route_yellow_name}'}
+		[0x10105 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_green=* & saw_green_56!=*
+	{set saw_blue_56=yes; set saw_green_56=yes;
+	 name '${route_blue_name}, ${route_green_name}'}
+		[0x10f06 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=*
+	{name '${route_blue_name}, ${route_green_name}'}
+		[0x10f06 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_green=* & saw_green!=*
+	{set saw_blue=yes; set saw_green=yes;
+	 name '${route_blue_name}, ${route_green_name}'}
+		[0x10106 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_red=* & saw_red_56!=*
+	{set saw_blue_56=yes; set saw_red_56=yes;
+	 name '${route_blue_name}, ${route_red_name}'}
+		[0x10f07 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=*
+	{name '${route_blue_name}, ${route_red_name}'}
+		[0x10f07 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_red=* & saw_red!=*
+	{set saw_blue=yes; set saw_red=yes;
+	 name '${route_blue_name}, ${route_red_name}'}
+		[0x10107 level 3 continue with_actions]
+
+route_blue=* & saw_blue_56!=* & route_black=* & saw_black_56!=*
+	{set saw_blue_56=yes; set saw_black_56=yes;
+	 name '${route_blue_name}, ${route_black_name}'}
+		[0x10f08 level 5-6 continue]
+route_blue=* & saw_blue!=* & route_black=* & saw_black!=*
+	{name '${route_blue_name}, ${route_black_name}'}
+		[0x10f08 level 4-4 continue]
+route_blue=* & saw_blue!=* & route_black=* & saw_black!=*
+	{set saw_blue=yes; set saw_black=yes;
+	 name '${route_blue_name}, ${route_black_name}'}
+		[0x10108 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_green=* & saw_green_56!=*
+	{set saw_yellow_56=yes; set saw_green_56=yes;
+	 name '${route_yellow_name}, ${route_green_name}'}
+		[0x10f09 level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=*
+	{name '${route_yellow_name}, ${route_green_name}'}
+		[0x10f09 level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_green=* & saw_green!=*
+	{set saw_yellow=yes; set saw_green=yes;
+	 name '${route_yellow_name}, ${route_green_name}'}
+		[0x10109 level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_red=* & saw_red_56!=*
+	{set saw_yellow_56=yes; set saw_red_56=yes;
+	 name '${route_yellow_name}, ${route_red_name}'}
+		[0x10f0a level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=*
+	{name '${route_yellow_name}, ${route_red_name}'}
+		[0x10f0a level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_red=* & saw_red!=*
+	{set saw_yellow=yes; set saw_red=yes;
+	 name '${route_yellow_name}, ${route_red_name}'}
+		[0x1010a level 3 continue with_actions]
+
+route_yellow=* & saw_yellow_56!=* & route_black=* & saw_black_56!=*
+	{set saw_yellow_56=yes; set saw_black_56=yes;
+	 name '${route_yellow_name}, ${route_black_name}'}
+		[0x10f0b level 5-6 continue]
+route_yellow=* & saw_yellow!=* & route_black=* & saw_black!=*
+	{name '${route_yellow_name}, ${route_black_name}'}
+		[0x10f0b level 4-4 continue]
+route_yellow=* & saw_yellow!=* & route_black=* & saw_black!=*
+	{set saw_yellow=yes; set saw_black=yes;
+	 name '${route_yellow_name}, ${route_black_name}'}
+		[0x1010b level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_red=* & saw_red_56!=*
+	{set saw_green_56=yes; set saw_red_56=yes;
+	 name '${route_green_name}, ${route_red_name}'}
+		[0x10f0c level 5-6 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=*
+	{name '${route_green_name}, ${route_red_name}'}
+		[0x10f0c level 4-4 continue]
+route_green=* & saw_green!=* & route_red=* & saw_red!=*
+	{set saw_green=yes; set saw_red=yes;
+	 name '${route_green_name}, ${route_red_name}'}
+		[0x1010c level 3 continue with_actions]
+
+route_green=* & saw_green_56!=* & route_black=* & saw_black_56!=*
+	{set saw_green_56=yes; set saw_black_56=yes;
+	 name '${route_green_name}, ${route_black_name}'}
+		[0x10f0d level 5-6 continue]
+route_green=* & saw_green!=* & route_black=* & saw_black!=*
+	{name '${route_green_name}, ${route_black_name}'}
+		[0x10f0d level 4-4 continue]
+route_green=* & saw_green!=* & route_black=* & saw_black!=*
+	{set saw_green=yes; set saw_black=yes;
+	 name '${route_green_name}, ${route_black_name}'}
+		[0x1010d level 3 continue with_actions]
+
+route_red=* & saw_red_56!=* & route_black=* & saw_black_56!=*
+	{set saw_red_56=yes; set saw_black_56=yes;
+	 name '${route_red_name}, ${route_black_name}'}
+		[0x10f0e level 5-6 continue]
+route_red=* & saw_red!=* & route_black=* & saw_black!=*
+	{name '${route_red_name}, ${route_black_name}'}
+		[0x10f0e level 4-4 continue]
+route_red=* & saw_red!=* & route_black=* & saw_black!=*
+	{set saw_red=yes; set saw_black=yes;
+	 name '${route_red_name}, ${route_black_name}'}
+		[0x1010e level 3 continue with_actions]
+
+
+
+route_blue=* & saw_blue_56!=* &
+	(route_blue_type=iwn | route_blue_type=nwn)
+	{set saw_blue_56=yes; name '${route_blue_name}'}
+		[0x10f00 level 5-6 continue]
+route_blue=* & saw_blue!=*
+	{name '${route_blue_name}'}	[0x10f00 level 4-4 continue]
+route_blue=* & saw_blue!=*
+	{set saw_blue=yes; name '${route_blue_name}'}
+		[0x10100 level 3 continue]
+route_yellow=* & saw_yellow_56!=* &
+	(route_yellow_type=iwn | route_yellow_type=nwn)
+	{set saw_yellow_56=yes; name '${route_yellow_name}'}
+		[0x10f01 level 5-6 continue]
+route_yellow=* & saw_yellow!=*
+	{name '${route_yellow_name}'}	[0x10f01 level 4-4 continue]
+route_yellow=* & saw_yellow!=*
+	{set saw_yellow=yes; name '${route_yellow_name}'}
+		[0x10101 level 3 continue]
+route_green=* & saw_green_56!=* &
+	(route_green_type=iwn | route_green_type=nwn)
+	{set saw_green_56=yes; name '${route_green_name}'}
+		[0x10f02 level 5-6 continue]
+route_green=* & saw_green!=*
+	{name '${route_green_name}'}	[0x10f02 level 4-4 continue]
+route_green=* & saw_green!=*
+	{set saw_green=yes; name '${route_green_name}'}
+		[0x10102 level 3 continue]
+route_red=* & saw_red_56!=* &
+	(route_red_type=iwn | route_red_type=nwn)
+	{set saw_red_56=yes; name '${route_red_name}'}
+		[0x10f03 level 5-6 continue]
+route_red=* & saw_red!=*
+	{name '${route_red_name}'}	[0x10f03 level 4-4 continue]
+route_red=* & saw_red!=*
+	{set saw_red=yes; name '${route_red_name}'}
+		[0x10103 level 3 continue]
+route_black=* & saw_black_56!=* &
+	(route_black_type=iwn | route_black_type=nwn)
+	{set saw_black_56=yes; name '${route_black_name}'}
+		[0x10f04 level 5-6 continue]
+route_black=* & saw_black!=*
+	{name '${route_black_name}'}	[0x10f04 level 4-4 continue]
+route_black=* & saw_black!=*
+	{set saw_black=yes; name '${route_black_name}'}
+		[0x10104 level 3 continue]
+route_orange=* & saw_orange_56!=* &
+	(route_orange_type=iwn | route_orange_type=nwn)
+	{set saw_orange_56=yes; name '${route_orange_name}'}
+		[0x10f11 level 5-6 continue]
+route_orange=* & saw_orange!=*
+	{name '${route_orange_name}'}	[0x10f11 level 4-4 continue]
+route_orange=* & saw_orange!=*
+	{set saw_orange=yes; name '${route_orange_name}'}
+		[0x10111 level 3 continue]
+route_white=* & saw_white_56!=* &
+	(route_white_type=iwn | route_white_type=nwn)
+	{set saw_white_56=yes; name '${route_white_name}'}
+		[0x10f10 level 5-6 continue]
+route_white=* & saw_white!=*
+	{name '${route_white_name}'}	[0x10f10 level 4-4 continue]
+route_white=* & saw_white!=*
+	{set saw_white=yes; name '${route_white_name}'}
+		[0x10110 level 3 continue]
+route_rest=*     {name '${route_rest}'}     [0x0f level 3 continue]
+route_greenway=* {name '${route_greenway}'} [0x16 level 3 continue]
+route_running=*  {name '${route_running}'}  [0x0e level 3 continue]

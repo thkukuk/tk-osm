@@ -1,0 +1,74 @@
+#!/bin/bash
+
+set -o nounset
+#set -o errexit
+
+onerror ()
+{
+  cleanup 2
+}
+
+cleanup ()
+{
+  rm -f mkgmap.log
+  rm -rf $TMPDIR
+  exit $1
+}
+
+trap onerror INT TERM
+
+PLANET=`/bin/ls data/planet/planet-*.osm.pbf |sort -r | head -1`
+DATE=`date "+%Y%m%d"`
+BOUNDSDIR=data/boundaries
+TMPDIR=${BOUNDSDIR}/.tmp
+
+rm -rf $TMPDIR
+mkdir -p $TMPDIR
+
+osmconvert $PLANET --out-o5m > $TMPDIR/world-$DATE.o5m
+if [ $? -ne 0 ] ; then
+  echo "osmconvert failed!"
+  cleanup 1
+fi
+
+
+osmfilter $TMPDIR/world-$DATE.o5m --keep-nodes= --keep-ways-relations="boundary=administrative =postal_code postal_code=" --drop="type=street type=associatedStreet type=place type=commune" | gzip -9 > $TMPDIR/boundaries-$DATE.osm.gz
+if [ $? -ne 0 ] ; then
+  echo "osmfilter failed!"
+  cleanup 1
+fi
+
+MKGMAP_LOG=osmmaps/scripts/logging.properties
+export MKGMAP_LOG
+
+rm -rf $TMPDIR/bounds-$DATE
+mkdir -p $TMPDIR/bounds-$DATE
+/usr/bin/time  env MKGMAP_MEM="8000M" mkgmap_boundary_preprocessor $TMPDIR/boundaries-$DATE.osm.gz $TMPDIR/bounds-$DATE
+if [ $? -ne 0 ] ; then
+  echo "mkgmap failed to create bounds files!"
+  cleanup 1
+fi
+grep -v "Non way member in role admin_centre" mkgmap.log |grep -v "Non way member in role label" > $BOUNDSDIR/mkgmap-${DATE}.log
+rm mkgmap.log
+
+DIRSIZE=`/usr/bin/du -BM -s $TMPDIR/bounds-$DATE |sed -e 's|M.*||g'`
+if [ ${DIRSIZE} -lt 1180 ]; then
+  echo "Failed, size ${DIRSIZE} to small"
+  cleanup 2
+fi
+
+mv $TMPDIR/bounds-$DATE $BOUNDSDIR
+rm $TMPDIR/boundaries-$DATE.osm.gz
+rm $BOUNDSDIR/current && ln -sf bounds-$DATE $BOUNDSDIR/current
+pushd $BOUNDSDIR/bounds-$DATE > /dev/null
+echo $DATE > version.txt
+zip -q ../bounds-$DATE *
+pushd > /dev/null
+
+# cleanup old files
+rm -rf `/bin/ls -d $BOUNDSDIR/bounds-* | grep -v zip | sort | head -n -3` ||:
+rm -f `/bin/ls $BOUNDSDIR/mkgmap-*.log | sort | head -n -3` ||:
+rm -f `/bin/ls $BOUNDSDIR/bounds-*.zip | sort | head -n -3` ||:
+
+
+cleanup 0

@@ -1,0 +1,38 @@
+# Relations-Style for the ÖPNV network as additional transparent layer.
+
+(route=bus | route=trolleybus) {
+	apply {
+		set route_bus='$(route_bus),${ref|not-contained:,:route_bus}' | '$(route_bus)' | '${ref}';
+	}
+}
+
+route=tram {
+        apply {
+                set route_tram='$(route_tram),${ref|not-contained:,:route_tram}' | '$(route_tram)' | '${ref}';
+        }
+}
+
+route=subway {
+        apply {
+                set route_subway='$(route_subway),${ref|not-contained:,:route_subway}' | '$(route_subway)' | '${ref}';
+        }
+}
+
+(route=train | route=light_rail) & (ref~'S.*' | ref~'R.*') {
+
+        apply {
+                set route_train='$(route_train),${ref|not-contained:,:route_train}' | '$(route_train)' | '${ref}';
+        }
+}
+
+route=monorail {
+        apply {
+                set route_monorail='$(route_monorail),${ref|not-contained:,:route_monorail}' | '$(route_monorail)' | '${ref}';
+        }
+}
+
+route=ferry {
+	apply {
+		set route_ferry='$(route_ferry),${ref|not-contained:,:route_ferry}' | '$(route_ferry)' | '${ref}';
+	}
+}

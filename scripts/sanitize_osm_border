@@ -1,0 +1,111 @@
+#!/usr/bin/perl
+
+# Copyright (C) 2011 Thorsten Kukuk
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# in Version 2 as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA  02110-1301, USA.
+
+
+=head1 NAME
+
+sanitize_osm_border - remove tags and action=delete from OSM file
+
+=head1 SYNOPSIS
+
+sanitize_osm_border [options] [<gpx-file> ...]
+
+=head1 DESCRIPTION
+
+sanitize_osm_border reads a OSM file and removes all action=delete
+nodes and all tags.
+
+=head1 OPTIONS
+
+  --version     Print version and exit
+  --usage       Print usage
+  --man         Display manual page
+  -h|-?         Help
+
+=cut
+
+use strict;
+use warnings;
+use Pod::Usage;
+use XML::Twig;
+
+#
+# process command line arguments
+#
+use Getopt::Long;
+my $help = 0;
+my $man = 0;
+my $version = 0;
+my $usage = 0;
+
+GetOptions('version' => \$version,
+	   'man' => \$man,
+	   'usage' => \$usage,
+	   'help|h|?' => \$help) or pod2usage(2);
+pod2usage(0) if $help;
+pod2usage(-exitstatus => 0, -verbose => 2) if $man;
+pod2usage(-exitstatus => 0, -verbose => 0) if $usage;
+
+if ($version) {
+  print "sanitize_osm_border 1.0\n";
+  exit;
+}
+
+my @InputFiles;
+if ($#ARGV >= 0) {
+  @InputFiles = (@ARGV);
+}
+else {
+  pod2usage(-exitstatus => 1, -verbose => 0);
+}
+
+my $Parser =
+  new XML::Twig(twig_handlers=>{'osm/node/tag' => \&OSMCheckTag,
+				'osm/node' => \&OSMGetEntry,
+				'osm/way' => \&OSMGetEntry,
+				'osm/way/tag' => \&OSMCheckTag,
+				'osm/relation' => \&OSMGetEntry},
+		keep_encoding => 1);
+
+foreach my $InputFileName (@InputFiles) {
+  $Parser->parsefile($InputFileName);
+  $Parser->print(pretty_print => 'indented');
+  $Parser->purge;
+}
+
+exit;
+
+sub OSMCheckTag
+{
+ my ($t, $wpt) = @_;
+ my $key = $wpt->{'att'}->{'k'};
+
+ $_->delete if ($key && ($key ne 'admin_level' && $key ne 'boundary'));
+
+ return;
+}
+
+sub OSMGetEntry
+{
+ my ($t, $wpt) = @_;
+ my $action = $wpt->{'att'}->{'action'};
+
+ $_->delete if ($action && $action eq 'delete');
+
+ return;
+}

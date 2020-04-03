@@ -1,0 +1,157 @@
+#!/bin/bash
+
+RESET_CACHE=0
+CREATE_SRTM=0
+BUILD_MAPS=0
+COUNTRY_ARG=""
+
+Usage()
+{
+        fmt -s << EOF
+
+create_srtm_data - create srtm data in pbf format for all countries
+
+Usage:
+
+  create_srtm_data [--create [--reset-cache]] [--build] [--country <area>]
+
+  --create         Create SRTM osm.pbf file for all areas
+  --reset-cache    Delete cache before creating SRTM data
+  --build          Create SRTM Garmin maps for all areas
+EOF
+        exit 1
+}
+
+create_source()
+{
+  COUNTRY=$1
+  AREA=$2
+  POLY=$1
+  SOURCE=${3:-view1,srtm1,view3,srtm3}
+  if [ x"$COUNTRY_ARG" == x"" -o "$COUNTRY_ARG" == "$COUNTRY" ]; then
+
+    echo "Running phyghtmap for ${COUNTRY} ($AREA)"
+    phyghtmap -j 1 --earthexplorer-user=thkukuk --earthexplorer-password=earth-Kukuk1 --source=${SOURCE} --start-node-id=1 --start-way-id=1 --max-nodes-per-tile=0 --max-nodes-per-way=100 --no-zero-contour --gzip=9 -s 10 -c 100,50 -a $AREA -o SRTM-${COUNTRY}
+   if [ $? -ne 0 ] ; then
+      echo "phyghtmap failed!"
+      exit 1
+    fi
+
+
+    osmconvert --out-statistics SRTM-${COUNTRY}_lon*.osm.gz
+    if [ $? -ne 0 ] ; then
+      echo "osmconvert failed!"
+      exit 1
+    fi
+
+    echo "Extracting polygone ($POLY)"
+    mkdir -p data/srtm
+    osmconvert SRTM-${COUNTRY}_lon*.osm.gz -B=osmmaps/scripts/poly/${POLY}.poly --drop-author --drop-version --drop-broken-refs --out-pbf -o=data/srtm/${COUNTRY}.osm.pbf
+    if [ $? -ne 0 ] ; then
+      echo "osmconvert failed extracting $2"
+      exit 2
+    fi
+    rm -fv SRTM-${COUNTRY}_lon*.osm.gz
+  fi
+}
+
+build_map()
+{
+  COUNTRY=$1
+
+  if [ x"$COUNTRY_ARG" == x"" -o "$COUNTRY_ARG" == "$COUNTRY" ]; then
+
+    echo "Running build_map for $COUNTRY"
+    env MKGMAP_MEM=10000M osmmaps/scripts/build_maps SRTM-$COUNTRY
+    if [ $? -ne 0 ] ; then
+      echo "build_maps failed for SRTM-$COUNTRY"
+      exit 2
+    fi
+    grep SEVERE build/$COUNTRY/srtm/mkgmap.gmapsupp.log || true
+    grep WARNING build/$COUNTRY/srtm/mkgmap.gmapsupp.log || true
+  fi
+}
+
+if [ $# -eq 0 ]; then
+  Usage
+fi
+
+while [ 1 ]; do
+  if [ $# -eq 0 ]; then
+    break
+  fi
+
+  if [ "X$1" = 'X--reset-cache' ]; then
+    RESET_CACHE=1
+    shift 1
+  elif [ "X$1" = 'X--create' ]; then
+    CREATE_SRTM=1
+    shift 1
+  elif [ "X$1" = 'X--build' ]; then
+    BUILD_MAPS=1
+    shift 1
+  elif [ "X$1" = 'X--country' ]; then
+    COUNTRY_ARG=$2
+    shift 2
+  else
+    Usage
+  fi
+done
+
+if [ $RESET_CACHE -eq 1 -a $CREATE_SRTM -eq 1 ]; then
+  test -d hgt && rm -rf hgt/*
+fi
+
+if [ $CREATE_SRTM -eq 1 ]; then
+   create_source benelux        "2.29:49.37:7.30:53.79"
+   create_source canada         "-141:41.6:-51.8:83.5"
+   create_source canary_islands	"-18.5:27.4:-13:30.2"
+   create_source croatia	"13.1:42:19.5:46.6"
+   create_source channel_islands "-3.00:48.5:-2:50"
+   create_source czech_republic "12.06:48.52:18.89:51.07"
+   create_source DACH           "5.74:45.80:17.20:55.22"
+   create_source europe		"-32:27:45:75"
+   create_source france         "-6:41:10:51.4"
+   create_source great_britain  "-14.2:49.49:2.25:61.22"
+   create_source india		"66:6:98:36"
+   create_source ireland        "-11.18:51.11:-5.00:55.70"
+   create_source iceland	"-25.20:62.99:-12.64:67.45"
+   create_source italy		"6.5:35:19:47.2"
+   create_source portugal	"-10:36:-6:42.5"
+   create_source scandinavia    "3:54:34:73"
+   create_source singapore      "103:1:104.5:2"
+   create_source spain		"-9.8:35.8:4.9:44.2"
+   create_source usa            "-126:23:-66:51"
+   #Bounds USA-Northeast: -81:38:-66:49
+   #Bounds USA-Midwest: -105:35:-80:50
+   #Bounds USA-West: -126:30:-102:51
+   #Bounds USA-South: -108:23:-69:41
+   create_source new_zealand    "165:-48:180:-33"
+fi
+
+if [ $BUILD_MAPS -eq 1 ]; then
+   build_map benelux
+   build_map canada
+   build_map canary_islands
+   build_map croatia
+   build_map czech_republic
+   build_map channel_islands
+   build_map DACH
+   build_map europe
+   build_map france
+   build_map great_britain
+   build_map iceland
+   build_map india
+   build_map ireland
+   build_map italy
+   build_map portugal
+   build_map scandinavia
+   build_map singapore
+   build_map spain
+   build_map new_zealand
+   build_map usa
+   #Bounds USA-Northeast: -81:38:-66:49
+   #Bounds USA-Midwest: -105:35:-80:50
+   #Bounds USA-West: -126:30:-102:51
+   #Bounds USA-South: -108:23:-69:41
+fi
