@@ -1,3 +1,3 @@
 # TK-OSM
 
-Scripts and configuration to generate the TK-OSM maps with mkgmap
+Scripts and configuration files to generate the TK-OSM maps with mkgmap
