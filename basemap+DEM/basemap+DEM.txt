@@ -1,4 +1,4 @@
-; basemap.TYP
+﻿; basemap.TYP
 
 [_id]
 ProductCode=1
@@ -12,14 +12,15 @@ CodePage=1252
 
 ;=========== POLYGONES : DRAW ORDER PRIORITY ======
 [_drawOrder]
-Type=0x04c,1	;; See
-Type=0x026,2	;; Land
-Type=0x001,3	;; Stadt
-Type=0x002,3	;; Siedlung
-Type=0x003,3	;; Wohngebiet
-Type=0x037,3	;; Militärgebiet
-Type=0x029,4	;; Eisenbahn
-Type=0x032,4	;; Spielplatz
+Type=0x04b,1    ;; Background
+Type=0x04c,2	;; Meer
+Type=0x026,3	;; Land
+Type=0x001,4	;; Stadt
+Type=0x002,4	;; Siedlung
+Type=0x003,4	;; Wohngebiet
+Type=0x037,4	;; Militärgebiet
+Type=0x029,5	;; Eisenbahn
+Type=0x032,5	;; See
 Type=0x00a,5	;; Universität
 Type=0x00c,5	;; Industriegebiet
 Type=0x00f,5	;; Flughafen Gelände
@@ -1847,6 +1848,14 @@ Xpm="32 32 4 1"
 "!!##!!##!!##!!##!!##!!##!!##!!##"
 "##!!##!!##!!##!!##!!##!!##!!##!!"
 ;12345678901234567890123456789012
+[end]
+
+[_polygon]
+Type=0x4b
+;GRMN_TYPE: Map Bounds/DATA_BOUNDS/Bounds of map after creation/Non NT
+ExtendedLabels=N
+Xpm="0 0 1 0"
+"1 c #FFFFFF"
 [end]
 
 

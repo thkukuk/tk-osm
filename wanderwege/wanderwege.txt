@@ -1,4 +1,4 @@
-; wanderwege.TYP
+﻿; wanderwege.TYP
 
 [_id]
 ProductCode=1
