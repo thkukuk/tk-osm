@@ -175,7 +175,7 @@ DACH)
   COUNTRY_ABBR="DACH"
   ;;
 germany)
-  MAPS="basemap"
+  MAPS="basemap" # mkgmap
   TILEID=71690001
   COUNTRY_ABBR="DEU"
   ;;
