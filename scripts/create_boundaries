@@ -43,7 +43,7 @@ export MKGMAP_LOG
 
 rm -rf $TMPDIR/bounds-$DATE
 mkdir -p $TMPDIR/bounds-$DATE
-/usr/bin/time  env MKGMAP_MEM="8000M" mkgmap_boundary_preprocessor $TMPDIR/boundaries-$DATE.osm.gz $TMPDIR/bounds-$DATE
+/usr/bin/time  env MKGMAP_MEM="16000M" mkgmap_boundary_preprocessor $TMPDIR/boundaries-$DATE.osm.gz $TMPDIR/bounds-$DATE
 if [ $? -ne 0 ] ; then
   echo "mkgmap failed to create bounds files!"
   cleanup 1
