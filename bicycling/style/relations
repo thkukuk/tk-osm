@@ -28,7 +28,7 @@ network=rcn {
 		set route_rcn='$(route_rcn), ${name} (${ref})' | 
 		     '$(route_rcn), ${name}' | 
 		     '$(route_rcn), ${ref}' | '${name} (${ref})'  | 
-		     '${name}' | '${ref}'
+		     '${name}' | '${ref}' | 'Regionaler Radweg'
 	}
 }
 
@@ -38,7 +38,7 @@ network=lcn {
 		set route_lcn='$(route_lcn), ${name} (${ref})' | 
 		     '$(route_lcn), ${name}' | 
 		     '$(route_lcn), ${ref}' | '${name} (${ref})'  | 
-		     '${name}' | '${ref}'
+		     '${name}' | '${ref}' | 'Lokaler Radweg'
 	}
 }
 
