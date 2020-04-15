@@ -8,7 +8,6 @@ use locale;
 use File::stat;
 
 my @imgfiles;
-my @stylefiles;
 my @pngfiles;
 
 my $cachedir = $ARGV[0];
@@ -84,12 +83,8 @@ TableStart
   </tr>
 MITTE
 
-  @stylefiles = sort @stylefiles;
-  foreach (@stylefiles) {
-    my ($file, $size, $mtime) = split(/""/, $_); # split the data
-    $file =~ s|$dir||i unless $dir eq '.';
-    write_styles ($file, $size, $mtime);
-  }
+  write_style ();
+
   print OUTPUT "</table>\n";
   print OUTPUT "</center>\n";
 }
@@ -120,7 +115,6 @@ sub makedirs {
     # my $random = int(rand(899)) + 100;
     my $data = join("\"\"","$file",$size,$mtime,$has_md5);
     push @imgfiles, $data if (/.img$/i || /.7z$/i);
-    push @stylefiles, $data if (/.tar.bz2$/i || /.zip$/i);
   }
 
   # Get the list of files in the current directory.
@@ -234,25 +228,13 @@ sub write_images {
 
 #------------------------------------------------------------------------------
 
-sub write_styles {
-  my ($file, $size, $mtime) = @_;
-
-  my ($sec,$min,$hour,$day,$month,$year) = localtime($mtime);
-  my $filedate = sprintf "%4d-%0.2d-%0.2d, $hour:%0.2d",
-    1900+$year, $month+1, $day, $min,;
-
-  $size = calc_size_str($size);
-
-  my @info = split (/\./,$file);
-  if (!$info[0]) {
-    return;
-  }
+sub write_style {
   print OUTPUT "<tr>\n";
-  print OUTPUT "  <td>$info[0]</td>\n";
+  print OUTPUT "  <td>tk-osm</td>\n";
 
-  print OUTPUT "  <td><A HREF=\"$file\">$file</A></td>\n";
-  print OUTPUT "  <td>$filedate</td>\n";
-  print OUTPUT "  <td align=\"right\">$size</td>\n";
+  print OUTPUT "  <td align=\"center\"><A HREF=\"https://github.com/thkukuk/tk-osm\">git</A></td>\n";
+  print OUTPUT "  <td></td>\n";
+  print OUTPUT "  <td align=\"right\"></td>\n";
   print OUTPUT " <td>Style und TYP Dateien sowie Skripte zum Generieren der Karten</td>\n";
 
   print OUTPUT "</tr>\n";
