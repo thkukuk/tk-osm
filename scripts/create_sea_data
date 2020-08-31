@@ -51,8 +51,7 @@ if [ $? -ne 0 ]; then
 fi
 
 DIRSIZE=`/usr/bin/du -sh .tmp/sea-$NEXT |sed -e 's|M.*||g'`
-# 179 is the current size for a correct coastline map without errors
-if [ ${DIRSIZE} -lt 200 ]; then
+if [ ${DIRSIZE} -lt 250 ]; then
   echo "Failed, size ${DIRSIZE} to small"
   cleanup 2
 fi
