@@ -58,8 +58,8 @@ if [ ${DIRSIZE} -lt 1180 ]; then
 fi
 
 mv $TMPDIR/bounds-$DATE $BOUNDSDIR
-rm $TMPDIR/boundaries-$DATE.osm.gz
-rm $BOUNDSDIR/current && ln -sf bounds-$DATE $BOUNDSDIR/current
+rm -f $TMPDIR/boundaries-$DATE.osm.gz
+rm -f $BOUNDSDIR/current && ln -sf bounds-$DATE $BOUNDSDIR/current
 pushd $BOUNDSDIR/bounds-$DATE > /dev/null
 echo $DATE > version.txt
 zip -q ../bounds-$DATE *

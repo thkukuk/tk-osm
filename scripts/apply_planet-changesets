@@ -27,7 +27,7 @@ NEXT=`date "+%Y%m%d%H%M%S"`
 
 echo `date +%Y-%m-%dT%H:%M:%SZ` > .tmp/timestamp.txt
 
-osmupdate --max-merge=20 $CURRENT .tmp/planet-${NEXT}.osm.pbf
+osmupdate --hour --day --max-merge=20 $CURRENT .tmp/planet-${NEXT}.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "osmupdate failed!"
   cleanup 2
