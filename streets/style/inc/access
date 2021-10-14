@@ -19,7 +19,7 @@
 highway=* & motorroad=yes                  { add bicycle=no; add foot=no; }
 highway=motorway | highway=motorway_link   { add bicycle=no; add foot=no; }
 
-(access=agricultural | access=forestry)    { set access=no; add foot=yes }
+(access=agricultural | access=forestry) { set access=no; add foot=yes }
 
 # Now fill the access tree (http://wiki.openstreetmap.org/wiki/Key:access) 
 # This is required so that subsequent rules do not add a tag (bicycle) which is already defined by a higher tag (vehicle) 
@@ -44,7 +44,7 @@ railway=platform                           { add foot=yes; add access=no }
 # throughroute cannot be handled differently for different vehicle types
 # Therefore we have to choose one vehicle type - and the winner is: motorcar
 motorcar=destination  | motorcar=delivery { set mkgmap:throughroute=no; set motorcar=yes } 
-access=destination    | access=delivery   { set mkgmap:throughroute=no; set access=yes
+access=destination    | access=delivery   { set mkgmap:throughroute=no; set access=yes }
 
 # Normalize all values that indicate a restriction to 'no'
 foot=private          | foot=agricultural       | foot=forestry       { set foot=no }
@@ -75,3 +75,4 @@ access=* { addaccess '${access}' }
 
 # Don't route through highway=construction, they are considered unusable 
 highway=construction {setaccess no}
+
