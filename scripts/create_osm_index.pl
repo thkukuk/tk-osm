@@ -261,7 +261,7 @@ print OUTPUT <<"HeaderText";
 <li><a href=\"MapSource-Wine.html\">MapSource unter Linux mit Wine</a></li>
 <li><a href=\"srtm.html\">SRTM-H&ouml;henlinien erzeugen</a></li>
 <li><a href=\"Wanderwege/\">Infos zum Wanderwege-Layer</a></li>
-<li><a href=\"data/\">\\\"bounds\\\" und \\\"sea\\\" Daten f&uuml;r mkgmap</a>
+<li><a href=\"data/\">\"bounds\" und \"sea\" Daten f&uuml;r mkgmap</a>
 <li><a href=\"#disclaimer\">Disclaimer und Copyright</a></li>
 </ul>
 <hr>
@@ -297,7 +297,7 @@ und die Datei <i>TK-&lt;Land&gt;-&lt;Karte&gt;.img</i> in das Verzeichnis
 </p>
 <p>
 Wenn auf dem Ger&auml;t nicht mehrere Karten aufgespielt werden k&ouml;nnen, dann ist aus den Layern, die gew&uuml;nscht sind, eine gmapsupp.img Datei zu erstellen.
-Verwendet wird daf&uuml;r <a href="http://www.gmaptool.eu/en/content/gmaptool">gmaptool</a>, ein propriet&auml;res Programm, vom dem Binaries f&uuml;r Windows, Linux und Mac existieren:
+Verwendet wird daf&uuml;r <a href="https://www.gmaptool.eu/en/content/gmaptool">gmaptool</a>, ein propriet&auml;res Programm, vom dem Binaries f&uuml;r Windows, Linux und Mac existieren:
 </p>
 <pre>gmt -jo gmapsupp.img TK-DACH-Basemap.img TK-DACH-SRTM.img TK-DACH-Wanderwege.img TK-DACH-Bicycling.img TK-DACH-Oepnv.img</pre>
 <p>
@@ -314,7 +314,7 @@ Die Adresssuche der Karten funktionieren in MapSource sowie auf Garmin-Ger&auml;
 Selbstverst&auml;ndlich &uuml;bernehme ich keinerlei Garantie, dass die Karten zu irgendetwas zu gebrauchen sind. Ebenfalls &uuml;bernehme ich keine Haftung f&uuml;r Fehlfunktionen an Ger&auml;ten oder sonstiges. Die Verwendung erfolgt auf eigenes Risiko. Die Benutzung erfolgt immer auf eigene Gefahr. Die durch das Autorouting erstellte Strecke stellt lediglich einen Streckenvorschlag dar und muss an die jeweilige Situation vor Ort angepasst werden.
 </p>
 <p>
-Die Kartendaten mit Ausnahme der H&ouml;henlinien sind © OpenStreetMap contributors unter der <a href="http://www.openstreetmap.org/copyright" target="_blank">ODbL</a> Lizenz.
+Die Kartendaten mit Ausnahme der H&ouml;henlinien sind &copy; OpenStreetMap contributors unter der <a href="https://www.openstreetmap.org/copyright" target="_blank">ODbL</a> Lizenz.
 </p>
 <p>
 Die H&ouml;henlinien basieren auf den SRTM-Daten der NASA sowie Jonathan de Ferranti und unterliegen deren Copyright.
@@ -322,7 +322,7 @@ Die Daten von Jonathan de Ferranti k&ouml;nnen auf <a href="http://www.viewfinde
 </p>
 <hr>
 <p>
-Mehr Informationen und Feedback auf meiner <a href="http://wiki.openstreetmap.org/wiki/User:Kukuk">OSM Wiki Seite</a>.
+Mehr Informationen und Feedback auf meiner <a href="https://wiki.openstreetmap.org/wiki/User:Kukuk">OSM Wiki Seite</a>.
 </p>
 EOT
 my $now = localtime;
