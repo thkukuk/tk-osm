@@ -1,8 +1,0 @@
-#!/bin/bash
-
-for i in lines points polygons relations; do
-   scripts/ppp.pl basemap/style/$i basemap-noPOI/style/$i -DNOPOI
-done
-for i in options version inc/access inc/access_country inc/address inc/address_pre inc/roadspeed ; do
-   cp basemap/style/$i basemap-noPOI/style/$i
-done
