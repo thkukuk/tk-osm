@@ -72,8 +72,8 @@ family 7126:	DACH/marine
 family 7127:	DACH/mkgmap default
 	product-id=1:	mkgmap default	draw-priority=10
 
-family 7128:	DACH/Fastfood
-	product-id=1:	Fastfood	draw-priority=30
+family 7128:	DACH/Basemap-noPOI
+	product-id=1:	Basemap-noPOI	draw-priority=10
 
 family 7129:	DACH/Address
 	product-id=1:	Address		draw-priority=15
@@ -87,7 +87,7 @@ family 7129:	DACH/Address
 	71205501-71205501:	XXX DACH
 	71205601-71205717:	keepright DACH
 	71206001-71206483:	marine DACH
-	71207001-71207483:	fastfood DACH
+	71207001-71207483:	basemap-noPOI DACH
 	71208001-71208076:	tilesplitter SRTM/DACH
 	71209001-71209076:	srtm DACH
 	71211001-71211279:      mkgmap default DACH
