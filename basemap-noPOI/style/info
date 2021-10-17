@@ -6,7 +6,7 @@
 
 # A short one line description of the style
 #
-summary: fastfood style
+summary: The default style without POI
 
 # Version of the style itself
 #
@@ -14,5 +14,6 @@ version=1.0
 
 # A longer description of the style.
 description {
-Show all fastfood restaurants in the near.
+The default style without POI. This is a variant of the default
+style without POI, only cities.
 }

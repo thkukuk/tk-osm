@@ -1,0 +1,566 @@
+# -------------------------------------------------------------------
+# Adress mapping
+
+addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
+
+# Set name if not set directly, but alternates exist
+name!=* & place_name=* { name '${place_name}' }
+name!=* & loc_name=* { name '${loc_name}' }
+
+include 'inc/address_pre';
+
+# -------------------------------------------------------------------
+# Lösche disused POI
+disused=yes { deletealltags }
+abandoned=yes { deletealltags }
+
+# -------------------------------------------------------------------
+# Special barrier/access handling
+
+barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}' }
+barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
+barrier=* & hgv=*        { set mkgmap:truck='${hgv|subst:private=>no}' }
+barrier=* & motorcar=*   { set mkgmap:car='${motorcar|subst:private=>no}' }
+barrier=* & psv=*        { set mkgmap:bus='${psv|subst:private=>no}' }
+barrier=* & taxi=*       { set mkgmap:taxi='${taxi|subst:private=>no}' }
+barrier=* & emergency=*  { set mkgmap:emergency='${emergency|subst:private=>no}'}
+barrier=* & delivery=*   { set mkgmap:delivery='${delivery|subst:private=>no}' }
+barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
+
+barrier=bollard | barrier=cycle_barrier
+    { add mkgmap:bicycle=yes;
+      add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=bus_trap
+    { add mkgmap:bus=yes;
+      add mkgmap:foot=yes;
+      add mkgmap:bicycle=yes;
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=gate
+    { add mkgmap:bicycle=yes;
+      add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=0; }
+barrier=kissing_gate | barrier=stile | barrier=block
+    { add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=0; }
+
+#ifndef NOPOI
+#
+#ifndef STREETS
+#
+## -------------------------------------------------------------------
+## Internet Zugriff
+#
+#internet_access=* & internet_access!=no { name '${internet_access|subst:yes=>Internet} ${name|def:}' } [0x2f12 level 0 continue]
+#
+## -------------------------------------------------------------------
+## Öffnungszeiten
+#
+#opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hours}'}
+#
+## -------------------------------------------------------------------
+## Public transportation
+#
+#public_transport=stop_position & subway = yes
+#{
+#  set ref='${ref|def:}(${route_ref})';
+#  name 'U-Bahn ${name|def:} ${ref|def:}';
+#}
+#
+#railway=tram_stop | (public_transport=stop_position & tram=yes)
+#{
+#  set ref='${ref|def:}(${route_ref})';
+#  name '${name|def:} ${ref|def:}(Tram)';
+#}
+#
+#highway=bus_stop | (public_transport=stop_position & bus=yes)
+#{
+#  set ref='${ref|def:}(${route_ref})'|'${ref|def:}(${bus_routes})';
+#  name '${name|def:} ${ref|def:}(Bus)';
+#}
+#
+#railway=halt | railway=station | public_transport=station
+#{
+#  set ref='${ref|def:}(${route_ref})'|'${ref|def:}(${bus_routes})';
+#  name '${name|def:} ${ref|def:}';
+#}
+#
+#
+#public_transport=stop_position 			[0x2f1f level 1]
+#railway=tram_stop				[0x2f1f level 1]
+#highway=bus_stop				[0x2f1f level 1]
+#railway=halt                   			[0x2f08 level 1]
+#railway=station                			[0x2f08 level 3]
+#public_transport=station       			[0x2f08 level 3]
+#amenity=bus_station            			[0x2f08 level 1]
+#
+#railway=subway_entrance { name 'U-Bahn ${name}' } [0x2f11 level 0]
+#
+#amenity=taxi                   [0x2f17 level 1 default_name 'Taxi']
+#
+#endif /* STREETS */
+#
+#amenity=ferry_terminal         [0x2f1a level 1 default_name 'Fährhafen']
+#
+#
+## -------------------------------------------------------------------
+## Barriers/Gates
+#
+#highway=gate | barrier=gate | barrier=kissing_gate
+#					[0x2900 level 0]
+#highway=bollard | barrier=bollard | barrier=bus_trap
+#					[0x2901 level 0]
+#barrier=cycle_barrier
+#					[0x2902 level 0]
+#barrier=toll_booth			[0x2904 level 0]
+#barrier=lift_gate | barrier=stile
+#	{add access = no; add foot = yes}
+#					[0x2903 level 0]
+#barrier=block				[0x2903 level 0]
+##barrier=cattle_grid			[0x290x level 0]
+#amenity=border_control | barrier=border_control
+#	{name '${name}' | '${addr:housenumber}' }
+#					[0x3006 level 3]
+#
+#waterway=lock_gate		[0x2f1b level 0 default_name 'Schleuse']
+#
+#endif /* NOPOI */
+
+# -------------------------------------------------------------------
+# Staten/Städte/Dörfer
+
+mkgmap:country!=GBR & place=country & mkgmap:area2poi!=true
+	{ name '${name:de}' | '${int_name}' | '${name}' }
+						[0x1500 level 5-7]
+mkgmap:country=GBR & place=state & mkgmap:area2poi!=true
+	{ name '${name:de}' | '${int_name}' | '${name}' }
+						[0x1500 level 5-7]
+
+place=city & (capital=yes|capital=2)		[0x0100 level 7]
+place=capital					[0x0100 level 7]
+place=city & name=* &  population>=500000	[0x0400 level 7]
+place=city & name=* &  population>=250000	[0x0400 level 5]
+place=city & name=* 				[0x0400 level 4]
+place=hamlet & name=*				[0x0d00 level 2]
+place=suburb & name=*				[0x0a00 level 2]
+place=town & name=*				[0x0800 level 3]
+place=village & name=*				[0x0b00 level 2]
+place=comunidad	& name=*			[0x0c00 level 1]
+place='zona urbana' & name=*			[0x0c00 level 1]
+place=island & area!=yes & name=*		[0x650c level 4]
+(place=sea | place=ocean | toponym=water)
+	{ name '${name:de}' | '${int_name}' | '${name}' }
+(place=sea | place=ocean | toponym=water) & name=*
+ 						[0x1400 level 7 continue]
+(place=sea | place=ocean | toponym=water) & name=*
+						[0x1400 level 6]
+place=locality & name=*				[0x2800 level 2]
+
+
+#ifndef STREETS
+ -------------------------------------------------------------------
+ Natur
+atural=bay & name=*				[0x6503 level 1]
+atural=cave_entrance				[0x6601 level 1]
+atural=peak & (name=* | ele=* )
+{name '${name} (${ele}m)' | '${ele}m' | '${name}' }
+					[0x6616 level 1]
+atural=rock|natural=rocks			[0x6614 level 1]
+atural=spring					[0x6511 level 1]
+natural=stream					[0x6512 level 1]
+natural=volcano				[0x2c0c level 3]
+atural=water { name '${name:de}' | '${int_name}' | '${name}' | '${alt_name}' }
+atural=water & name=*				[0x650d level 3]
+natural=waterfall|waterway=waterfall|waterway=rapids) &
+(mkgmap:area2poi!=true | name=*)
+					[0x6508 level 0]
+natural=wetland & name=*			[0x6513 level 1]
+atural=wood & name=* & mkgmap:area2poi!=true	[0x6618 level 3]
+atural=tree & ( natural=landmark | denotation=landmark | denotation=natural_monument | monument=yes | landmark=yes | tourism=attraction | historic=monument| historic=memorial | monument:natural=yes )
+					[0x590e level 1]
+#endif /* STREETS */
+
+# -------------------------------------------------------------------
+# Cleanup of ref, operator, brand, name
+
+# delete FIXME values (they should be better used in maintenance maps)
+ref ~ '(?i)fix[ _]?+me'		{ delete ref; } 
+operator ~ '(?i)fix[ _]?+me'	{ delete operator; }
+brand ~ '(?i)fix[ _]?+me'	{ delete brand; }
+name ~ '(?i)fix[ _]?+me'	{ delete name; }
+
+# If operator and brand are didentical, delete one of them:
+operator=* & brand=* & operator=${brand} { delete brand }
+
+# If shop=no or none, delete it, so we ignore it
+shop=no | shop=none | shop=vacant { delete shop; }
+
+#ifndef NOPOI
+#
+## -------------------------------------------------------------------
+## Flughafen
+#
+#aeroway=airport			[0x2f04 level 3]
+#ifndef STREETS
+#aeroway=aerodrome		[0x2f04 level 3]
+#aeroway=helipad			[0x5904 level 1 default_name 'Helipad']
+#aeroway=terminal & name=* & mkgmap:area2poi!=true	[0x5900 level 3]
+#endif /* STREETS */
+#
+## -------------------------------------------------------------------
+## Gesundheit
+#
+#(amenity=hospital|amenity=clinic)		[0x3002 level 3]
+#amenity=doctors					[0x300a level 2]
+#amenity=dentist					[0x300b level 1]
+#amenity=pharmacy				[0x2e05 level 3]
+#amenity=nursing_home				[0x3002 level 0]
+#healthcare=doctor				[0x300a level 2]
+#healthcare=dentist				[0x300b level 1]
+#healthcare=*					[0x300a level 2]
+#
+## -------------------------------------------------------------------
+## Geld
+#
+#amenity=atm					[0x2f06 level 0]
+#amenity=bank					[0x2f06 level 0]
+#amenity=bureau_de_change			[0x2f06 level 0]
+#
+## -------------------------------------------------------------------
+## Auto/Fahrräder
+#
+#amenity=fuel					[0x2f01 level 1]
+#amenity=car_club				[0x2f0d level 0]
+#amenity=car_rental | shop=car_rental		[0x2f02 level 0]
+#amenity=car_sharing				[0x2f02 level 0]
+#amenity=car_wash				[0x2f0e level 0]
+#amenity=parking & access!=private		[0x2f0b level 1 default_name 'Parking']
+#shop=car					[0x2f07 level 0]
+#shop=car_dealer					[0x2f07 level 0]
+#shop=car_parts					[0x2f07 level 0]
+#shop=motorcycle					[0x2f07 level 0]
+#shop=car_repair					[0x2f03 level 0]
+#shop=car_wrecker				[0x2f0a level 0]
+#shop=tires 					[0x2f07 level 0]
+#shop=tyres 					[0x2f07 level 0]
+#
+#amenity=bicycle_parking 	[0x2f18 level 0 default_name 'Fahrradständer']
+#amenity=bicycle_rental		[0x2f0f level 0 default_name 'Fahrradverleih']
+#
+#
+## -------------------------------------------------------------------
+## Geschäfte
+## shops vor allgemeine restaurants/fast food.
+#
+## amenity=supermarket is superceded by shop=supermarket
+#amenity=supermarket | shop=supermarket 		[0x2e00 level 1]
+#shop=department_store				[0x2e01 level 0]
+#shop=bakers					[0x2a05 level 1]
+#shop=bakery					[0x2a05 level 1]
+#shop=general 					[0x2e03 level 0]
+#shop=mall 					[0x2e04 level 0]
+#shop=convenience				[0x2e06 level 0]
+#shop=clothes					[0x2e07 level 0]
+#shop=fashion					[0x2e07 level 0]
+#shop=shoes 					[0x2e07 level 0]
+#shop=garden_centre				[0x2e08 level 0]
+#shop=garden_center				[0x2e08 level 0]
+#shop=furniture					[0x2e09 level 0]
+#shop=organic					[0x2e0a level 0]
+#shop=computer 					[0x2e0b level 0]
+#shop=butcher					[0x2e0d level 0]
+#shop=chemist					[0x2e0e level 0]
+#shop=doityourself				[0x590a level 0]
+#shop=hairdresser				[0x2d10 level 0]
+#shop=florist					[0x2d11 level 0]
+#shop=beverages | shop=alcohol			[0x590b level 0]
+#shop=books					[0x590c level 0]
+#shop=kiosk					[0x5905 level 0]
+#shop=laundry|shop=dry_cleaning			[0x5906 level 0]
+#shop=toys					[0x5907 level 0]
+#shop=optician					[0x5908	level 0]
+#shop=electronics				[0x5909 level 0]
+#shop=bicycle					[0x2f13 level 0]
+#shop=winery					[0x2c0a level 0]
+#
+## -------------------------------------------------------------------
+## Essen
+#
+#amenity=bar        				[0x2d02 level 0]
+#amenity=nightclub  				[0x2d02 level 0]
+#amenity=biergarten 				[0x2a1e level 1]
+#amenity=cafe       				[0x2a0e level 1]
+#
+#amenity=restaurant & cuisine ~ '.*[Pp]izza.*'	[0x2a0a level 0]
+#amenity=restaurant & cuisine ~ '.*[Pp]izzeria.*' [0x2a0a level 0]
+#amenity=fast_food & cuisine ~ '.*[Pp]izza.*'	[0x2a0a level 0]
+#amenity=fast_food & cuisine ~ '.*[Pp]izzeria.*'	[0x2a0a level 0]
+#amenity=fast_food & cuisine ~ 'burger'		[0x2a07 level 0]
+#amenity=fast_food				[0x2a07 level 0]
+#
+#amenity=restaurant & cuisine=american		[0x2a01 level 0]
+#amenity=restaurant & cuisine=asian		[0x2a02 level 0]
+#amenity=restaurant & cuisine=indian		[0x2a02 level 0]
+#amenity=restaurant & cuisine=japanese		[0x2a02 level 0]
+#amenity=restaurant & cuisine=korean		[0x2a02 level 0]
+#amenity=restaurant & cuisine=thai		[0x2a02 level 0]
+#amenity=restaurant & cuisine=barbecue		[0x2a03 level 0]
+#amenity=restaurant & cuisine=chinese		[0x2a04 level 0]
+#amenity=restaurant & cuisine=international	[0x2a06 level 0]
+#amenity=restaurant & cuisine=italian		[0x2a08 level 0]
+#amenity=restaurant & cuisine=mexican		[0x2a09 level 0]
+#amenity=restaurant & (cuisine=steak | cuisine=grill | cuisine=steak_house)
+#						[0x2a0c level 0]
+#amenity=restaurant & (cuisine=sea_food | cuisine=fish)
+#						[0x2a0b level 0]
+#amenity=restaurant & (cuisine='cafe/diner'|cuisine='cafe'|cuisine = 'diner')
+#						[0x2a0e level 0]
+#amenity=restaurant & cuisine=french		[0x2a0f level 0]
+#amenity=restaurant & (cuisine=german | cuisine=bavarian) [0x2a10 level 0]
+#amenity=restaurant & cuisine=british       	[0x2a11 level 0]
+#amenity=restaurant & cuisine=speciality    	[0x2a12 level 0]
+#amenity=restaurant & (cuisine=bagel | cuisine=donut) [0x2a0d level 0]
+#amenity=restaurant & cuisine=deli		[0x2e02 level 0]
+#amenity=restaurant				[0x2a00 level 0]
+#amenity=food_court				[0x2a13 level 1]
+#amenity=pub					[0x2a14 level 1]
+#
+#ifndef STREETS
+#
+## Restlichen Shops erst nach restaurants
+#shop=* { name '${name}' | '${operator} (${shop})' | '${shop}'}
+#					 	[0x2e0c level 0]
+#craft=* { name '${name}' | '${operator} (${craft})' | '${craft}'}
+#						[0x2e0c level 0]
+#
+## -------------------------------------------------------------------
+## Gebäude/Einrichtungen
+#
+#amenity=college					[0x2c05 level 0]
+#amenity=kindergarten				[0x2c05 level 0]
+#amenity=school					[0x2c05 level 0]
+#amenity=university              		[0x2c05 level 1]
+#amenity=arts_centre             		[0x2c0e level 3]
+#amenity=theatre                 		[0x2d01 level 3]
+#amenity=cinema                  		[0x2d03 level 3]
+#amenity=casino                  		[0x2d04 level 0]
+#amenity=dancing_school | leisure=dance		[0x2d0c level 0]
+#amenity=courthouse				[0x3004 level 0]
+#amenity=concert_hall            		[0x3005 level 3]
+#amenity=community_centre        		[0x2c09 level 3]
+#amenity=community_center        		[0x2c09 level 3]
+#amenity=drinking_water 		[0x2908 level 0 default_name 'Trinkwasser']
+#amenity=embassy & country=*
+#	{ name '${country} ${name|def:}' }	[0x3007 level 1]
+#amenity=embassy & country!=* 			[0x3007 level 1]
+#amenity=telephone				[0x2910 level 0]
+#amenity=emergency_phone      	[0x2911 level 0 default_name 'Notruf']
+#amenity=police               			[0x3001 level 1]
+#amenity=fire_station         			[0x3008 level 1]
+#amenity=library              			[0x2c03 level 0]
+#amenity=grave_yard           			[0x2c14 level 0]
+#amenity=place_of_worship & religion=jewish 	[0x2c11 level 1]
+#amenity=place_of_worship			[0x2c0b level 1]
+#amenity=post_office				[0x2f05 level 0]
+#amenity=post_box
+#	{name 'Briefkasten ${operator|def:} ${collection_times|def:}'}
+#						[0x2f19 level 0]
+#amenity=prison					[0x3009 level 3]
+#amenity=public_building				[0x3000 level 1]
+#amenity=recycling				[0x2f15 level 0]
+## amenity=lean_to shouldn't be used
+#amenity=shelter | tourism=lean_to | amenity=lean_to
+#				[0x2b08 level 3 default_name 'Unterstand']
+#
+#amenity=shower | (amenity=toilets & shower=yes)
+#				[0x2909 level 0 default_name 'Duschen' ]
+#amenity=toilets 		[0x2f0c level 0 default_name 'Toiletten' ]
+#amenity=townhall 				[0x3003 level 3]
+## amenity=zoo is superceded by tourism=zoo
+#amenity=zoo | tourism=zoo 			[0x2c07 level 3]
+#amenity=bench					[0x2906 level 0]
+#amenity=hunting_stand		[0x290a level 0 default_name 'Hochstand']
+#amenity=fountain		[0x290c level 0 default_name 'Brunnen']
+#amenity=vending_machine & vending=public_transport_tickets
+#			[0x290d level 0 default_name 'Fahrkartenautomat']
+##amenity=vending_machine & (vending=parcel_pickup | vending=parcel_mail_in)
+#amenity=vending_machine & vending~'.*parcel.*'
+#	{name '${name} ${ref}' | 'Packstation ${ref}' | '${name}'}
+#						[0x290e level 0]
+#
+#landuse=forest & name=*	& mkgmap:area2poi!=true	[0x6618 level 3]
+#landuse=wood & name=* & mkgmap:area2poi!=true	[0x6618 level 3]
+##(landuse=basin | landuse=reservoir) & name=*	[0x650f level 1]
+#landuse=cemetery & name=*			[0x2c14 level 1]
+#landuse=military & name=* & mkgmap:area2poi!=true
+#						[0x640b level 1]
+#landuse=village_green & name=* & mkgmap:area2poi!=true
+#						[0x2c06 level 1]
+#
+## -------------------------------------------------------------------
+## Highway
+#
+## 0x2000 means "exit no services"
+## 0x210f means "exit (service")
+#highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
+#highway=motorway_junction [0x2000 level 2]
+##highway=services & toilets=yes {set exit:facilities='${exit:facilities},Toilet' | 'Toilet' }
+#highway=services				[0x210f level 2 default_name 'Services']
+#
+#highway=emergency_access_point			[0x2912 level 2]
+#highway=speed_camera { name 'Blitzt ${maxspeed} km/h'; }
+#						[0x2913 level 2]
+#
+## -------------------------------------------------------------------
+## Gebäude
+#
+#man_made=lighthouse | seamark=lighthouse	[0x3300 level 4]
+#man_made=windmill				[0x2c15 level 0]
+#man_made=tower & tower:type!=communication & (name=* | building!=yes)
+#	{ name '${name} (${ref},${height}m)' | '${name} (${ref})' |
+#	'${name} (${height}m)' | '${name}' | '${ref}' | '${height}m' }
+#						[0x6411 level 0]
+##man_made=tower & tower:type=communication
+##	{ name '${name} (${ref},${height}m)' | '${name} (${ref})' |
+##        '${name} (${height}m)' | '${name}' | '${ref}' | '${height}m' }
+##						[0x5911 level 0]
+#man_made=mineshaft
+#	{name '${name} (${resource})' | 'Mine (${resource})' | '${name}'}
+#						[0x2f1c level 0]
+#aerialway=station				[0x2c19 level 0]
+#power=generator & power_source=wind		[0x5912 level 2]
+#
+## -------------------------------------------------------------------
+## Historic
+#
+#historic=archaeological_site			[0x2c02 level 1]
+#historic=memorial				[0x2c17 level 1]
+#historic=castle	& ruins!=yes & (name=* | mkgmap:area2poi!=true)
+#						[0x2c0f level 1]
+#historic=monument				[0x2c10 level 1]
+#historic=church	& ruins!=yes			[0x2c0b level 0]
+#(historic=ruins | (historic=* & ruins=yes)) & (name=* | mkgmap:area2poi!=true)
+#						[0x2c18 level 1]
+#historic=wreck | waterway=wreck			[0x1c01 level 1]
+#historic=wayside_cross				[0x590f level 0]
+#historic=wayside_shrine				[0x5910 level 0]
+#
+## -------------------------------------------------------------------
+## Tourismus
+#
+#tourism=information
+#	{name '${name} - ${description} (${operator})'|
+#        '${name} - (${description})' | '${name}' | '${description}' |
+#        '${operator}' | '${ref}' | '${information}' }
+#						[0x2905 level 3]
+#tourism=artwork 		[0x2c12 level 0 default_name 'Kunstwerk']
+#tourism=aquarium				[0x2c07 level 0]
+#tourism=camp_site 		[0x2b05 level 0 default_name 'Campingplatz']
+#tourism=caravan_site		[0x2b05 level 0 default_name 'Caravan Site']
+#tourism=alpine_hut		[0x2b03 level 3 default_name 'Alpine Hut']
+#tourism=wilderness_hut		[0x2b06 level 3 default_name 'Schutzhütte']
+#
+#tourism=hotel { name '${name|def:}(${stars}*) (${operator|def:})' | '${name} (${operator})' | '${name}' | '${operator}' }
+#						[0x2b01 level 2]
+#tourism=motel { name '${name|def:}(${stars}*) (${operator|def:})' | '${name} (${operator})' | '${name}' | '${operator}' }
+#						[0x2b01 level 1]
+#tourism=chalet
+#	{ name '${name}' | '${ref}' }
+#						[0x2b02 level 0]
+#tourism=guest_house 				[0x2b02 level 0]
+#tourism=hostel 					[0x2b02 level 0]
+#tourism=bed_and_breakfast			[0x2b02 level 0]
+#tourism=resort					[0x2b05 level 0]
+#tourism=theme_park 				[0x2c01 level 2]
+#tourism=museum | historic=museum		[0x2c02 level 1]
+#tourism=viewpoint
+#	{name '${name} - ${description} (${ele}m)' |
+#		 '${description} (${ele}m)' | '${name} (${ele}m)' | '${ele}m' |
+#		'${name} - ${description}' | '${description}' | '${name}'}
+#						[0x2c04 level 3]
+#tourism=wine_cellar				[0x2c0a level 0]
+#tourism=picnic_site		[0x2907 level 3 default_name 'Picknick' ]
+#tourism=attraction		[0x2c12 level 0 default_name 'Attraktion']
+#
+## -------------------------------------------------------------------
+## Freizeit Aussengelände
+#
+## Unify some tags to make rules simple
+#leisure=bowling_alley		{set sport=10pin; delete leisure}
+#
+#leisure=common & name=* 			[0x2c06 level 1]
+#leisure=garden & name=* & access!=private	[0x2c06 level 1]
+#leisure=golf_course		[0x2d05 level 1 default_name 'Golfplatz']
+#leisure=ice_rink		[0x2d08 level 0 default_name 'Eisbahn']
+## We don't have 0x6612 in the TYP file and it is not shown by MapSource
+#leisure=nature_reserve & name=*			[0x6612 level 3]
+## XXX 0x2800 should be 0x6612
+#tk:nationalpark=yes & tk:nationalpark_name=*
+#	{name '${tk:nationalpark_name}'}	[0x2800 level 3]
+#tk:nationalpark=yes & name=*			[0x2800 level 3]
+#boundary=national_park & name=*			[0x2800 level 3]
+#leisure=park & name=*				[0x2c06 level 1]
+#leisure=pitch & sport!=* & (mkgmap:area2poi!=true | name=*)
+#						[0x2c1a level 1]
+#leisure=playground		[0x2c0d level 0 default_name 'Spielplatz']
+#(leisure=sports_center | leisure=sports_centre) & name=* &
+#	sport!=skiing & sport!=9pin & sport!=10pin & sport!=skating &
+#	sport!=multi & sport!=airport		[0x2d0a level 3]
+#
+#leisure=stadium & sport!=skiing & sport!=9pin & sport!=10pin &
+#	sport!=skating & sport!=multi & sport!=airport
+#						[0x2c08 level 3]
+#leisure=track & (mkgmap:area2poi!=true | name=*)
+#	{ name '${name} (${sport})' | '${sport}' | '${name}' }
+#						[0x2c1a level 3]
+#leisure=water_park & (name=* | description=*)
+#	{ name '${name} (${description})' | '${description}' | '${name}' }
+#						[0x2d09 level 3]
+#leisure=marina & (mkgmap:area2poi!=true | name=*)
+#				[0x4300 level 1 default_name 'Jachthafen']
+#
+## -------------------------------------------------------------------
+## Sport
+#
+#sport=table_tennis & (mkgmap:area2poi!=true | name=*)
+#				[0x2c1a level 0 default_name 'Tischtennis']
+#sport=soccer & (mkgmap:area2poi!=true | name=*)
+#				[0x2d0d level 0 default_name 'Fußball']
+#sport=tennis  & (mkgmap:area2poi!=true | name=*)
+#				[0x2d0e level 0 default_name 'Tennis' ]
+#sport=team_handball & (mkgmap:area2poi!=true | name=*)
+#				[0x2c1a level 0 default_name 'Handball']
+#sport=skiing			[0x2d06 level 0 default_name 'Skizentrum']
+#sport=9pin			[0x2d07 level 0 default_name 'Kegelbahn']
+#sport=10pin			[0x2d07 level 0 default_name 'Bowlingbahn']
+#sport=skating			[0x2d08 level 0 default_name 'Eisbahn']
+#sport=swimming & (mkgmap:area2poi!=true | name=*)
+#	{ name '${name} (${description})' | '${description}' | '${name}' }
+#				[0x2d09 level 0 default_name 'Schwimbecken']
+#sport=multi 			[0x2d0a level 0 default_name 'Sporthalle']
+#sport=airport 			[0x2d0b level 0 default_name 'Sportflugplatz']
+#sport=equestrian & (mkgmap:area2poi!=true | name=*)
+#				[0x2d0f level 0 default_name 'Pferdesport']
+#sport=*	& (mkgmap:area2poi!=true | name=*)	[0x2c1a level 0]
+#
+## Militär
+## -------------------------------------------------------------------
+#military=bunker			[0x290b level 0 default_name 'Bunker']
+#
+## Specials, low priority
+## -------------------------------------------------------------------
+#man_made=survey_point & ele=*
+#		{name '${name} (${ele}m)'|'${ele}m'|'${name}'}
+#						[0x590d	level 0]
+#
+#endif /* STREETS */
+#endif /* NOPOI */
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+include 'inc/address';

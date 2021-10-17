@@ -48,6 +48,8 @@ barrier=kissing_gate | barrier=stile | barrier=block
       addaccess no;
       set mkgmap:road-speed=0; }
 
+#ifndef NOPOI
+
 #ifndef STREETS
 
 # -------------------------------------------------------------------
@@ -126,6 +128,8 @@ amenity=border_control | barrier=border_control
 
 waterway=lock_gate		[0x2f1b level 0 default_name 'Schleuse']
 
+#endif /* NOPOI */
+
 # -------------------------------------------------------------------
 # Staten/Städte/Dörfer
 
@@ -196,6 +200,8 @@ operator=* & brand=* & operator=${brand} { delete brand }
 # If shop=no or none, delete it, so we ignore it
 shop=no | shop=none | shop=vacant { delete shop; }
 
+#ifndef NOPOI
+
 # -------------------------------------------------------------------
 # Flughafen
 
@@ -204,7 +210,7 @@ aeroway=airport			[0x2f04 level 3]
 aeroway=aerodrome		[0x2f04 level 3]
 aeroway=helipad			[0x5904 level 1 default_name 'Helipad']
 aeroway=terminal & name=* & mkgmap:area2poi!=true	[0x5900 level 3]
-#endif
+#endif /* STREETS */
 
 # -------------------------------------------------------------------
 # Gesundheit
@@ -553,6 +559,7 @@ man_made=survey_point & ele=*
 						[0x590d	level 0]
 
 #endif /* STREETS */
+#endif /* NOPOI */
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
