@@ -2,7 +2,6 @@
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=blue | osmc:symbol ~ 'blue:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_blue='$(route_blue):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -13,13 +12,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_blue_name), ${name} (${distance})' |
 	            '$(route_blue_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=yellow | osmc:symbol ~ 'yellow:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_yellow='$(route_yellow):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -30,13 +30,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_yellow_name), ${name} (${distance})' |
 	            '$(route_yellow_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=green | osmc:symbol ~ 'green:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_green='$(route_green):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -47,13 +48,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_green_name), ${name} (${distance})' |
 	            '$(route_green_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=red | osmc:symbol ~ 'red:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_red='$(route_red):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -64,13 +66,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_red_name), ${name} (${distance})' |
 	            '$(route_red_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=black | osmc:symbol ~ 'black:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_black='$(route_black):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -81,13 +84,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_black_name), ${name} (${distance})' |
 	            '$(route_black_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=orange | osmc:symbol ~ 'orange:.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_orange='$(route_orange):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -98,13 +102,14 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_orange_name), ${name} (${distance})' |
 	            '$(route_orange_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
 (route=foot | route=hiking) & 
 	(osmc:symbol=white | osmc:symbol ~ 'white:.*' | osmc:symbol ~ ':.*') &
-	(name=* | osmc:name=*) &
 	(network=iwn | network=nwn | network=rwn | network=lwn) {
 	apply { set route_white='$(route_white):${osmc:symbol}'|
 	                         '${osmc:symbol}';
@@ -115,11 +120,15 @@
 	            '${osmc:name} (${distance})' | '${osmc:name}' |
 	            '$(route_white_name), ${name} (${distance})' |
 	            '$(route_white_name), ${name}' |
-	            '${name} (${distance})' | '${name}'
+	            '${name} (${distance})' | '${name}' |
+		    '${ref} (${distance})'| '${ref} (${description})' | '${ref}' |
+		    '${description}'
 	      }
 }
 
-(network=iwn | network=nwn | network=rwn | network=lwn) & osmc:symbol!=* {
+
+(route=foot | route=hiking) & 
+	(network=iwn | network=nwn | network=rwn | network=lwn) & osmc:symbol!=* {
 	apply { set route_rest=
 	            '$(route_rest), ${name} (${ref}/${distance})'|
 	            '$(route_rest), ${name} (${ref})' |
