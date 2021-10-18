@@ -11,7 +11,7 @@ include 'inc/address_pre';
 
 # -------------------------------------------------------------------
 # Lösche disused POI
-disused=yes { deletealltags }
+disused=yes & historic!=* { deletealltags }
 abandoned=yes { deletealltags }
 
 # -------------------------------------------------------------------
