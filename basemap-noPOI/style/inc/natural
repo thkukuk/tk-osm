@@ -11,7 +11,7 @@ natural=spring					[0x6511 level 1]
 #natural=stream					[0x6512 level 1]
 #natural=volcano				[0x2c0c level 3]
 natural=water { name '${name:de}' | '${int_name}' | '${name}' | '${alt_name}' }
-natural=water & name=*				[0x650d level 3]
+natural=water & name=* & water!=pool & sport!=*  [0x650d level 3]
 (natural=waterfall|waterway=waterfall|waterway=rapids) &
 	(mkgmap:area2poi!=true | name=*)
 						[0x6508 level 0]
