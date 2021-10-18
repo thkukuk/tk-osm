@@ -70,16 +70,6 @@ name ~ '(?i)fix[ _]?+me'	{ delete name; }
 # If operator and brand are didentical, delete one of them:
 operator=* & brand=* & operator=${brand} { delete brand }
 
-# If shop=no or none, delete it, so we ignore it
-shop=no | shop=none | shop=vacant { delete shop; }
-
-# -------------------------------------------------------------------
-# Highway
-
-# 0x2000 means "exit no services"
-# 0x210f means "exit (service")
-highway=motorway_junction { name '${ref} ${name}' | '${ref}' | '${name}' }
-highway=motorway_junction [0x2000 level 2]
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
