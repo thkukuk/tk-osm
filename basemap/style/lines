@@ -197,13 +197,13 @@ highway=* & ref=* {addlabel '${ref|subst: =>}'}
 
 # Convert generic path to most specific, adjust permissions
 highway=cycleway &
-	(bicycle=designated|bicycle=permissive|bicycle=official)
+	(bicycle=designated|bicycle=permissive|bicycle=official|bicycle_road=yes)
 	{set bicycle=yes }
 highway=footway &
-	(bicycle=designated|bicycle=permissive|bicycle=official)
+	(bicycle=designated|bicycle=permissive|bicycle=official|bicycle_road=yes)
 	{set highway=cycleway; set bicycle=yes; set foot=yes}
 highway=path &
-	(bicycle=designated|bicycle=permissive|bicycle=official)
+	(bicycle=designated|bicycle=permissive|bicycle=official|bicycle_road=yes)
 	{set highway=cycleway; set bicycle=yes; set foot=yes}
 highway=path & (foot=designated|foot=permissive|foot=official)
 	{set highway=footway; set foot=yes }
