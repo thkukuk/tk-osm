@@ -195,7 +195,9 @@ sub write_images {
   }
   print OUTPUT "  <td>$filedate</td>\n";
   print OUTPUT "  <td align=\"right\">$size</td>\n";
-  if ($info[2] eq "Basemap") {
+  if ($info[2] eq "Basemap" && $info[3] && $info[3] eq "noPOI") {
+    print OUTPUT "  <td>Basis (Keine POIs, aber Stra&szlig;en, Fl&auml;chen, Routing, Adressuche)</td>\n";
+  } elsif ($info[2] eq "Basemap") {
     print OUTPUT "  <td>Basis (Stra&szlig;en, Fl&auml;chen, Routing, Adressuche, POIs...)</td>\n";
   } elsif ($info[2] eq "Address") {
     print OUTPUT "  <td>Layer mit Hausnummern bzw. Namen der H&auml;user</td>\n";
