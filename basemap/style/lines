@@ -154,7 +154,8 @@ highway=crossing {add highway=path}
 
 # map use_cycleway/use_sidepath to bicycle=no
 highway=* & bicycle=use_cycleway { set bicycle=no }
-highway=* & bicycle=use_sidepath { set bicycle=no }
+# Connection to sidepaths are often missing, still allow bikes
+#highway=* & bicycle=use_sidepath { set bicycle=no }
 
 # Unify ways with ";"
 highway="footway; cycleway" { set highway=cycleway; set segregated=no; set foot=yes}
