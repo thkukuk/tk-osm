@@ -10,7 +10,7 @@ onerror ()
 
 cleanup ()
 {
-  rm -f $LOCALTMP/*
+  rm -rf $LOCALTMP/*
   rmdir $LOCALTMP
   rm -rf .tmp
   popd > /dev/null
@@ -29,7 +29,8 @@ LOCALTMP=`mktemp -d` || cleanup 2
 CURRENT=`/bin/ls ../planet/planet-*.osm.pbf | sort -r | head -1`
 NEXT=`echo $CURRENT | sed -e 's|.*planet-||g' -e 's|.osm.pbf||g'`
 
-osmcoastline -v -i -f -c 0 -p land -o $LOCALTMP/coastline-${NEXT}.db $CURRENT
+osmcoastline -v -i -f -r -c 0 -p land -s WGS84 -g "ESRI Shapefile" -o $LOCALTMP/coastline-${NEXT} $CURRENT
+
 OSMCOASTLINE_RET=$?
 echo "osmcoastline return code: $OSMCOASTLINE_RET"
 if [ $OSMCOASTLINE_RET -ne 0 -a $OSMCOASTLINE_RET -ne 1 ] ; then
@@ -37,26 +38,27 @@ if [ $OSMCOASTLINE_RET -ne 0 -a $OSMCOASTLINE_RET -ne 1 ] ; then
   cleanup 2
 fi
 
-ogr2ogr -f "ESRI Shapefile" .tmp/land_polygons.shp $LOCALTMP/coastline-${NEXT}.db land_polygons
-if [ $? -ne 0 ] ; then
-  echo "ogr2ogr failed!"
-  cleanup 2
-fi
+#ogr2ogr -f "ESRI Shapefile" .tmp/land_polygons.shp $LOCALTMP/coastline-${NEXT}.db land_polygons
+#if [ $? -ne 0 ] ; then
+#  echo "ogr2ogr failed!"
+#  cleanup 2
+#fi
 
 mkdir .tmp/sea-$NEXT
-mkgmap_sea_generator .tmp/land_polygons.shp WGS84 .tmp/sea-$NEXT > /dev/null
+#mkgmap_sea_generator .tmp/land_polygons.shp WGS84 .tmp/sea-$NEXT > /dev/null
+mkgmap_sea_generator $LOCALTMP/coastline-${NEXT}/land_polygons.shp WGS84 .tmp/sea-$NEXT > /dev/null
 if [ $? -ne 0 ]; then
   echo "mkgmap_sea_generator failed!"
   cleanup 2
 fi
 
-DIRSIZE=`/usr/bin/du -sh .tmp/sea-$NEXT |sed -e 's|M.*||g'`
-if [ ${DIRSIZE} -lt 250 ]; then
-  echo "Failed, size ${DIRSIZE} to small"
-  cleanup 2
-fi
+#DIRSIZE=`/usr/bin/du -sh .tmp/sea-$NEXT |sed -e 's|M.*||g'`
+#if [ ${DIRSIZE} -lt 250 ]; then
+#  echo "Failed, size ${DIRSIZE} to small"
+#  cleanup 2
+#fi
 
-mv $LOCALTMP/coastline-${NEXT}.db .
+mv $LOCALTMP/coastline-${NEXT} .
 rmdir $LOCALTMP
 rm -rf sea-$NEXT
 mv .tmp/sea-$NEXT .
