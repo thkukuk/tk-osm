@@ -1,10 +1,18 @@
 
 ##include 'locator';
 
+route_bus=* & public_transport=platform { delete route_bus }
+route_train=* & public_transport=platform { delete route_train }
+route_train=* & railway=platform { delete route_train }
+route_tram=* & public_transport=platform { delete route_tram }
+route_subway=* & public_transport=platform { delete route_subway }
+route_monorail=* & public_transport=platform { delete route_monorail }
+route_ferry=* & public_transport=platform { delete route_ferry }
+
 route_bus=* { set route_name='${route_bus}' }
+route_train=* { set route_name='${route_train}' }
 route_tram=* { set route_name='${route_tram}' }
 route_subway=* { set route_name='${route_subway}' }
-route_train=* { set route_name='${route_train}' }
 route_monorail=* { set route_name='${route_monorail}' }
 route_ferry=*	{set route_name='${route_ferry}' }
 
