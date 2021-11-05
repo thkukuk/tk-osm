@@ -551,3 +551,12 @@ family 7266:    Singapore
         72662001-72662xxx:      Basemap
         72663001-72663xxx:      SRTM
 
+family 7268:    Monaco
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        72680001-726800xx:      Tilesplitter
+        72681001-72681xxx:      Tilesplitter SRTM
+        72682001-72682xxx:      Basemap
+        72683001-72683xxx:      SRTM
+

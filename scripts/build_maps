@@ -151,6 +151,10 @@ SRTM-*)
     TILEID=72601001
     COUNTRY_ABBR="NZL"
     ;;
+  monaco)
+    TILEID=72681001
+    COUNTRY_ABBR="MCO"
+    ;;
   singapore)
     TILEID=72661001
     COUNTRY_ABBR="SGP"
@@ -287,10 +291,15 @@ new_zealand)
   TILEID=72600001
   COUNTRY_ABBR="NZL"
   ;;
+monaco)
+  MAPS="basemap" # bicycling oepnv wanderwege marine
+  TILEID=72680001
+  COUNTRY_ABBR="SGP"
+  ;;
 singapore)
   MAPS="basemap" # bicycling oepnv wanderwege marine
   TILEID=72660001
-  COUNTRY_ABBR="SGP"
+  COUNTRY_ABBR="MCO"
   ;;
 *)
   echo "Country unknown!"

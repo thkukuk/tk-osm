@@ -127,6 +127,7 @@ if [ $CREATE_SRTM -eq 1 ]; then
    #Bounds USA-West: -126:30:-102:51
    #Bounds USA-South: -108:23:-69:41
    create_source new_zealand    "165:-48:180:-33"
+   create_source monaco         "7.4:43.7:7.5:43.76"
 fi
 
 if [ $BUILD_MAPS -eq 1 ]; then
@@ -149,6 +150,7 @@ if [ $BUILD_MAPS -eq 1 ]; then
    build_map singapore
    build_map spain
    build_map new_zealand
+   build_map monaco
    build_map usa
    #Bounds USA-Northeast: -81:38:-66:49
    #Bounds USA-Midwest: -105:35:-80:50

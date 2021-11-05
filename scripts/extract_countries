@@ -54,7 +54,7 @@ rm -rf ${DATADIR}/.tmp
 mkdir -p ${DATADIR}/.tmp || exit 2
 
 WORLD_COUNTRIES="europe usa usa-caribbean usa-hawaii usa-alaska canada india new_zealand singapore"
-EUROPE_COUNTRIES="DACH benelux channel_islands croatia czech_republic ireland italy france scandinavia great_britain portugal spain canary_islands iceland germany"
+EUROPE_COUNTRIES="DACH benelux channel_islands croatia czech_republic ireland italy france scandinavia great_britain portugal spain canary_islands iceland germany monaco"
 USA_COUNTRIES="usa-northeast usa-west usa-midwest usa-south"
 
 export -f extract
