@@ -66,7 +66,8 @@ opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hou
 #leisure=nature_reserve				[0x16 level 5 continue]
 #landuse=allotments				[0x4e level 4]
 #landuse=basin & sport=swimming | amenity=swimming_pool |
-#	leisure=swimming_pool | (natural=water & sport=*)
+#	leisure=swimming_pool | (natural=water & sport=*) | 
+#	(natural=water & water=pool)
 #	{ name '${name} (${description})' | '${description}' | '${name}' }
 #				[0x3f level 3 default_name 'Schwimmbecken']
 #landuse=basin					[0x40 level 3]
