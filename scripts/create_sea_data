@@ -69,7 +69,7 @@ zip -q sea-$NEXT sea/*
 rm sea
 # cleanup old files
 rm -rf `/bin/ls -d sea-* | grep -v zip | sort | head -n -3` ||:
-rm -rf `/bin/ls coastline-* | sort | head -n -3` ||:
+rm -rf `/bin/ls -d coastline-* | sort | head -n -3` ||:
 rm -f `/bin/ls sea-*.zip | sort | head -n -3` ||:
 
 rm -rf .tmp
