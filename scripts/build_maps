@@ -294,12 +294,12 @@ new_zealand)
 monaco)
   MAPS="basemap" # bicycling oepnv wanderwege marine
   TILEID=72680001
-  COUNTRY_ABBR="SGP"
+  COUNTRY_ABBR="MCO"
   ;;
 singapore)
   MAPS="basemap" # bicycling oepnv wanderwege marine
   TILEID=72660001
-  COUNTRY_ABBR="MCO"
+  COUNTRY_ABBR="SGP"
   ;;
 *)
   echo "Country unknown!"
