@@ -26,6 +26,7 @@ rm cities1000.zip
 ../extract_country_from_cities.pl cities1000.txt IT > ITA.txt
 ../extract_country_from_cities.pl cities1000.txt LI > LIE.txt
 ../extract_country_from_cities.pl cities1000.txt LU > LU.txt
+../extract_country_from_cities.pl cities1000.txt MC > MCO.txt
 ../extract_country_from_cities.pl cities1000.txt NL > NL.txt
 ../extract_country_from_cities.pl cities1000.txt NO > NO.txt
 ../extract_country_from_cities.pl cities1000.txt NZ > NZL.txt
