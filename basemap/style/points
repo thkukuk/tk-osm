@@ -405,7 +405,7 @@ historic=wayside_shrine				[0x5910 level 0]
 # -------------------------------------------------------------------
 # Tourismus
 
-tourism=information
+tourism=information & information!=route_marker
 	{name '${name} - ${description} (${operator})'|
         '${name} - (${description})' | '${name}' | '${description}' |
         '${operator}' | '${ref}' | '${information}' }
