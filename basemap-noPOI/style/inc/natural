@@ -7,7 +7,7 @@ natural=peak & (name=* | ele=* )
 	{name '${name} (${ele}m)' | '${ele}m' | '${name}' }
 						[0x6616 level 1]
 natural=rock|natural=rocks			[0x6614 level 1]
-natural=spring					[0x6511 level 1]
+#natural=spring					[0x6511 level 1]
 #natural=stream					[0x6512 level 1]
 #natural=volcano				[0x2c0c level 3]
 #natural=water { name '${name:de}' | '${int_name}' | '${name}' | '${alt_name}' }
