@@ -35,6 +35,10 @@
 }
 
 
+# Underground stations - somebody maps them as multipolygon building.
+# Move tunnel=yes to all members of the relation
+type=multipolygon & tunnel=yes { apply { add tunnel=yes; } }
+
 # Adjust routing for passengers and bicycles
 route=foot | route=hiking   { apply { add foot=yes; } }
 route=bicycle | route=mtb   { apply { add bicycle=yes; } }
