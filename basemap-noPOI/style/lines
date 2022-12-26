@@ -146,6 +146,8 @@ highway=* & oneway=yes & (access=private|access=no)
 
 # bicyle roads are only an attribute, map it to an own highway attribute
 highway=* & bicycle_road=* & bicycle_road=yes {set highway=bicycle_road; set bicycle=yes}
+# bicycle roads have a maxspeed of 30km/h if not set otherwise
+highway=bicycle_road & maxspeed!=* {set maxspeed=30}
 
 # Special handling of construction
 highway=* & construction=yes {set highway=construction}
