@@ -144,6 +144,9 @@ highway=* & tunnel=yes & (access=private|access=no) &
 highway=* & oneway=yes & (access=private|access=no)
 		{add mkgmap:dead-end-check=false}
 
+# bicyle roads are only an attribute, map it to an own highway attribute
+highway=* & bicycle_road=* & bicycle_road=yes {set highway=bicycle_road; set bicycle=yes}
+
 # Special handling of construction
 highway=* & construction=yes {set highway=construction}
 
@@ -347,19 +350,21 @@ highway=living_street & bridge=yes	[0x10102 level 1 continue]
 highway=living_street & tunnel=yes	[0x10113 level 1 continue]
 #highway=living_street & oneway=yes	[0x1010a level 1 continue]
 highway=living_street & area=yes
-		[0x06 road_class=0 road_speed=1 level 1 continue]
+		[0x05 road_class=0 road_speed=1 level 1 continue]
 highway=living_street & area!=yes
 			[0x06 road_class=0 road_speed=1 level 1]
 highway=residential & bridge=yes	[0x10102 level 2 continue]
 highway=residential & tunnel=yes	[0x10113 level 2 continue]
 highway=residential & area=yes
 			[0x05 road_class=0 road_speed=2 level 2 continue]
-#highway=residential & area!=yes & oneway!=yes
-#					[0x06 road_class=0 road_speed=2 level 2]
 highway=residential & area!=yes		[0x06 road_class=0 road_speed=2 level 2]
-#highway=residential & area!=yes & oneway=yes
-#					[0x06 road_class=0 road_speed=2 level 2 continue]
-#highway=residential & oneway=yes	[0x00 level 2]
+
+highway=bicycle_road & bridge=yes        [0x10102 level 2 continue]
+highway=bicycle_road & tunnel=yes        [0x10113 level 2 continue]
+highway=bicycle_road & area=yes
+                        [0x05 road_class=0 road_speed=2 level 2 continue]
+highway=bicycle_road & area!=yes         [0x09 road_class=0 road_speed=2 level 2]
+
 #ifndef STREETS
 highway=bridleway & bridge=yes		[0x10105 level 1 continue]
 highway=bridleway & tunnel=yes		[0x10116 level 1 continue]

@@ -2476,23 +2476,20 @@ FontStyle=NoLabel (invisible)
 	CustomColor=No
 	[end]
 
-
 	[_line]
 	Type=0x09
 	UseOrientation=N
-	Xpm="32 2 2  1"
-	"! c #595959"
-	"# c #FFFFFF"
-	"!!##!!##!!##!!##!!##!!##!!##!!##"
-	"!!##!!##!!##!!##!!##!!##!!##!!##"
-	;12345678901234567890123456789012
-	String1=0x02,Unbekannter Weg
-	String2=0x04,Unknown Way
+	LineWidth=2
+	BorderWidth=1
+	Xpm="0 0 2 0"
+	"1 c #005A8C"
+	"2 c #FFFFFF"
+	String1=0x02,Fahrradstraße
+	String2=0x04,Bicycle road
 	ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
+	FontStyle=Default
 	CustomColor=No
 	[end]
-
 
 	[_line]
 	Type=0x0a
