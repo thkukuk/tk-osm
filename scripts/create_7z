@@ -27,4 +27,4 @@ else
     7z a ../../../maps/TK-${CAPCOUNTRY}-${CAPSTYLE}.7z 7*.img ${NAME}.exe
 fi
 cd ../../../maps/ > /dev/null
-sha256 TK-${CAPCOUNTRY}-${CAPSTYLE}.7z > TK-${CAPCOUNTRY}-${CAPSTYLE}.7z.sha256
+sha256sum TK-${CAPCOUNTRY}-${CAPSTYLE}.7z > TK-${CAPCOUNTRY}-${CAPSTYLE}.7z.sha256
