@@ -2482,8 +2482,8 @@ FontStyle=NoLabel (invisible)
 	LineWidth=2
 	BorderWidth=1
 	Xpm="0 0 2 0"
-	"1 c #005A8C"
-	"2 c #FFFFFF"
+	"1 c #73b2ff"
+	"2 c #777777"
 	String1=0x02,Fahrradstraße
 	String2=0x04,Bicycle road
 	ExtendedLabels=Y
