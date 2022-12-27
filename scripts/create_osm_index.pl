@@ -252,6 +252,7 @@ print OUTPUT <<"HeaderText";
 <title>OSM Karten f&uuml;r Garmin Ger&auml;te von ThKukuk</title>
 </head>
 <body>
+<a href="https://www.startnext.com/radentscheid-bayern"><img src="Radentscheid_Bayern_Crowdfunding.png" width="360" height="360" align="right" vspace="10" hspace="20" alt="Radentscheid Bayern Crowdfunding"></a>
 <h1><center>OpenStreetMap Karten f&uuml;r Garmin Ger&auml;te</center></h1>
 <hr>
 <ul>

@@ -106,8 +106,8 @@ sub write_images {
   my ($file, $size, $mtime, $has_sha256) = @_;
 
   my ($sec,$min,$hour,$day,$month,$year) = localtime($mtime);
-  my $filedate = sprintf "%4d-%0.2d-%0.2d, $hour:%0.2d",
-    1900+$year, $month+1, $day, $min,;
+  my $filedate = sprintf "%4d-%0.2d-%0.2d",
+    1900+$year, $month+1, $day, ;
 
   $size = calc_size_str($size);
 
@@ -141,9 +141,9 @@ sub write_images {
     print OUTPUT "$info[2]-Layer\n";
   }
   if ($has_sha256) {
-      print OUTPUT "[$file]($file) ([SHA256]($file.sha256))\n"
+      print OUTPUT "[$file](maps/$file) ([SHA256](maps/$file.sha256))\n"
   } else {
-    print OUTPUT "[$file]($file)\n"
+    print OUTPUT "[$file](maps/$file)\n"
   }
   print OUTPUT "$filedate\n";
   print OUTPUT "$size\n";
