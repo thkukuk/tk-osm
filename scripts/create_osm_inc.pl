@@ -33,7 +33,7 @@ sub dodir {
   makedirs($dir);
 
   print OUTPUT <<"TableStart";
-{{< list-table header=true class="list-table" >}}
+{{< list-table header=true class="pure-table pure-table-striped" >}}
 Land
 Style
 Image
