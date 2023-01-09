@@ -31,7 +31,7 @@ create_source()
   if [ x"$COUNTRY_ARG" == x"" -o "$COUNTRY_ARG" == "$COUNTRY" ]; then
 
     echo "Running phyghtmap for ${COUNTRY} ($AREA)"
-    phyghtmap -j 1 --earthexplorer-user=thkukuk --earthexplorer-password=earth-Kukuk1 --source=${SOURCE} --start-node-id=1 --start-way-id=1 --max-nodes-per-tile=0 --max-nodes-per-way=100 --no-zero-contour --gzip=9 -s 10 -c 100,50 -a $AREA -o SRTM-${COUNTRY}
+    phyghtmap -j 1 --earthexplorer-user=${EARTHEXPLORER_USER} --earthexplorer-password=${EARTHEXPLORER_PASSWORD} --source=${SOURCE} --start-node-id=1 --start-way-id=1 --max-nodes-per-tile=0 --max-nodes-per-way=100 --no-zero-contour --gzip=9 -s 10 -c 100,50 -a $AREA -o SRTM-${COUNTRY}
    if [ $? -ne 0 ] ; then
       echo "phyghtmap failed!"
       exit 1

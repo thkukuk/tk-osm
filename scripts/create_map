@@ -53,7 +53,7 @@ if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets"
 
   CONFIG="$CONFIG --link-pois-to-ways --route --net --index --housenumbers --add-boundary-nodes-at-admin-boundaries=2" # --x-split-name-index --process-destination --process-exits
   if [ "$STYLE" == "basemap+DEM" ]; then
-    CONFIG="$CONFIG --dem=/data/OSM/data/hgt/VIEW1,/data/OSM/data/hgt/VIEW3"
+    CONFIG="$CONFIG --dem=/home/OSM/data/hgt/VIEW1,/home/OSM/data/hgt/VIEW3"
   fi
 else
   CONFIG="$CONFIG --transparent --no-poi-address"
