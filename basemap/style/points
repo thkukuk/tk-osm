@@ -53,7 +53,7 @@ barrier=kissing_gate | barrier=stile | barrier=block
 # -------------------------------------------------------------------
 # Internet Zugriff
 
-internet_access=* & internet_access!=no { name '${internet_access|subst:yes=>Internet} ${name|def:}' } [0x2f12 level 0 continue]
+#internet_access=* & internet_access!=no { name '${internet_access|subst:yes=>Internet} ${name|def:}' } [0x2f12 level 0 continue]
 
 # -------------------------------------------------------------------
 # Öffnungszeiten
