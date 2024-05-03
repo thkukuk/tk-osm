@@ -58,7 +58,7 @@ barrier=kissing_gate | barrier=stile | barrier=block
 # -------------------------------------------------------------------
 # Öffnungszeiten
 
-opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hours}'}
+#opening_hours=* {name '${name}, Offen: ${opening_hours}' | 'Offen: ${opening_hours}'}
 
 # -------------------------------------------------------------------
 # Public transportation
