@@ -1,0 +1,140 @@
+; bicycling.TYP
+
+[_id]
+ProductCode=0
+FID=7122
+CodePage=1252
+[End]
+
+;=========== COMMENTAIRES ======
+[_comments]
+[End]
+
+;=========== POLYGONES : PRIORITE DANS L'AFFICHAGE ======
+[_drawOrder]
+[End]
+
+;===================== POLYGONES ========================
+
+
+;====================== LINES ===========================
+
+
+[_line]
+Type=0x01
+;GRMN_TYPE: Roads/INTERSTATE, MAJOR_HWY/Primary, divided, limited-access highway, akin to an interstate in the US/Non NT, NT
+UseOrientation=Y
+LineWidth=3
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FF0000"
+"2 c #000000"
+String1=0x02,Internationale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x02
+;GRMN_TYPE: Roads/PRINCIPAL_HWY/Principal highway, usually divided and limited access, akin to US highways/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FF0000"
+"2 c #000000"
+String1=0x02,Nationale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x03
+;GRMN_TYPE: Roads/OTHER_HWY/Other highway road, akin to a state highway in the US/Non NT, NT
+UseOrientation=Y
+LineWidth=3
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #FF8C00"
+"2 c #000000"
+String1=0x02,Regionale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x04
+;GRMN_TYPE: Roads/ARTERIAL/Main city thoroughfare/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+BorderWidth=0
+Xpm="0 0 2 0"
+"1 c #FF8C00"
+"2 c #000000"
+String1=0x02,Lokale Fahrradroute
+ExtendedLabels=N
+[end]
+
+[_line]
+Type=0x0e
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_ROUTE_LINE_2/Routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+BorderWidth=0
+Xpm="0 0 2 0"
+"1 c #FFFF00"
+"2 c #000000"
+String1=0x02,Touristische Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x10f01
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_34/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FF0000"
+String1=0x02,Internationale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x10f02
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_35/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FF0000"
+String1=0x02,Nationale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x10f03
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_36/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FF8C00"
+String1=0x02,Regionale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+[_line]
+Type=0x10f04
+;GRMN_TYPE: Customizable Line Types/CUSTOMIZABLE_LINE_37/Non-routable customizable line/Non NT, NT
+UseOrientation=Y
+LineWidth=2
+Xpm="0 0 1 0"
+"1 c #FF8C00"
+String1=0x02,Lokale Fahrradroute
+ExtendedLabels=N
+[end]
+
+
+;====================== POINTS ==========================
