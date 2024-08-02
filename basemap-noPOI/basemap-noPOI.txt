@@ -2443,22 +2443,20 @@ FontStyle=NoLabel (invisible)
 	CustomColor=No
 	[end]
 
-
 	[_line]
 	Type=0x07
 	UseOrientation=N
-	LineWidth=1
-	BorderWidth=0
+	LineWidth=2
+	BorderWidth=1
 	Xpm="0 0 2 0"
-	"1 c #8080FF"
-	"2 c #888888"
-	String1=0x02,Zufahrt
-	String2=0x04,Service
+	"1 c #73b2ff"
+	"2 c #777777"
+	String1=0x02,Fahrradstraße
+	String2=0x04,Bicycle road
 	ExtendedLabels=Y
-FontStyle=NoLabel (invisible)
+	FontStyle=Default
 	CustomColor=No
 	[end]
-
 
 	[_line]
 	Type=0x08
@@ -2479,15 +2477,15 @@ FontStyle=NoLabel (invisible)
 	[_line]
 	Type=0x09
 	UseOrientation=N
-	LineWidth=2
-	BorderWidth=1
+	LineWidth=1
+	BorderWidth=0
 	Xpm="0 0 2 0"
-	"1 c #73b2ff"
-	"2 c #777777"
-	String1=0x02,Fahrradstraße
-	String2=0x04,Bicycle road
+	"1 c #8080FF"
+	"2 c #888888"
+	String1=0x02,Zufahrt
+	String2=0x04,Service
 	ExtendedLabels=Y
-	FontStyle=Default
+FontStyle=NoLabel (invisible)
 	CustomColor=No
 	[end]
 

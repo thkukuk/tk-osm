@@ -227,14 +227,14 @@ highway=*
    surface=earth | surface=grass | surface=grass_paver |
    surface=gravel | surface=grit | surface=ground | surface=mud |
    surface=pebblestone | surface=sand | surface=unpaved |
-   mtb:scale>0 |
    tracktype ~ 'grade[2-5]' |
-   smoothness ~ '.*(bad|horrible|impassable)' |
+   smoothness=bad | smoothness=very_bad | smoothness=horrible |
+   smoothness=very_horrible | smoothness=impassable |
    sac_scale ~ '.*(mountain|alpine)_hiking' |
-   sport=via_ferrata)
+   mtb:scale>0 | sport=via_ferrata)
 	{ add mkgmap:unpaved=1 }
 (highway=bridleway | highway=path | highway=track | highway=unsurfaced)
-& surface!=* & tracktype!=* & smoothness!=* & sac_scale!=*
+& surface!=* & tracktype!=grade1 & smoothness!=* & sac_scale!=*
 	{ add mkgmap:unpaved=1 }
 
 # Don't mark unconnected paths as routeable
@@ -275,7 +275,7 @@ highway=construction
 # Treat disused ways as highway=service, but at lower road_speed.
 highway=* & bridge=yes & disused=yes 	[0x10105 level 2 continue]
 highway=* & tunnel=yes & disused=yes 	[0x10116 level 2 continue]
-highway=* & disused=yes [0x07 road_class=0 road_speed=0 level 2]
+highway=* & disused=yes [0x09 road_class=0 road_speed=0 level 2]
 
 # Ways sorted roughly by descending order of class
 highway=motorway|highway=motorway_link {add mkgmap:numbers=false}
@@ -365,7 +365,7 @@ highway=bicycle_road & bridge=yes        [0x10102 level 2 continue]
 highway=bicycle_road & tunnel=yes        [0x10113 level 2 continue]
 highway=bicycle_road & area=yes
                         [0x05 road_class=0 road_speed=2 level 2 continue]
-highway=bicycle_road & area!=yes         [0x09 road_class=0 road_speed=2 level 2]
+highway=bicycle_road & area!=yes         [0x07 road_class=0 road_speed=2 level 2]
 
 #ifndef STREETS
 highway=bridleway & bridge=yes		[0x10105 level 1 continue]
@@ -381,8 +381,8 @@ highway=byway			[0x0a road_class=0 road_speed=0 level 0]
 highway=service & bridge=yes		[0x10105 level 1 continue]
 highway=service & tunnel=yes		[0x10116 level 1 continue]
 highway=service & area=yes
-			[0x07 road_class=0 road_speed=2 level 1 continue]
-highway=service & area!=yes	[0x07 road_class=0 road_speed=2 level 1]
+			[0x09 road_class=0 road_speed=2 level 1 continue]
+highway=service & area!=yes	[0x09 road_class=0 road_speed=2 level 1]
 
 highway=cycleway & bridge=yes		[0x10104 level 1 continue]
 highway=cycleway & tunnel=yes		[0x10115 level 1 continue]
