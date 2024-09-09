@@ -337,7 +337,7 @@ amenity=townhall 				[0x3003 level 3]
 # amenity=zoo is superceded by tourism=zoo
 amenity=zoo | tourism=zoo 			[0x2c07 level 3]
 amenity=bench					[0x2906 level 0]
-amenity=hunting_stand		[0x290a level 0 default_name 'Hochstand']
+#amenity=hunting_stand		[0x290a level 0 default_name 'Hochstand']
 amenity=fountain		[0x290c level 0 default_name 'Brunnen']
 amenity=vending_machine & vending=public_transport_tickets
 			[0x290d level 0 default_name 'Fahrkartenautomat']
