@@ -64,9 +64,52 @@ healthcare=* 					[0x0b level 3]
 
 # use nature_reserve at first
 leisure=nature_reserve				[0x16 level 5 continue]
+# prefer special leisure tags over generic landuse
+leisure=common                                  [0x17 level 4]
+leisure=garden                                  [0x17 level 3]
+leisure=golf_course                             [0x18 level 3]
+leisure=ice_rink                                [0x19 level 3]
+# leisure=marina should not be rendered as a blue area anymore
+# It should be rendered as a line instead.
+#leisure=marina                                 [0x09 level 4]
+leisure=park                                    [0x17 level 4]
+leisure=pitch & sport=table_tennis
+        {name '${name} (Tischtennis)' | 'Tischtennis'}
+                                                [0x1c level 3]
+leisure=pitch & sport=soccer
+        {name '${name} (Fußball)' | 'Fußball'}
+                                                [0x1c level 3]
+leisure=pitch & sport=team_handball
+        {name '${name} (Handball)' | 'Handball'}
+                                                [0x1c level 3]
+leisure=pitch & sport=archery
+        {name '${name} (Bogenschießen)' | 'Bogenschießen'}
+                                                [0x1c level 3]
+leisure=pitch & sport=tennis
+        {name '${name} (Tennis)' | 'Tennis'}
+                                                [0x1d level 3]
+leisure=pitch & sport=equestrian
+        {name '${name} (Pferdesport)' | 'Pferdesport'}
+                                                [0x1c level 3]
+leisure=pitch
+        {name '${name} (${sport})' | '${sport}' | '${name}' | 'Spielfeld'}
+                                                [0x1c level 3]
+leisure=playground                              [0x1b level 3]
+leisure=recreation_ground                       [0x35 level 4]
+leisure=sports_center | leisure=sports_centre
+        {name '${name} (${sport})' | '${sport}' | '${name}' | 'Sportzentrum'}
+                                                [0x19 level 3]
+leisure=stadium {name '${name} (${sport})' | '${sport}' | '${name}'}
+                                                [0x19 level 3]
+leisure=track {name '${name} (${sport})' | '${name}'}
+                                                [0x1d level 3]
+leisure=water_park & building!=*
+	{name '${name} (${operator})' | '${name}'}
+                                                [0x33 level 4]
+
 landuse=allotments				[0x4e level 4]
 landuse=basin & sport=swimming | amenity=swimming_pool |
-	leisure=swimming_pool | (natural=water & sport=*) | 
+	leisure=swimming_pool | (natural=water & sport=*) |
 	(natural=water & water=pool)
 	{ name '${name} (${description})' | '${description}' | '${name}' }
 				[0x3f level 3 default_name 'Schwimmbecken']
@@ -116,49 +159,6 @@ landuse=vineyard				[0x2c level 4]
 # use meadow for orchard for now
 landuse=orchard					[0x35 level 4]
 landuse=railway					[0x29 level 4]
-#endif /* STREETS */
-
-#ifndef STREETS
-leisure=common					[0x17 level 4]
-leisure=garden					[0x17 level 3]
-leisure=golf_course				[0x18 level 3]
-leisure=ice_rink				[0x19 level 3]
-# leisure=marina should not be rendered as a blue area anymore
-# It should be rendered as a line instead.
-#leisure=marina					[0x09 level 4]
-leisure=park					[0x17 level 4]
-leisure=pitch & sport=table_tennis
-	{name '${name} (Tischtennis)' | 'Tischtennis'}
-						[0x1c level 3]
-leisure=pitch & sport=soccer
-	{name '${name} (Fußball)' | 'Fußball'}
-						[0x1c level 3]
-leisure=pitch & sport=team_handball
-	{name '${name} (Handball)' | 'Handball'}
-						[0x1c level 3]
-leisure=pitch & sport=archery
-	{name '${name} (Bogenschießen)' | 'Bogenschießen'}
-						[0x1c level 3]
-leisure=pitch & sport=tennis
-	{name '${name} (Tennis)' | 'Tennis'}
-						[0x1d level 3]
-leisure=pitch & sport=equestrian
-	{name '${name} (Pferdesport)' | 'Pferdesport'}
-						[0x1c level 3]
-leisure=pitch
-	{name '${name} (${sport})' | '${sport}' | '${name}' | 'Spielfeld'}
-						[0x1c level 3]
-leisure=playground				[0x1b level 3]
-leisure=recreation_ground			[0x35 level 4]
-leisure=sports_center | leisure=sports_centre
-	{name '${name} (${sport})' | '${sport}' | '${name}' | 'Sportzentrum'}
-						[0x19 level 3]
-leisure=stadium {name '${name} (${sport})' | '${sport}' | '${name}'}
-						[0x19 level 3]
-leisure=track {name '${name} (${sport})' | '${name}'}
-						[0x1d level 3]
-leisure=water_park {name '${name} (${operator})' | '${name}'}
-						[0x33 level 4]
 #endif /* STREETS */
 
 # Military area
@@ -225,11 +225,16 @@ shop=* { name  '${name} (${operator})' | '${operator}' | '${name}' }
 #endif /* STREETS */
 
 # squares and plazas
-highway=pedestrian & area=yes			[0x12 level 1]
-highway=residential & area=yes			[0x11 level 2]
-highway=living_street & area=yes		[0x11 level 2]
-# other highways that have area=yes set must be parking lots
-highway=* & area=yes				[0x05 level 3]
+highway=pedestrian & (area=yes | mkgmap:mp_created=true)	[0x12 level 1]
+area:highway=pedestrian	       	 				[0x12 level 1]
+highway=footway & (area=yes | mkgmap:mp_created=true)		[0x12 level 0]
+area:highway=footway	      					[0x12 level 1]
+highway=residential & (area=yes | mkgmap:mp_created=true)	[0x11 level 2]
+# area of streets are confusing
+#area:highway=residential	  				[0x11 level 2]
+highway=living_street & (area=yes | mkgmap:mp_created=true)	[0x11 level 2]
+# What else could highway=* and area be?
+highway=rest_area & (area=yes | mkgmap:mp_created=true)		[0x05 level 3]
 
 #ifndef STREETS
 (railway=platform | public_transport=platform) & tunnel!=yes & area=yes
@@ -315,7 +320,7 @@ natural=land					[0x26 level 6]
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
 
-# we need addrees info from buildings for the address search
+# we need address info from buildings for the address search
 include 'inc/address';
 
 name=* { name '${name}' }

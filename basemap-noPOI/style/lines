@@ -82,9 +82,6 @@ aeroway=taxiway [0x2d level 2]
 # -------------------------------------------------------------------
 # Highway
 
-# Remove area:highway, as this are non-routeable lines/areas
-area:highway=* & area:highway!=no {deletealltags}
-
 # Remove maxspeed=none
 maxspeed=* & maxspeed=none {delete maxspeed}
 maxspeed=* & maxspeed=signals {delete maxspeed}
@@ -394,10 +391,9 @@ highway=cycleway {add access = no; set bicycle = yes; add foot = yes}
 
 highway=footway & bridge=yes		[0x10104 level 1 continue]
 highway=footway & tunnel=yes		[0x10115 level 1 continue]
-highway=footway {add access=no; add bicycle=no; add foot=yes}
-				[0x08 road_class=0 road_speed=0 level 1]
+highway=footway & area=yes		[0x08 road_class=0 road_speed=0 level 1 continue]
+highway=footway & area!=yes		[0x08 road_class=0 road_speed=0 level 1]
 
-highway=path {add access = no; add bicycle = yes; add foot = yes}
 highway=path & (mtb:scale=* | mtb:scale:imba=*)         { add bicycle=yes; }
 highway=path & (mtb:scale>1 | mtb:scale:imba>1)         { set bicycle=no; }
 highway=path & (sac_scale~'.*(mountain|alpine)_hiking') { add bicycle=no; }
