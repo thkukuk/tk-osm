@@ -30,7 +30,6 @@ Type=0x01f,5	;; Zoo
 Type=0x02a,5	;; Acker
 Type=0x034,5	;; Tiefgarage
 Type=0x007,6	;; Flughafen Vorfeld
-Type=0x008,6	;; Einkaufszentrum
 Type=0x009,6	;; Marina, unbenutzt!
 Type=0x00b,6	;; Krankenhaus
 Type=0x00e,6	;; Flughafen Startbahn
@@ -63,6 +62,7 @@ Type=0x033,7	;; Schwimmbad
 Type=0x046,7	;; Fluß
 Type=0x04e,7	;; Kleingärten
 Type=0x006,8
+Type=0x008,8    ;; Einkaufszentrum
 Type=0x010,8
 Type=0x01b,8
 Type=0x01c,8
@@ -320,6 +320,8 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x08
+        String1=0x02,Einkaufszentrum
+        String2=0x04,Shopping Center
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 	CustomColor=No
@@ -8554,7 +8556,7 @@ DayXpm="16 16 3 1"   Colormode=16
 
 [_point]
 Type=0x02e04
-String1=0x04,Shopping Centre
+String1=0x04,Shopping Center
 String2=0x02,Einkaufszentrum
 ExtendedLabels=N
 DayXpm="12 16 112 2"   Colormode=16
