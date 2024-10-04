@@ -218,6 +218,9 @@ highway=* & bicycle=dismount {set bicycle=yes}
 # bicycle and segregated == yes => handle as cycleway
 (highway=footway|highway=path) & segregated=yes & bicyle=* & bicycle!=no {set highway=cycleway}
 
+# Fix missing tracktype
+highway=track & tracktype!=* & surface=asphalt { add tracktype=grade1 }
+
 # Flag unpaved roads.
 highway=*
 & (surface=cobblestone | surface=compacted | surface=dirt |
