@@ -418,9 +418,9 @@ tourism=caravan_site		[0x2b05 level 0 default_name 'Caravan Site']
 tourism=alpine_hut		[0x2b03 level 3 default_name 'Alpine Hut']
 tourism=wilderness_hut		[0x2b06 level 3 default_name 'Schutzhütte']
 
-tourism=hotel { name '${name|def:}(${stars}*) (${operator|def:})' | '${name} (${operator})' | '${name}' | '${operator}' }
+tourism=hotel { name '${name}(${stars}*) (${operator})' | '${name}(${stars}*)' | '${name} (${operator})' | '${name}' | '${operator}' }
 						[0x2b01 level 2]
-tourism=motel { name '${name|def:}(${stars}*) (${operator|def:})' | '${name} (${operator})' | '${name}' | '${operator}' }
+tourism=motel { name '${name}(${stars}*) (${operator})' | '${name}(${stars}*)' | '${name} (${operator})' | '${name}' | '${operator}' }
 						[0x2b01 level 1]
 tourism=chalet
 	{ name '${name}' | '${ref}' }
