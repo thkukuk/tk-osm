@@ -3411,19 +3411,19 @@ FontStyle=NoLabel (invisible)
 	[end]
 
 
-	[_line]
-	Type=0x10b10
-	UseOrientation=N
-	Xpm="32 2 2  1"
-	"! c #804000"
-	"  c none"
-	"!!!!!   !!!!!   !!!!!   !!!!!   "
-	"!!!!!   !!!!!   !!!!!   !!!!!   "
-	;12345678901234567890123456789012
-	String1=0x02,unverbundener Track
-	String2=0x04,unconnected track
-	ExtendedLabels=N
-	[end]
+[_line]
+Type=0x10b10
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #804000"
+"# c #FF0000"
+"!!!!####!!!!####!!!!####!!!!####"
+"!!!!####!!!!####!!!!####!!!!####"
+;12345678901234567890123456789012
+String1=0x02,unverbundener Track
+String2=0x04,unconnected track
+ExtendedLabels=N
+[end]
 
 
 [_line]
@@ -3431,7 +3431,7 @@ Type=0x10b16
 UseOrientation=Y
 Xpm="32 2 2  1"
 "! c #0040C0"
-"# c #00FF00"
+"# c #FF0000"
 "!!##!!##!!##!!##!!##!!##!!##!!##"
 "!!##!!##!!##!!##!!##!!##!!##!!##"
 ;12345678901234567890123456789012
