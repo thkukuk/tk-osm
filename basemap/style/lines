@@ -249,7 +249,7 @@ highway=track { add mkgmap:set_unconnected_type=0x010b10 }
 #---------------
 
 # Special handling of embankment
-highway=* & embankment=yes [0x10f00 level 0 continue]
+highway=* & embankment=yes [0x10203 level 0 continue]
 
 # Roundabouts
 junction=roundabout & (highway=trunk | highway=trunk_link)
