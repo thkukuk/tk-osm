@@ -1,4 +1,4 @@
-﻿; basemap.TYP
+; basemap.TYP
 
 [_id]
 ProductCode=1
@@ -2585,25 +2585,25 @@ FontStyle=NoLabel (invisible)
 	[end]
 
 
-	[_line]
-	Type=0x11
-	UseOrientation=N
-	Xpm="32 1 2  1"
-	"! c #804000"
-	"  c none"
-	"!!!!    !!!!    !!!!    !!!!    "
-	;12345678901234567890123456789012
-	String1=0x02,schlecht befestigter Weg
-	ExtendedLabels=Y
+[_line]
+Type=0x11
+UseOrientation=N
+Xpm="32 1 2 1"
+"! c #804000"
+"  c none"
+"!!!!    !!!!    !!!!    !!!!    "
+;12345678901234567890123456789012
+String1=0x02,schlecht befestigter Weg
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
 	[_line]
 	Type=0x12
 	UseOrientation=N
-	Xpm="32 1 2  1"
+	Xpm="32 1 2 1"
 	"! c #000000"
 	"  c none"
 	"!!  !!  !!  !!  !!  !!  !!  !!  "
@@ -2865,42 +2865,40 @@ FontStyle=NoLabel (invisible)
 	[end]
 
 
-	[_line]
-	Type=0x2a
-	UseOrientation=N
-	Xpm="32 2 4  1"
-	"! c #180858"
-	"  c none"
-	"3 c #3030F8"
-	"4 c none"
-	"!!  !!  !!  !!  !!  !!  !!  !!  "
-	"!!  !!  !!  !!  !!  !!  !!  !!  "
-	;12345678901234567890123456789012
-	String1=0x02,Marina
-	String2=0x04,Marina
-	ExtendedLabels=Y
+[_line]
+Type=0x2a
+UseOrientation=N
+Xpm="32 2 2  1"
+"! c #180858"
+"  c none"
+"!!  !!  !!  !!  !!  !!  !!  !!  "
+"!!  !!  !!  !!  !!  !!  !!  !!  "
+;12345678901234567890123456789012
+String1=0x02,Marina
+String2=0x04,Marina
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
-	[_line]
-	Type=0x2c
-	UseOrientation=Y
-	Xpm="32 4 2  1"
-	"! c #404040"
-	"# c #C08040"
-	"!!!!!###!!!!!###!!!!!###!!!!!###"
-	"!###!!!!!###!!!!!###!!!!!###!!!!"
-	"!!!!!###!!!!!###!!!!!###!!!!!###"
-	"!###!!!!!###!!!!!###!!!!!###!!!!"
-	;12345678901234567890123456789012
-	String1=0x02,Stadtmauer
-	String2=0x04,Stadtmauer
-	ExtendedLabels=Y
+[_line]
+Type=0x2c
+UseOrientation=Y
+Xpm="32 4 2  1"
+"! c #404040"
+"# c #C08040"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"!###!!!!!###!!!!!###!!!!!###!!!!"
+"!!!!!###!!!!!###!!!!!###!!!!!###"
+"!###!!!!!###!!!!!###!!!!!###!!!!"
+;12345678901234567890123456789012
+String1=0x02,Stadtmauer
+String2=0x04,Stadtmauer
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
 	[_line]
@@ -3041,29 +3039,29 @@ FontStyle=NoLabel (invisible)
 	[end]
 
 
-	[_line]
-	Type=0x10101
-	UseOrientation=Y
-	Xpm="32 10 2  1"
-	"! c #000000"
-	"  c none"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"                                "
-	"                                "
-	"                                "
-	"                                "
-	"                                "
-	"                                "
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	;12345678901234567890123456789012
-	String1=0x02,Brücke
-	String2=0x04,Bridge
-	ExtendedLabels=Y
+[_line]
+Type=0x10101
+UseOrientation=Y
+Xpm="32 10 2 1"
+"! c #000000"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x02,Brücke
+String2=0x04,Bridge
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
 	[_line]
@@ -3340,22 +3338,22 @@ FontStyle=NoLabel (invisible)
 [_line]
 Type=0x10203
 UseOrientation=Y
-Xpm="32 11 2  1"
+Xpm="32 11 2 1"
 "! c #000000"
-"# c #C0C0C0"
-"!###!###!###!###!###!###!###!###"
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
+"  c none"
+"!   !   !   !   !   !   !   !   "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "                                "
 "                                "
 "                                "
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
-"!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#"
-"!###!###!###!###!###!###!###!###"
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
+"!   !   !   !   !   !   !   !   "
 ;12345678901234567890123456789012
-String1=0x02,Damm
+String1=0x02,Straßendamm
 String2=0x04,Embankment
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3363,63 +3361,63 @@ CustomColor=No
 [end]
 
 
-	[_line]
-	Type=0x10a01
-	UseOrientation=N
-	Xpm="32 5 2  1"
-	"! c #626262"
-	"# c #FFFFFF"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"!!!!!!!#########!!!!!!!#########"
-	"!!!!!!!#########!!!!!!!#########"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"################################"
-	;12345678901234567890123456789012
-	String1=0x02,Schienenweg
-	String2=0x04,Railway
-	ExtendedLabels=Y
+[_line]
+Type=0x10a01
+UseOrientation=N
+Xpm="32 5 2 1"
+"! c #626262"
+"# c #FFFFFF"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!#########!!!!!!!#########"
+"!!!!!!!#########!!!!!!!#########"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x02,Schienenweg
+String2=0x04,Railway
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
-	[_line]
-	Type=0x10a02
-	UseOrientation=N
-	Xpm="32 5 2  1"
-	"! c #626262"
-	"# c #80C000"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"!!!!!!!!########!!!!!!!!########"
-	"!!!!!!!!########!!!!!!!!########"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"################################"
-	;12345678901234567890123456789012
-	String1=0x02,Stillgelegter Schienenweg
-	String2=0x04,Disused railway
-	ExtendedLabels=Y
+[_line]
+Type=0x10a02
+UseOrientation=N
+Xpm="32 5 2  1"
+"! c #626262"
+"# c #80C000"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!########!!!!!!!!########"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"################################"
+;12345678901234567890123456789012
+String1=0x02,Stillgelegter Schienenweg
+String2=0x04,Disused railway
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
-	[_line]
-	Type=0x10a03
-	UseOrientation=Y
-	Xpm="32 4 2  1"
-	"! c #626262"
-	"# c #80C000"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	"!###!###!###!###!###!###!###!###"
-	"!###!###!###!###!###!###!###!###"
-	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	;12345678901234567890123456789012
-	String1=0x02,Abgebauter Schienenweg
-	String2=0x04,Abandoned railway
-	ExtendedLabels=Y
+[_line]
+Type=0x10a03
+UseOrientation=Y
+Xpm="32 4 2  1"
+"! c #626262"
+"# c #80C000"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!###!###!###!###!###!###!###!###"
+"!###!###!###!###!###!###!###!###"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+;12345678901234567890123456789012
+String1=0x02,Abgebauter Schienenweg
+String2=0x04,Abandoned railway
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	[end]
+CustomColor=No
+[end]
 
 
 	[_line]
