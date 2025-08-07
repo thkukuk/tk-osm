@@ -134,7 +134,7 @@ SRTM-*)
   esac
   ;;
 DACH)
-    MAPS="basemap basemap-noPOI bicycling oepnv wanderwege" # marine keepright address fixme
+    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine keepright address fixme
     TILEID=71200001
     COUNTRY_ABBR="DACH"
     ;;
