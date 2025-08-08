@@ -14,10 +14,6 @@ family 7113:	Europe/Wanderwege
 family 7114:	Europe/Oepnv
 	product-id=1:   Oepnv		draw-priority=20
 
-family 7115:	Europe/fixme/keepright
-	product-id=1:	Fixme Europe	draw-priority=25
-	procuct-id=3:	KeepRight	draw-priority=27
-
 family 7116:	Europe/marine
 	product-id=1:	Marine Europe	draw-priority=30
 
@@ -36,7 +32,6 @@ family 7118:	Europe/boundary
 	71130001-71131270:	oepnv Europe
 	71135001-71135xxx:	fixme Europe
 	71136001-71136xxx:	XXX Europe
-	71137001-71137xxx:	keepright Europe
 	71140001-71144999:	marine Europe
 	71145001-71149xxx:	boundary Europy
 	71150001-7115xxxx:	SRTM Europe
@@ -62,10 +57,6 @@ family 7123:	DACH/Wanderwege
 family 7124:	Oepnv			draw-priority=20
 	product-id=1:	Oepnv DACH
 
-family 7125:	DACH/fixme/keepright
-	product-id=1:	Fixme		draw-priority=25
-	procuct-id=3:	KeepRight	draw-priority=27
-
 family 7126:	DACH/marine
 	product-id=1:	Marine		draw-priority=30
 
@@ -85,7 +76,6 @@ family 7129:	DACH/Address
 	71204001-71204483:	oepnv DACH
 	71205001-71205279:	fixme DACH
 	71205501-71205501:	XXX DACH
-	71205601-71205717:	keepright DACH
 	71206001-71206483:	marine DACH
 	71207001-71207483:	basemap-noPOI DACH
 	71208001-71208076:	tilesplitter SRTM/DACH
@@ -229,10 +219,6 @@ family 7162:    France
 family 7163:    France
         product-id=1:   Oepnv           draw-priority=20
 
-family 7164:    France/fixme/keepright
-        product-id=1:   Fixme           draw-priority=25
-        procuct-id=3:   KeepRight       draw-priority=27
-
 family 7165:    France/marine
         product-id=1:   Marine          draw-priority=30
 
@@ -242,7 +228,6 @@ family 7165:    France/marine
         71603001-71603642:      wanderwege
         71604001-71604642:      oepnv
         71605001-71605642:      fixme
-        71606001-71606108:      keepright
         71607001-71607642:      marine
         71609001-71609044:      srtm
 
@@ -305,10 +290,6 @@ family 7182:    Italy			draw-priority=20
 family 7183:    Italy
         product-id=1:   Oepnv           draw-priority=20
 
-family 7184:    Italy/fixme/keepright
-        product-id=1:   Fixme           draw-priority=25
-        procuct-id=3:   KeepRight       draw-priority=27
-
 family 7185:    Italy/marine
         product-id=1:   Marine          draw-priority=30
 
@@ -322,7 +303,6 @@ family 7186:	Italy
         71804001-71804369:      oepnv
         71805001-71805369:      fixme
         71805501-71805501:      XXX
-        71805601-71805601:      keepright
         71805701-718057xx:      marine
 	71806001-718060xx:	wanderwege
         71809001-71809044:      srtm
@@ -340,10 +320,6 @@ family 7192:    Scandinavia
 family 7193:    Scandinavia
         product-id=1:   Oepnv           draw-priority=20
 
-family 7194:    Scandinavia/fixme/keepright
-        product-id=1:   Fixme           draw-priority=25
-        procuct-id=3:   KeepRight       draw-priority=27
-
 family 7195:    Scandinavia/marine
         product-id=1:   Marine          draw-priority=30
 
@@ -354,7 +330,6 @@ family 7195:    Scandinavia/marine
         71904001-71904010:      oepnv
         71905001-71905010:      fixme
         71905501-71905510:      XXX
-        71905601-71905610:      keepright
         71905701-719057xx:      marine
         71909001-71909064:      srtm
 

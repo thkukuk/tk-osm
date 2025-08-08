@@ -9,9 +9,6 @@ COUNTRYDIR=${COUNTRY}
 if [ "$STYLE" == "osb" ]; then
   CAPSTYLE="OSB"
 fi
-if [ "$STYLE" == "keepright" ]; then
-  CAPSTYLE="KeepRight"
-fi
 if [ "$STYLE" == "srtm" ]; then
   CAPSTYLE="SRTM"
 fi

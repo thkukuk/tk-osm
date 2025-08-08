@@ -134,7 +134,7 @@ SRTM-*)
   esac
   ;;
 DACH)
-    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine keepright address fixme
+    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine address fixme
     TILEID=71200001
     COUNTRY_ABBR="DACH"
     ;;
@@ -144,69 +144,69 @@ germany)
     COUNTRY_ABBR="DEU"
     ;;
 europe)
-    MAPS="basemap bicycling oepnv wanderwege" # marine streets keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine streets fixme
     TILEID=71100001
     COUNTRY_ABBR="EU"
     #SPLITTER_MAXNODES=1200000
     ;;
 benelux)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71700001
     COUNTRY_ABBR="BNL"
     ;;
 channel_islands)
-    MAPS="basemap bicycling oepnv" # wanderwege keepright marine fixme
+    MAPS="basemap bicycling oepnv" # wanderwege marine fixme
     TILEID=72200001
     COUNTRY_ABBR="GBR"
     ;;
 croatia)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine marine fixme
     TILEID=72300001
     COUNTRY_ABBR="HRV"
     ;;
 czech_republic)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71300001
     COUNTRY_ABBR="CZE"
     ;;
 ireland)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71340001
     COUNTRY_ABBR="IRL"
     ;;
 france)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71600001
     COUNTRY_ABBR="FRA"
     ;;
 great_britain)
-    MAPS="basemap bicycling oepnv wanderwege" # keepright marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=72000001
     COUNTRY_ABBR="GBR"
     ;;
 iceland)
-    MAPS="basemap wanderwege oepnv bicycling" # marine keepright fixme
+    MAPS="basemap wanderwege oepnv bicycling" # marine fixme
     TILEID=72550001
     COUNTRY_ABBR="ISL"
     ;;
 india)
-    MAPS="basemap" # bicycling oepnv marine wanderwege keepright fixme
+    MAPS="basemap" # bicycling oepnv marine wanderwege fixme
     TILEID=72100001
     COUNTRY_ABBR="IND"
     ;;
 italy)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71800001
     COUNTRY_ABBR="ITA"
     ;;
 canada)
-    MAPS="basemap wanderwege" # bicycling oepnv marine keepright fixme
+    MAPS="basemap wanderwege" # bicycling oepnv marine fixme
     TILEID=71400001
     COUNTRY_ABBR="CAN"
     SPLITTER_MAXNODES=1200000
     ;;
 usa*)
-    MAPS="basemap" # oepnv wanderwege bicycling marine keepright fixme
+    MAPS="basemap" # oepnv wanderwege bicycling marine fixme
     COUNTRY_ABBR="USA"
     case "$COUNTRY" in
 	usa-northeast)
@@ -232,7 +232,7 @@ portugal)
     COUNTRY_ABBR="PRT"
     ;;
 scandinavia)
-    MAPS="basemap bicycling oepnv wanderwege" # marine keepright fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
     TILEID=71900001
     COUNTRY_ABBR="DNS"
     ;;
@@ -270,7 +270,6 @@ esac
 DESC="TK-${CAPCOUNTRY}-Tile"
 
 BASE_IS_SPLITTED=NO
-KEEPRIGHT_IS_SPLITTED=NO
 OSMBUGS_IS_SPLITTED=NO
 
 for style in $MAPS ; do
@@ -286,20 +285,6 @@ for style in $MAPS ; do
 		else
 		    SplitIntoTiles data/osmbugs tiles-osmbugs
 		    OSMBUGS_IS_SPLITTED=YES
-		fi
-	    fi
-	    ;;
-	keepright)
-	    if [ "$KEEPRIGHT_IS_SPLITTED" == "NO" ] ; then
-		/usr/bin/time tk-osm/scripts/update_keepright
-		if [ $? -eq 1 ] ; then
-		    echo "update_keepright for $COUNTRY failed!"
-		else
-		    TMPMAXNODES=$SPLITTER_MAXNODES
-		    SPLITTER_MAXNODES=20000
-		    SplitIntoTiles data/keepright tiles-keepright
-		    SPLITTER_MAXNODES=$TMPMAXNODES
-		    KEEPRIGHT_IS_SPLITTED=YES
 		fi
 	    fi
 	    ;;

@@ -13,10 +13,6 @@ case "$STYLE" in
    CAPSTYLE="OSB"
    TILES=tiles-osmbugs
    ;;
-  keepright)
-   CAPSTYLE="KeepRight"
-   TILES=tiles-keepright
-   ;;
   srtm)
    CAPSTYLE="SRTM"
    TILES=tiles-srtm
