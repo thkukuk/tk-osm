@@ -9,7 +9,7 @@ fi
 wget http://download.geonames.org/export/dump/cities1000.zip
 unzip -o cities1000.zip
 rm cities1000.zip
-../extract_country_from_cities.pl cities1000.txt AT > AT.txt
+../extract_country_from_cities.pl cities1000.txt AT > AUT.txt
 ../extract_country_from_cities.pl cities1000.txt BE > BE.txt
 ../extract_country_from_cities.pl cities1000.txt CA > CAN.txt
 ../extract_country_from_cities.pl cities1000.txt CH > CH.txt
