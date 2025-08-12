@@ -17,9 +17,6 @@ family 7114:	Europe/Oepnv
 family 7116:	Europe/marine
 	product-id=1:	Marine Europe	draw-priority=30
 
-family 7117:	Europe/fastfood
-	product-id=1:	Fastfood	draw-priority=30
-
 family 7118:	Europe/boundary
 	product-id=1:	Boundaries	draw-priority=12
 
@@ -219,17 +216,22 @@ family 7162:    France
 family 7163:    France
         product-id=1:   Oepnv           draw-priority=20
 
-family 7165:    France/marine
-        product-id=1:   Marine          draw-priority=30
-
         71600001-71600642:      tilesplitter
         71601001-71601642:      basemap
         71602001-71602642:      bicycling
         71603001-71603642:      wanderwege
         71604001-71604642:      oepnv
         71605001-71605642:      fixme
-        71607001-71607642:      marine
         71609001-71609044:      srtm
+
+family 7164:    Austria
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        71640001-71640xxx:              tilesplitter
+        71641001-71641xxx:              basemap
+        71642001-71642xxx:              srtm
+
 
 family 7168:	Germany
 	product-id=1:	mkgmap		draw-priority=10

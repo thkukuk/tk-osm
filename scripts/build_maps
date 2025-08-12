@@ -124,8 +124,12 @@ SRTM-*)
     COUNTRY_ABBR="GBR"
     ;;
   germany)
-    TILEID=71690001
+    TILEID=7169X001
     COUNTRY_ABBR="DEU"
+    ;;
+  austria)
+    TILEID=7164X001
+    COUNTRY_ABBR="AUT"
     ;;
   *)
     echo "SRTM-Country unknown!"
@@ -142,6 +146,11 @@ germany)
     MAPS="basemap" # mkgmap
     TILEID=71690001
     COUNTRY_ABBR="DEU"
+    ;;
+austria)
+    MAPS="basemap"
+    TILEID=71640001
+    COUNTRY_ABBR="AUT"
     ;;
 europe)
     MAPS="basemap bicycling oepnv wanderwege" # marine streets fixme
