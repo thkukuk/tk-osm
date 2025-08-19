@@ -1,0 +1,22 @@
+# -------------------------------------------------------------------
+# Natur
+
+natural=bay & name=*				[0x6503 level 1]
+natural=cave_entrance				[0x6601 level 1]
+natural=peak & (name=* | ele=* )
+	{name '${name} (${ele}m)' | '${ele}m' | '${name}' }
+						[0x6616 level 1]
+natural=rock|natural=rocks			[0x6614 level 1]
+#natural=spring					[0x6511 level 1]
+#natural=stream					[0x6512 level 1]
+#natural=volcano				[0x2c0c level 3]
+#natural=water { name '${name:de}' | '${int_name}' | '${name}' | '${alt_name}' }
+#natural=water & name=* & water!=pool & sport!=*  [0x650d level 3]
+#(natural=waterfall|waterway=waterfall|waterway=rapids) &
+#	(mkgmap:area2poi!=true | name=*)
+#						[0x6508 level 0]
+#natural=wetland & name=*			[0x6513 level 1]
+#natural=wood & name=* & mkgmap:area2poi!=true	[0x6618 level 3]
+#natural=tree & ( natural=landmark | denotation=landmark | denotation=natural_monument | monument=yes | landmark=yes | tourism=attraction | historic=monument| historic=memorial | monument:natural=yes )
+						[0x590e level 1]
+

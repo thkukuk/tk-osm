@@ -42,7 +42,7 @@ PRODUCT_VERSION=$(date "+%y%m%d")
 #disabled: --adjust-turn-headings
 CONFIG="--product-version=$PRODUCT_VERSION --add-pois-to-areas  --pois-to-areas-placement=entrance=main;entrance=yes;building=entrance;barrier=entrance --reduce-point-density=4 --reduce-point-density-polygon=8 --min-size-polygon=8 --polygon-size-limits=24:8,18:4,17:2,16:0 --make-opposite-cycleways --name-tag-list=name,place_name,loc_name --order-by-decreasing-area"
 
-if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "mkgmap" ] ; then
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "mkgmap" -o "$STYLE" == "basemap-Bike" ] ; then
  if [ ! -d data/sea/current ]; then
    echo "ERROR: no sea data found, map may be broken!"
  fi
@@ -60,14 +60,14 @@ rm -rf "$STYLE"
 mkdir "$STYLE"
 cd "$STYLE" || exit 1
 # Handle --bounds seperat, so that we can add more styles if necessry
-if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "mkgmap" -o "$STYLE" == "address" ] ; then
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "mkgmap" -o "$STYLE" == "basemap-Bike" ] ; then
    if [ -d ../../../data/boundaries/current ]; then
       ln -sf ../../../data/boundaries/current bounds
       CONFIG="--bounds=bounds --location-autofill=bounds,is_in,nearest $CONFIG"
    fi
 fi
 # Sea is only necessary for basemps.
-if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "mkgmap" ] ; then
+if [ "$STYLE" == "basemap" -o "$STYLE" == "basemap-noPOI" -o "$STYLE" == "basemap+DEM" -o "$STYLE" == "streets" -o "$STYLE" == "mkgmap" -o "$STYLE" == "basemap-Bike" ] ; then
   if [ -d ../../../data/sea/current ]; then
     ln -sf ../../../data/sea/current sea
     CONFIG="--precomp-sea=sea $CONFIG"

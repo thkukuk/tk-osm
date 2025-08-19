@@ -1,0 +1,87 @@
+# -------------------------------------------------------------------
+# Adress mapping
+
+addr:housenumber=* {set mkgmap:execute_finalize_rules=true}
+
+# Set name if not set directly, but alternates exist
+name!=* & place_name=* { name '${place_name}' }
+name!=* & loc_name=* { name '${loc_name}' }
+
+include 'inc/address_pre';
+
+# -------------------------------------------------------------------
+# Lösche disused POI
+disused=yes & historic!=* { deletealltags }
+abandoned=yes { deletealltags }
+
+# -------------------------------------------------------------------
+# Special barrier/access handling
+
+barrier=* & bicycle=*    { set mkgmap:bicycle='${bicycle|subst:private=>no}' }
+barrier=* & foot=*       { set mkgmap:foot='${foot|subst:private=>no}' }
+barrier=* & hgv=*        { set mkgmap:truck='${hgv|subst:private=>no}' }
+barrier=* & motorcar=*   { set mkgmap:car='${motorcar|subst:private=>no}' }
+barrier=* & psv=*        { set mkgmap:bus='${psv|subst:private=>no}' }
+barrier=* & taxi=*       { set mkgmap:taxi='${taxi|subst:private=>no}' }
+barrier=* & emergency=*  { set mkgmap:emergency='${emergency|subst:private=>no}'}
+barrier=* & delivery=*   { set mkgmap:delivery='${delivery|subst:private=>no}' }
+barrier=* & access=*     { addaccess '${access|subst:private=>no}' }
+
+barrier=bollard | barrier=cycle_barrier
+    { add mkgmap:bicycle=yes;
+      add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=bus_trap
+    { add mkgmap:bus=yes;
+      add mkgmap:foot=yes;
+      add mkgmap:bicycle=yes;
+      addaccess no;
+      set mkgmap:road-speed=1; }
+barrier=gate
+    { add mkgmap:bicycle=yes;
+      add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=0; }
+barrier=kissing_gate | barrier=stile | barrier=block
+    { add mkgmap:foot=yes;
+      addaccess no;
+      set mkgmap:road-speed=0; }
+
+# -------------------------------------------------------------------
+# Staten/Städte/Dörfer
+
+include 'inc/place';
+
+# -------------------------------------------------------------------
+# Natur
+
+include 'inc/natural';
+
+# -------------------------------------------------------------------
+# Cleanup of ref, operator, brand, name
+
+# delete FIXME values (they should be better used in maintenance maps)
+ref ~ '(?i)fix[ _]?+me'		{ delete ref; }
+operator ~ '(?i)fix[ _]?+me'	{ delete operator; }
+brand ~ '(?i)fix[ _]?+me'	{ delete brand; }
+name ~ '(?i)fix[ _]?+me'	{ delete name; }
+
+# If operator and brand are didentical, delete one of them:
+operator=* & brand=* & operator=${brand} { delete brand }
+
+# -------------------------------------------------------------------
+# Gebäude/Einrichtungen
+
+amenity=drinking_water    [0x2908 level 0 default_name 'Trinkwasser']
+amenity=water_tap         [0x2908 level 0 default_name 'Wasserhahn']
+man_made=water_tap        [0x2908 level 0 default_name 'Wasserhahn']
+amenity=grave_yard        [0x2c14 level 0 default_name 'Friedhof']
+landuse=cemetery          [0x2c14 level 0 default_name 'Friedhof']
+tourism=picnic_site       [0x2907 level 3 default_name 'Picknick']
+amenity=toilets           [0x2f0c level 0 default_name 'Toiletten']
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+name=* { name '${name}' }
+include 'inc/address';

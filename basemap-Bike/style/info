@@ -1,0 +1,18 @@
+#
+# This file contains information about the style.
+# It is completely optional.
+# 
+
+
+# A short one line description of the style
+#
+summary: The default style with minimal POIs
+
+# Version of the style itself
+#
+version=1.0
+
+# A longer description of the style.
+description {
+This is a variant of the default style with a minimal number of POI, mainly cities and interesting POIs for cycling like toiletts, drinking water and picknic table.
+}

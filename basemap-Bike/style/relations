@@ -1,0 +1,90 @@
+# Names of administrative boundaries.
+
+# We could want to sort the relations in ascending order of admin_level
+# and alphabetically by name first.
+# Currently, the matching relations will be processed and the names
+# appended to the boundary lines in an arbitrary order.
+
+# country borders
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=2
+& name=*
+{ apply
+  {
+    set boundary2=yes;
+    set mkgmap:boundary2_name='$(mkgmap:boundary2_name)/${name}' | '${name}';
+  }
+}
+# federal states border
+(type=boundary | type=multipolygon) & boundary=administrative
+& admin_level=4
+& name=*
+{ apply
+  {
+    set boundary4=yes;
+    set mkgmap:boundary4_name='$(mkgmap:boundary4_name)/${name}' | '${name}';
+  }
+}
+# federal states border
+(type=boundary | type=multipolygon) & boundary=national_park
+{ apply
+  {
+    set tk:nationalpark=yes;
+    set tk:nationalpark_name='$(tk:nationalpark_name)/${name}' | '${name}';
+  }
+}
+
+
+# Underground stations - somebody maps them as multipolygon building.
+# Move tunnel=yes to all members of the relation
+type=multipolygon & tunnel=yes { apply { add tunnel=yes; } }
+
+# Adjust routing for passengers and bicycles
+route=foot | route=hiking   { apply { add foot=yes; } }
+route=bicycle | route=mtb   { apply { add bicycle=yes; } }
+
+# Public transportation routes.
+# We could want to sort the matching relations by ref first.
+type=route
+& (route=bus|route=trolleybus|route=ferry|route=subway|route=train|route=tram)
+& (ref=* | name=*)
+{
+  add ref='${name}'; # if ref is missing, use name
+  # Append the ref of the route relation to the route_ref attribute of
+  # the member nodes recursively (even to members of subrelations).
+  # Stops can be grouped within subrelations comprising the vehicle
+  # stop node and the passenger wait node.
+  apply { # node role ~ '(start_|end_)stop'
+    set route_ref='$(route_ref),${ref|not-contained:,:route_ref}' | '$(route_ref)' | '${ref}';
+    # In route relations, stops may be defined as relations that group
+    # the passenger wait area and the vehicle stop area.  If such
+    # subrelations exist, copy the ref to them too.
+    set mkgmap:ref='${ref}';
+
+    apply role=passengers {
+      set route_ref='$(route_ref),${mkgmap:ref}' | '${mkgmap:ref}';
+    }
+
+    delete mkgmap:ref;
+  }
+  # We could want to copy the route relation name to unnamed route=ferry ways.
+  # apply way { add name='${name}' }
+}
+
+# Provincial capitals
+boundary=administrative & admin_level=* {
+     apply role=admin_centre { set is_province_capital='${admin_level}'; }
+}
+
+# copy data from type=building to buildings itself
+type=building {
+  apply {
+    add name='${name}';
+    add addr:housename='${addr:housename}';
+    add addr:housenumber='${addr:housenumber}';
+    add addr:street='${addr:street}';
+    add addr:city='${addr:city}';
+    add addr:postcode='${addr:postcode}';
+    add addr:country='${addr:country}';
+  }
+}
