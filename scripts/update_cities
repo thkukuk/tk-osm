@@ -12,7 +12,7 @@ rm cities1000.zip
 ../extract_country_from_cities.pl cities1000.txt AT > AUT.txt
 ../extract_country_from_cities.pl cities1000.txt BE > BE.txt
 ../extract_country_from_cities.pl cities1000.txt CA > CAN.txt
-../extract_country_from_cities.pl cities1000.txt CH > CH.txt
+../extract_country_from_cities.pl cities1000.txt CH > CHE.txt
 ../extract_country_from_cities.pl cities1000.txt CZ > CZE.txt
 ../extract_country_from_cities.pl cities1000.txt DE > DEU.txt
 ../extract_country_from_cities.pl cities1000.txt DK > DK.txt
@@ -36,7 +36,7 @@ rm cities1000.zip
 ../extract_country_from_cities.pl cities1000.txt PT > PRT.txt
 ../extract_country_from_cities.pl cities1000.txt ES > ESP.txt
 
-cat AT.txt CH.txt DEU.txt LIE.txt > DACH.txt
+cat AUT.txt CHE.txt DEU.txt LIE.txt > DACH.txt
 cat BE.txt NL.txt LU.txt > BNL.txt
 cat IE.txt GBR.txt > IRL.txt
 cat SE.txt DK.txt FI.txt NO.txt > DNS.txt

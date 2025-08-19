@@ -128,8 +128,12 @@ SRTM-*)
     COUNTRY_ABBR="DEU"
     ;;
   austria)
-    TILEID=7164X001
+    TILEID=71642001
     COUNTRY_ABBR="AUT"
+    ;;
+  switzerland)
+    TILEID=71652001
+    COUNTRY_ABBR="CHE"
     ;;
   *)
     echo "SRTM-Country unknown!"
@@ -151,6 +155,11 @@ austria)
     MAPS="basemap"
     TILEID=71640001
     COUNTRY_ABBR="AUT"
+    ;;
+switzerland)
+    MAPS="basemap"
+    TILEID=71650001
+    COUNTRY_ABBR="CHE"
     ;;
 europe)
     MAPS="basemap bicycling oepnv wanderwege" # marine streets fixme
