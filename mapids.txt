@@ -45,17 +45,17 @@ family 7120:	DACH
 family 7121:	DACH/mkgmap
         product-id=1:	mkgmap default	draw-priority=10
 
-family 7122:	Bicycling		draw-priority=20
+family 7122:	DACH/Bicycling		draw-priority=20
 	product-id=1:	Bicycling DACH
 
 family 7123:	DACH/Wanderwege
 	product-id=1:	Wanderwege	draw-priority=24
 
-family 7124:	Oepnv			draw-priority=20
+family 7124:	DACH/Oepnv		draw-priority=20
 	product-id=1:	Oepnv DACH
 
-family 7126:	DACH/marine
-	product-id=1:	Marine		draw-priority=30
+family 7126:	DACH/Bike
+	product-id=1:	Bike		draw-priority=10
 
 family 7127:	DACH/mkgmap default
 	product-id=1:	mkgmap default	draw-priority=10
@@ -73,7 +73,7 @@ family 7129:	DACH/Address
 	71204001-71204483:	oepnv DACH
 	71205001-71205279:	fixme DACH
 	71205501-71205501:	XXX DACH
-	71206001-71206483:	marine DACH
+	71206001-71206483:	basemap-Bike DACH
 	71207001-71207483:	basemap-noPOI DACH
 	71208001-71208076:	tilesplitter SRTM/DACH
 	71209001-71209076:	srtm DACH
@@ -232,6 +232,13 @@ family 7164:    Austria
         71641001-71641xxx:              basemap
         71642001-71642xxx:              srtm
 
+family 7165:    Switzerland
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        71650001-71650xxx:              tilesplitter
+        71651001-71651xxx:              basemap
+        71652001-71652xxx:              srtm
 
 family 7168:	Germany
 	product-id=1:	mkgmap		draw-priority=10
