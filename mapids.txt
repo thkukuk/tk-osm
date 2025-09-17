@@ -216,21 +216,16 @@ family 7162:    France
 family 7163:    France
         product-id=1:   Oepnv           draw-priority=20
 
+family 7164:    France
+        product-id=1:   Basemap-Bike    draw-priority=10
+
         71600001-71600642:      tilesplitter
         71601001-71601642:      basemap
         71602001-71602642:      bicycling
         71603001-71603642:      wanderwege
         71604001-71604642:      oepnv
-        71605001-71605642:      fixme
+        71605001-71605642:      basemap-Bike
         71609001-71609044:      srtm
-
-family 7164:    Austria
-        product-id=1:   Basemap         draw-priority=10
-        product-id=2:   SRTM            draw-priority=12
-
-        71640001-71640xxx:              tilesplitter
-        71641001-71641xxx:              basemap
-        71642001-71642xxx:              srtm
 
 family 7165:    Switzerland
         product-id=1:   Basemap         draw-priority=10
@@ -239,6 +234,14 @@ family 7165:    Switzerland
         71650001-71650xxx:              tilesplitter
         71651001-71651xxx:              basemap
         71652001-71652xxx:              srtm
+
+family 7166:    Austria
+        product-id=1:   Basemap         draw-priority=10
+        product-id=2:   SRTM            draw-priority=12
+
+        71660001-71660xxx:              tilesplitter
+        71661001-71661xxx:              basemap
+        71662001-71662xxx:              srtm
 
 family 7168:	Germany
 	product-id=1:	mkgmap		draw-priority=10
