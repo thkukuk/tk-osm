@@ -79,7 +79,8 @@ man_made=water_tap        [0x2908 level 0 default_name 'Wasserhahn']
 amenity=grave_yard        [0x2c14 level 0 default_name 'Friedhof']
 landuse=cemetery          [0x2c14 level 0 default_name 'Friedhof']
 tourism=picnic_site       [0x2907 level 3 default_name 'Picknick']
-amenity=toilets           [0x2f0c level 0 default_name 'Toiletten']
+amenity=toilets & access!=customers & access!=destination	[0x2f0c level 0 default_name 'Toiletten']
+#amenity=ice_cream
 
 <finalize>
 # The finalizer section is executed for each element when a rule with an element type matches
