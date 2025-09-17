@@ -1,6 +1,10 @@
 # Relations-Style for the bicyclepath network as additional 
 # transparent layer.
 
+# Delete crap
+cycle_network=DE:BY:FÜ { delete route; delete network }
+
+
 network=icn {
 	apply {
 		set route_icn='$(route_icn), ${name} (${ref})' | 

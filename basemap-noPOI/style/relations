@@ -39,6 +39,9 @@
 # Move tunnel=yes to all members of the relation
 type=multipolygon & tunnel=yes { apply { add tunnel=yes; } }
 
+# Delete crap
+cycle_network=DE:BY:FÜ { delete route; delete network }
+
 # Adjust routing for passengers and bicycles
 route=foot | route=hiking   { apply { add foot=yes; } }
 route=bicycle | route=mtb   { apply { add bicycle=yes; } }
