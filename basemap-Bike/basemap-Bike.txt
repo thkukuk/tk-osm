@@ -18,14 +18,14 @@ Type=0x026,3	;; Land
 Type=0x001,4	;; Stadt
 Type=0x002,4	;; Siedlung
 Type=0x003,4	;; Wohngebiet
-Type=0x037,4	;; Milit√§rgebiet
+Type=0x037,4	;; Milit‰rgebiet
 Type=0x024,5    ;; Deponie
-Type=0x025,5    ;; Brachfl√§che
+Type=0x025,5    ;; Brachfl‰che
 Type=0x029,5	;; Eisenbahn
 Type=0x032,5	;; See
-Type=0x00a,5	;; Universit√§t
+Type=0x00a,5	;; Universit‰t
 Type=0x00c,5	;; Industriegebiet
-Type=0x00f,5	;; Flughafen Gel√§nde
+Type=0x00f,5	;; Flughafen Gel‰nde
 Type=0x01f,5	;; Zoo
 Type=0x02a,5	;; Acker
 Type=0x034,5	;; Tiefgarage
@@ -47,20 +47,20 @@ Type=0x02d,6	;; Steinbruch
 Type=0x035,6	;; Wiese, wild
 Type=0x03d,6	;; Strand
 Type=0x04d,6	;; Gletscher
-Type=0x04f,6	;; Getr√ºpp
+Type=0x04f,6	;; Getr¸pp
 Type=0x050,6	;; Wald
 Type=0x053,6	;; Lose Steine
 Type=0x005,7	;; Flughafen
 Type=0x011,7	;; Platz/Square
-Type=0x012,7	;; Fu√üg√§ngerzone
+Type=0x012,7	;; Fuﬂg‰ngerzone
 Type=0x018,7	;; Golfplatz
 Type=0x01a,7	;; Friedhof
 Type=0x02c,7	;; Weinabbau
 Type=0x02e,7	;; Campingplatz
-Type=0x02f,7	;; Fahrradst√§nder
+Type=0x02f,7	;; Fahrradst‰nder
 Type=0x033,7	;; Schwimmbad
-Type=0x046,7	;; Flu√ü
-Type=0x04e,7	;; Kleing√§rten
+Type=0x046,7	;; Fluﬂ
+Type=0x04e,7	;; Kleing‰rten
 Type=0x006,8
 Type=0x008,8    ;; Einkaufszentrum
 Type=0x010,8
@@ -136,7 +136,7 @@ Xpm="0 0 2 0"
 
 [_polygon]
 Type=0x04
-String1=0x02,Milit√§rgebiet
+String1=0x02,Milit‰rgebiet
 String2=0x04,Military Range
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -378,7 +378,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x0a
-	String1=0x02,Universit√§t
+	String1=0x02,Universit‰t
 	String2=0x04,University/College
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -516,7 +516,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x12
-	String1=0x02,Fu√üg√§ngerzone
+	String1=0x02,Fuﬂg‰ngerzone
 	String2=0x04,Pedestrian
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -984,7 +984,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x25
-	String1=0x02,Brachfl√§che
+	String1=0x02,Brachfl‰che
 	String2=0x04,Brownfield
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1294,7 +1294,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x2f
-	String1=0x02,Fahrradst√§nder
+	String1=0x02,Fahrradst‰nder
 	String2=0x04,Bicycle Parking
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1580,7 +1580,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x37
-	String1=0x02,Milit√§rgebiet
+	String1=0x02,Milit‰rgebiet
 	String2=0x04,Military
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1592,7 +1592,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x3c
-	String1=0x02,Gew√§sser
+	String1=0x02,Gew‰sser
 	String2=0x04,Waters
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1796,7 +1796,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x46
-	String1=0x02,Flu√üufer
+	String1=0x02,Fluﬂufer
 	String2=0x04,Riverbank
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1920,7 +1920,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x4e
-	String1=0x02,Kleing√§rten
+	String1=0x02,Kleing‰rten
 	String2=0x04,Allotments
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -1966,7 +1966,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x4f
-	String1=0x02,Gestr√ºpp
+	String1=0x02,Gestr¸pp
 	String2=0x04,Scrub
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2148,7 +2148,7 @@ Xpm="32 32 2 1"
 
 	[_polygon]
 	Type=0x10900
-	String1=0x02,Geb√§ude
+	String1=0x02,Geb‰ude
 	String2=0x04,Building
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2180,7 +2180,7 @@ FontStyle=NoLabel (invisible)
 
 	[_polygon]
 	Type=0x10f06
-	String1=0x02,√ñffentliches Geb√§ude
+	String1=0x02,÷ffentliches Geb‰ude
 	String2=0x04,Public building
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2344,7 +2344,7 @@ FontStyle=NoLabel (invisible)
 	"      !!              !!        "
 	"      !               !         "
 	;12345678901234567890123456789012
-	String1=0x02,Einbahnstra√üe
+	String1=0x02,Einbahnstraﬂe
 	String2=0x04,Oneway street
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2376,7 +2376,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #FF7035"
 	"2 c #606060"
-	String1=0x02,Bundestra√üe
+	String1=0x02,Bundestraﬂe
 	String2=0x04,Primary/Trunk
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2392,7 +2392,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #FFC040"
 	"2 c #C04000"
-	String1=0x02,Landes-/Staatsstra√üe
+	String1=0x02,Landes-/Staatsstraﬂe
 	String2=0x04,Secondary
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2408,7 +2408,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #FFFF00"
 	"2 c #808080"
-	String1=0x02,Kreisstra√üe
+	String1=0x02,Kreisstraﬂe
 	String2=0x04,Tertiary
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2438,7 +2438,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #FFFFFF"
 	"2 c #777777"
-	String1=0x02,Wohnstra√üe
+	String1=0x02,Wohnstraﬂe
 	String2=0x04,Residential
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2453,7 +2453,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #73b2ff"
 	"2 c #777777"
-	String1=0x02,Fahrradstra√üe
+	String1=0x02,Fahrradstraﬂe
 	String2=0x04,Bicycle road
 	ExtendedLabels=Y
 	FontStyle=Default
@@ -2469,7 +2469,7 @@ FontStyle=NoLabel (invisible)
 	"!!##!!##!!##!!##!!##!!##!!##!!##"
 	"!!##!!##!!##!!##!!##!!##!!##!!##"
 	;12345678901234567890123456789012
-	String1=0x02,Fu√ü- / Wanderweg
+	String1=0x02,Fuﬂ- / Wanderweg
 	String2=0x04,Footway / Path
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2530,7 +2530,7 @@ FontStyle=NoLabel (invisible)
 	LineWidth=4
 	Xpm="0 0 1 0"
 	"1 c #C4D5E6"
-	String1=0x02,Fu√üg√§ngerzone
+	String1=0x02,Fuﬂg‰ngerzone
 	String2=0x04,Pedestrian
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2644,7 +2644,7 @@ FontStyle=NoLabel (invisible)
 	"!       !       !       !       "
 	"!       !       !       !       "
 	;12345678901234567890123456789012
-	String1=0x02,Stra√üenbahn
+	String1=0x02,Straﬂenbahn
 	String2=0x04,Tram
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -2773,7 +2773,7 @@ FontStyle=NoLabel (invisible)
 	Xpm="0 0 2 0"
 	"1 c #3030F8"
 	"2 c #180858"
-	String1=0x02,Flu√ü
+	String1=0x02,Fluﬂ
 	String2=0x04,River
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3056,7 +3056,7 @@ Xpm="32 10 2 1"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String1=0x02,Br√ºcke
+String1=0x02,Br¸cke
 String2=0x04,Bridge
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3079,7 +3079,7 @@ CustomColor=No
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	;12345678901234567890123456789012
-	String1=0x02,Br√ºcke
+	String1=0x02,Br¸cke
 	String2=0x04,Bridge
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3101,7 +3101,7 @@ Xpm="32 7 2  1"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 ;12345678901234567890123456789012
-String1=0x02,Br√ºcke
+String1=0x02,Br¸cke
 String2=0x04,Bridge
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3122,7 +3122,7 @@ CustomColor=No
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	;12345678901234567890123456789012
-	String1=0x02,Br√ºcke
+	String1=0x02,Br¸cke
 	String2=0x04,Bridge
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3140,7 +3140,7 @@ FontStyle=NoLabel (invisible)
 	"                                "
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	;12345678901234567890123456789012
-	String1=0x02,Br√ºcke
+	String1=0x02,Br¸cke
 	String2=0x04,Bridge
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3164,7 +3164,7 @@ FontStyle=NoLabel (invisible)
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 	;12345678901234567890123456789012
-	String1=0x02,Br√ºcke
+	String1=0x02,Br¸cke
 	String2=0x04,Bridge
 	ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3334,7 +3334,7 @@ FontStyle=NoLabel (invisible)
 	CustomColor=No
 	[end]
 
-; Damm f√ºr "highway="
+; Damm f¸r "highway="
 [_line]
 Type=0x10203
 UseOrientation=Y
@@ -3353,7 +3353,7 @@ Xpm="32 11 2 1"
 "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! "
 "!   !   !   !   !   !   !   !   "
 ;12345678901234567890123456789012
-String1=0x02,Stra√üendamm
+String1=0x02,Straﬂendamm
 String2=0x04,Embankment
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3429,7 +3429,7 @@ CustomColor=No
 	"!!##!!##!!##!!##!!##!!##!!##!!##"
 	"!!##!!##!!##!!##!!##!!##!!##!!##"
 	;12345678901234567890123456789012
-	String1=0x02,unverbundener Fu√üweg/Pfad
+	String1=0x02,unverbundener Fuﬂweg/Pfad
 	String2=0x04,unconnected footway/path
 	ExtendedLabels=N
 	[end]
@@ -3511,7 +3511,7 @@ UseOrientation=Y
 LineWidth=2
 Xpm="0 0 1 0"
 "1 c #FF7035"
-String1=0x02,Bundesstra√üe
+String1=0x02,Bundesstraﬂe
 String2=0x04,Primary/Trunk
 ExtendedLabels=Y
 FontStyle=Default
@@ -3525,7 +3525,7 @@ UseOrientation=Y
 LineWidth=2
 Xpm="0 0 1 0"
 "1 c #FFC040"
-String1=0x02,Landes-/Staatsstra√üe
+String1=0x02,Landes-/Staatsstraﬂe
 String2=0x04,Secondary
 ExtendedLabels=Y
 FontStyle=Default
@@ -3541,7 +3541,7 @@ BorderWidth=0
 Xpm="0 0 2 0"
 "1 c #3030F8"
 "2 c #180858"
-String1=0x02,Flu√ü
+String1=0x02,Fluﬂ
 String2=0x04,River
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
@@ -3591,7 +3591,7 @@ DayXpm="5 5 2 1"   Colormode=16
 
 [_point]
 Type=0x00200
-String1=0x02,Gro√üstadt
+String1=0x02,Groﬂstadt
 String2=0x04,City
 ExtendedLabels=N
 DayXpm="5 5 2 1"   Colormode=16
@@ -3607,7 +3607,7 @@ DayXpm="5 5 2 1"   Colormode=16
 
 [_point]
 Type=0x00300
-String1=0x02,Gro√üstadt
+String1=0x02,Groﬂstadt
 String2=0x04,City
 ExtendedLabels=N
 DayXpm="5 5 2 1"   Colormode=16
@@ -3624,7 +3624,7 @@ DayXpm="5 5 2 1"   Colormode=16
 
 [_point]
 Type=0x00400
-String1=0x02,Gro√üstadt
+String1=0x02,Groﬂstadt
 String2=0x04,City
 ExtendedLabels=N
 DayXpm="5 5 2 1"   Colormode=16
@@ -3786,7 +3786,7 @@ DayXpm="16 12 22 2"   Colormode=16
 [_point]
 Type=0x0210f
 String1=0x04,Services
-String2=0x02,Rastst√§tte
+String2=0x02,Rastst‰tte
 ExtendedLabels=N
 DayXpm="16 14 96 2"   Colormode=32
 "!!	c #5353C5"  alpha=12
@@ -4810,7 +4810,7 @@ DayXpm="16 16 3 1"   Colormode=16
 
 [_point]
 Type=0x02a01
-String1=0x02,Amerikanische K√ºche
+String1=0x02,Amerikanische K¸che
 String2=0x04,Dining (American)
 ExtendedLabels=N
 DayXpm="16 11 15 1"   Colormode=16
@@ -4846,7 +4846,7 @@ DayXpm="16 11 15 1"   Colormode=16
 
 [_point]
 Type=0x02a04
-String1=0x02,Chinesische K√ºche
+String1=0x02,Chinesische K¸che
 String2=0x04,Dining (Chinese)
 ExtendedLabels=N
 DayXpm="16 11 10 1"   Colormode=16
@@ -4877,7 +4877,7 @@ DayXpm="16 11 10 1"   Colormode=16
 
 [_point]
 Type=0x02a05
-String1=0x02,B√§ckerei
+String1=0x02,B‰ckerei
 String2=0x04,Backery
 ExtendedLabels=N
 DayXpm="14 11 12 1"   Colormode=16
@@ -4910,7 +4910,7 @@ DayXpm="14 11 12 1"   Colormode=16
 
 [_point]
 Type=0x02a07
-String1=0x02,Schnellimbi√ü
+String1=0x02,Schnellimbiﬂ
 String2=0x04,Fast food
 ExtendedLabels=N
 DayXpm="16 16 22 2"   Colormode=16
@@ -4958,7 +4958,7 @@ DayXpm="16 16 22 2"   Colormode=16
 
 [_point]
 Type=0x02a08
-String1=0x02,Italienische K√ºche
+String1=0x02,Italienische K¸che
 String2=0x04,Dining (Italian)
 ExtendedLabels=N
 DayXpm="16 11 98 2"   Colormode=16
@@ -5077,7 +5077,7 @@ DayXpm="16 11 98 2"   Colormode=16
 
 [_point]
 Type=0x02a09
-String1=0x02,Mexikanische K√ºche
+String1=0x02,Mexikanische K¸che
 String2=0x04,Dining (Mexican)
 ExtendedLabels=N
 DayXpm="16 11 118 2"   Colormode=16
@@ -5666,7 +5666,7 @@ DayXpm="16 16 130 2"   Colormode=16
 
 [_point]
 Type=0x02a0f
-String1=0x02,Franz√∂sische K√ºche
+String1=0x02,Franzˆsische K¸che
 String2=0x04,Dining (French)
 ExtendedLabels=N
 DayXpm="16 11 108 2"   Colormode=16
@@ -5795,7 +5795,7 @@ DayXpm="16 11 108 2"   Colormode=16
 
 [_point]
 Type=0x02a10
-String1=0x02,Deutsche K√ºche
+String1=0x02,Deutsche K¸che
 String2=0x04,Dining (German)
 ExtendedLabels=N
 DayXpm="16 11 118 2"   Colormode=16
@@ -5934,7 +5934,7 @@ DayXpm="16 11 118 2"   Colormode=16
 
 [_point]
 Type=0x02a11
-String1=0x02,Britische K√ºche
+String1=0x02,Britische K¸che
 String2=0x04,Dining (British Isles)
 ExtendedLabels=N
 DayXpm="16 11 110 2"   Colormode=16
@@ -6347,7 +6347,7 @@ DayXpm="16 16 46 2"   Colormode=32
 
 [_point]
 Type=0x02b06
-String1=0x02,Schutzh√ºtte
+String1=0x02,Schutzh¸tte
 String2=0x04,Wilderness hut
 ExtendedLabels=N
 DayXpm="16 13 16 1"   Colormode=16
@@ -6587,7 +6587,7 @@ DayXpm="16 15 3 1"   Colormode=16
 
 [_point]
 Type=0x02c09
-String1=0x02,B√ºrgerhaus/Stadthalle
+String1=0x02,B¸rgerhaus/Stadthalle
 String2=0x04,Community centre
 ExtendedLabels=N
 DayXpm="16 16 164 2"   Colormode=16
@@ -7239,7 +7239,7 @@ DayXpm="15 16 4 1"   Colormode=16
 
 [_point]
 Type=0x02c15
-String1=0x02,Windm√ºhle
+String1=0x02,Windm¸hle
 String2=0x04,Windmill
 ExtendedLabels=N
 DayXpm="16 16 68 2"   Colormode=16
@@ -8106,7 +8106,7 @@ DayXpm="10 16 140 2"   Colormode=16
 
 [_point]
 Type=0x02d0d
-String1=0x02,Fu√üball
+String1=0x02,Fuﬂball
 String2=0x04,Soccer
 ExtendedLabels=N
 DayXpm="12 12 72 2"   Colormode=16
@@ -8938,7 +8938,7 @@ DayXpm="14 16 18 2"   Colormode=16
 
 [_point]
 Type=0x02e09
-String1=0x02,M√∂belgesch√§ft
+String1=0x02,Mˆbelgesch‰ft
 String2=0x04,Furniture
 ExtendedLabels=N
 DayXpm="16 16 10 1"   Colormode=16
@@ -9269,7 +9269,7 @@ DayXpm="16 13 62 2"   Colormode=16
 
 [_point]
 Type=0x02e0c
-String1=0x02,Gesch√§ft
+String1=0x02,Gesch‰ft
 String2=0x04,Shop
 ExtendedLabels=N
 DayXpm="14 16 6 1"   Colormode=16
@@ -10427,7 +10427,7 @@ DayXpm="14 14 170 2"   Colormode=16
 
 [_point]
 Type=0x02f1a
-String1=0x02,F√§hrhafen
+String1=0x02,F‰hrhafen
 String2=0x04,Ferry-Terminal
 ExtendedLabels=N
 DayXpm="16 16 6 1"   Colormode=16
@@ -11379,7 +11379,7 @@ DayXpm="16 12 10 1"   Colormode=16
 
 [_point]
 Type=0x03009
-String1=0x02,Gef√§ngnis
+String1=0x02,Gef‰ngnis
 String2=0x04,Prison
 ExtendedLabels=N
 DayXpm="12 12 2 1"   Colormode=16
@@ -11732,7 +11732,7 @@ DayXpm="11 16 50 2"   Colormode=16
 
 [_point]
 Type=0x05906
-String1=0x02,W√§scherei
+String1=0x02,W‰scherei
 String2=0x04,Laundry
 ExtendedLabels=N
 DayXpm="11 16 48 2"   Colormode=16
@@ -12067,7 +12067,7 @@ DayXpm="8 13 4 1"   Colormode=16
 
 [_point]
 Type=0x0590b
-String1=0x02,Getr√§nkehandel
+String1=0x02,Getr‰nkehandel
 String2=0x04,Beverages
 ExtendedLabels=N
 DayXpm="16 16 15 1"   Colormode=16
@@ -12596,7 +12596,7 @@ DayXpm="15 9 2 1"   Colormode=16
 
 [_point]
 Type=0x06601
-String1=0x02,H√∂hleneingang
+String1=0x02,Hˆhleneingang
 String2=0x04,Cave entrance
 ExtendedLabels=N
 DayXpm="16 13 3 1"   Colormode=16
