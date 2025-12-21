@@ -3,46 +3,46 @@
 set -o nounset
 set -o errexit
 
-onerror ()
-{
-  cleanup 2
-}
-
-cleanup ()
+cleanup()
 {
   rm -rf .tmp
   popd > /dev/null
   exit $1
 }
 
+onerror()
+{
+  cleanup 2
+}
+
 trap onerror INT TERM
 
-pushd data/planet > /dev/null
+pushd data/planet > /dev/null || exit 1
 
 rm -rf .tmp
 mkdir .tmp || cleanup 2
 
-CURRENT=`/bin/ls planet-*.osm.pbf | sort -r | head -1`
-NEXT=`date "+%Y%m%d%H%M%S"`
+CURRENT=$(/bin/ls planet-*.osm.pbf | sort -r | head -1)
+NEXT=$(date "+%Y%m%d%H%M%S")
 
-echo `date +%Y-%m-%dT%H:%M:%SZ` > .tmp/timestamp.txt
-
-osmupdate --hour --day --max-merge=20 $CURRENT .tmp/planet-${NEXT}.osm.pbf
+osmupdate --hour --day --max-merge=20 "$CURRENT" ".tmp/planet-${NEXT}.osm.pbf"
 if [ $? -ne 0 ] ; then
   echo "osmupdate failed!"
   cleanup 2
 fi
 
-if [ ! -f .tmp/planet-${NEXT}.osm.pbf ]; then
+if [ ! -f ".tmp/planet-${NEXT}.osm.pbf" ]; then
   echo "planet-${NEXT}.osm.pbf does not exist!"
   cleanup 2
 fi
 
+osmconvert --out-timestamp > .tmp/timestamp.txt
+
 mv .tmp/timestamp.txt .
-mv .tmp/planet-${NEXT}.osm.pbf .
+mv ".tmp/planet-${NEXT}.osm.pbf" .
 # cleanup old files
-rm -vf `/bin/ls planet-*.osm.pbf | sort | head -n -3` ||:
+rm -vf $(/bin/ls planet-*.osm.pbf | sort | head -n -3) ||:
 
 rm -rf .tmp
 
-popd > /dev/null
+popd > /dev/null || exit 1
