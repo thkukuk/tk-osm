@@ -17,9 +17,6 @@ family 7114:	Europe/Oepnv
 family 7116:	Europe/marine
 	product-id=1:	Marine Europe	draw-priority=30
 
-family 7118:	Europe/boundary
-	product-id=1:	Boundaries	draw-priority=12
-
 	71100001-71101206:	tilesplitter Europe
 	71105001-71105411:	tilesplitter SRTM/Europe
 	71110001-71111270:	basemap Europe
@@ -30,7 +27,7 @@ family 7118:	Europe/boundary
 	71135001-71135xxx:	fixme Europe
 	71136001-71136xxx:	XXX Europe
 	71140001-71144999:	marine Europe
-	71145001-71149xxx:	boundary Europy
+	71145001-71149xxx:	XXX Europy
 	71150001-7115xxxx:	SRTM Europe
 
 
