@@ -288,23 +288,11 @@ esac
 DESC="TK-${CAPCOUNTRY}-Tile"
 
 BASE_IS_SPLITTED=NO
-OSMBUGS_IS_SPLITTED=NO
 
 for style in $MAPS ; do
     case "$style" in
 	srtm)
 	    SplitIntoTiles data/srtm tiles-srtm
-	    ;;
-	osb)
-	    if [ "$OSMBUGS_IS_SPLITTED" == "NO" ] ; then
-		/usr/bin/time tk-osm/scripts/update_osmbugs
-		if [ $? -ne 0 ] ; then
-		    echo "update_osmbugs for $COUNTRY failed!"
-		else
-		    SplitIntoTiles data/osmbugs tiles-osmbugs
-		    OSMBUGS_IS_SPLITTED=YES
-		fi
-	    fi
 	    ;;
 	*)
 	    if [ "$BASE_IS_SPLITTED" == "NO" ] ; then

@@ -9,10 +9,6 @@ LANG=POSIX
 export LANG
 
 case "$STYLE" in
-  osb)
-   CAPSTYLE="OSB"
-   TILES=tiles-osmbugs
-   ;;
   srtm)
    CAPSTYLE="SRTM"
    TILES=tiles-srtm
