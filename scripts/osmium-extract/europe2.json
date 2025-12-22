@@ -1,0 +1,53 @@
+{
+  "extracts": [
+    {
+      "output": "france.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/france.poly",
+        "file_type": "poly"
+      }
+    },
+    { 
+      "output": "germany.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/germany.poly",
+        "file_type": "poly"
+      }
+    },
+    { 
+      "output": "ireland.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/ireland.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "italy.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/italy.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "scandinavia.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/scandinavia.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "switzerland.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/switzerland.poly",
+        "file_type": "poly"
+      }
+    }
+ ],
+ "directory": "data/osm/.tmp/"
+}

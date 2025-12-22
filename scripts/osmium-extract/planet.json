@@ -1,0 +1,77 @@
+{
+  "extracts": [
+    {
+      "output": "canada.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/canada.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "europe.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/europe.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "india.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/india.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "new_zealand.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/new_zealand.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "singapore.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/singapore.poly",
+        "file_type": "poly"
+      }
+    },
+    {   
+      "output": "usa.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "usa-caribbean.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-caribbean.poly",
+        "file_type": "poly"
+      }
+    },
+    { 
+      "output": "usa-hawaii.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-hawaii.poly",
+        "file_type": "poly"
+      }
+    },
+    { 
+      "output": "usa-alaska.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-alaska.poly",
+        "file_type": "poly"
+      }
+    }
+ ],
+ "directory": "data/osm/.tmp/"
+}

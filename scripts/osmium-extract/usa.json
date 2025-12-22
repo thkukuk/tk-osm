@@ -1,0 +1,37 @@
+{
+  "extracts": [
+    {
+      "output": "usa-northeast.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-northeast.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "usa-west.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-west.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "usa-midwest.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-midwest.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "usa-south.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/usa-south.poly",
+        "file_type": "poly"
+      }
+    }
+ ],
+ "directory": "data/osm/.tmp/"
+}

@@ -1,0 +1,53 @@
+{
+  "extracts": [
+    {
+      "output": "DACH.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/DACH.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "austria.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/austria.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "benelux.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/benelux.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "channel_islands.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/channel_islands.poly",
+        "file_type": "poly"
+      }
+    },
+    {
+      "output": "croatia.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/croatia.poly",
+        "file_type": "poly"
+      }
+    },
+    {   
+      "output": "czech_republic.osm.pbf",
+      "output_format": "pbf",
+      "polygon": {
+        "file_name": "../poly/czech_republic.poly",
+        "file_type": "poly"
+      }
+    }
+ ],
+ "directory": "data/osm/.tmp/"
+}
