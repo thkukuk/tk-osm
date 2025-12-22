@@ -23,23 +23,24 @@ rm -rf .tmp
 mkdir .tmp || cleanup 2
 
 CURRENT=$(/bin/ls planet-*.osm.pbf | sort -r | head -1)
-NEXT=$(date "+%Y%m%d%H%M%S")
 
-osmupdate --hour --day --max-merge=20 "$CURRENT" ".tmp/planet-${NEXT}.osm.pbf"
+osmupdate --hour --day --max-merge=20 "$CURRENT" .tmp/planet.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "osmupdate failed!"
   cleanup 2
 fi
 
-if [ ! -f ".tmp/planet-${NEXT}.osm.pbf" ]; then
-  echo "planet-${NEXT}.osm.pbf does not exist!"
+if [ ! -f ".tmp/planet.osm.pbf" ]; then
+  echo "planet.osm.pbf does not exist!"
   cleanup 2
 fi
 
-osmconvert --out-timestamp > .tmp/timestamp.txt
+osmconvert --out-timestamp .tmp/planet.osm.pbf > .tmp/timestamp.txt
+timestamp=$(cat .tmp/timestamp.txt)
+NEXT=${timestamp//[-:TZ]/}
 
 mv .tmp/timestamp.txt .
-mv ".tmp/planet-${NEXT}.osm.pbf" .
+mv .tmp/planet.osm.pbf "planet-${NEXT}.osm.pbf" 
 # cleanup old files
 rm -vf $(/bin/ls planet-*.osm.pbf | sort | head -n -3) ||:
 
