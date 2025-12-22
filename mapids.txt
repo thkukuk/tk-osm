@@ -24,7 +24,7 @@ family 7116:	Europe/marine
 	71120001-71121270:	bicycling Europe
 	71125001-71126270:	Wanderwege Europe
 	71130001-71131270:	oepnv Europe
-	71135001-71135xxx:	fixme Europe
+	71135001-71135xxx:	XXX Europe
 	71136001-71136xxx:	XXX Europe
 	71140001-71144999:	marine Europe
 	71145001-71149xxx:	XXX Europy
@@ -68,7 +68,7 @@ family 7129:	DACH/Address
 	71202001-71202483:	bicycling DACH
 	71203001-71203483:	Wanderwege DACH
 	71204001-71204483:	oepnv DACH
-	71205001-71205279:	fixme DACH
+	71205001-71205279:	XXX DACH
 	71205501-71205501:	XXX DACH
 	71206001-71206483:	basemap-Bike DACH
 	71207001-71207483:	basemap-noPOI DACH
@@ -310,7 +310,7 @@ family 7186:	Italy
         71802001-71802369:      bicycling
         71803001-71803369:      XXX
         71804001-71804369:      oepnv
-        71805001-71805369:      fixme
+        71805001-71805369:      XXX
         71805501-71805501:      XXX
         71805701-718057xx:      marine
 	71806001-718060xx:	wanderwege
@@ -337,7 +337,7 @@ family 7195:    Scandinavia/marine
         71902001-71902010:      bicycling
         71903001-71903010:      wanderwege
         71904001-71904010:      oepnv
-        71905001-71905010:      fixme
+        71905001-71905010:      XXX 
         71905501-71905510:      XXX
         71905701-719057xx:      marine
         71909001-71909064:      srtm

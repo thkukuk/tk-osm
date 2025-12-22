@@ -142,7 +142,7 @@ SRTM-*)
   esac
   ;;
 DACH)
-    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine address fixme
+    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine
     TILEID=71200001
     COUNTRY_ABBR="DACH"
     ;;
@@ -162,69 +162,69 @@ switzerland)
     COUNTRY_ABBR="CHE"
     ;;
 europe)
-    MAPS="basemap bicycling oepnv wanderwege" # marine streets fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine streets
     TILEID=71100001
     COUNTRY_ABBR="EU"
     #SPLITTER_MAXNODES=1200000
     ;;
 benelux)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71700001
     COUNTRY_ABBR="BNL"
     ;;
 channel_islands)
-    MAPS="basemap bicycling oepnv" # wanderwege marine fixme
+    MAPS="basemap bicycling oepnv" # wanderwege marine
     TILEID=72200001
     COUNTRY_ABBR="GBR"
     ;;
 croatia)
-    MAPS="basemap bicycling oepnv wanderwege" # marine marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine marine
     TILEID=72300001
     COUNTRY_ABBR="HRV"
     ;;
 czech_republic)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71300001
     COUNTRY_ABBR="CZE"
     ;;
 ireland)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71340001
     COUNTRY_ABBR="IRL"
     ;;
 france)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71600001
     COUNTRY_ABBR="FRA"
     ;;
 great_britain)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=72000001
     COUNTRY_ABBR="GBR"
     ;;
 iceland)
-    MAPS="basemap wanderwege oepnv bicycling" # marine fixme
+    MAPS="basemap wanderwege oepnv bicycling" # marine
     TILEID=72550001
     COUNTRY_ABBR="ISL"
     ;;
 india)
-    MAPS="basemap" # bicycling oepnv marine wanderwege fixme
+    MAPS="basemap" # bicycling oepnv marine wanderwege
     TILEID=72100001
     COUNTRY_ABBR="IND"
     ;;
 italy)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71800001
     COUNTRY_ABBR="ITA"
     ;;
 canada)
-    MAPS="basemap wanderwege" # bicycling oepnv marine fixme
+    MAPS="basemap wanderwege" # bicycling oepnv marine
     TILEID=71400001
     COUNTRY_ABBR="CAN"
     SPLITTER_MAXNODES=1200000
     ;;
 usa*)
-    MAPS="basemap" # oepnv wanderwege bicycling marine fixme
+    MAPS="basemap" # oepnv wanderwege bicycling marine
     COUNTRY_ABBR="USA"
     case "$COUNTRY" in
 	usa-northeast)
@@ -250,7 +250,7 @@ portugal)
     COUNTRY_ABBR="PRT"
     ;;
 scandinavia)
-    MAPS="basemap bicycling oepnv wanderwege" # marine fixme
+    MAPS="basemap bicycling oepnv wanderwege" # marine
     TILEID=71900001
     COUNTRY_ABBR="DNS"
     ;;
