@@ -1028,15 +1028,15 @@ FontStyle=NoLabel (invisible)
 	[end]
 
 
-	[_polygon]
-	Type=0x26
-	ExtendedLabels=Y
+[_polygon]
+Type=0x26
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	Xpm="0 0 2 0"
-	"1 c #FFFF80"
-	"2 c #404040"
-	[end]
+CustomColor=No
+Xpm="0 0 2 0"
+"1 c #FFFF80"
+"2 c #404040"
+[end]
 
 
 	[_polygon]
@@ -1852,24 +1852,24 @@ FontStyle=NoLabel (invisible)
 	;12345678901234567890123456789012
 	[end]
 
-	[_polygon]
-	Type=0x4b
-	;GRMN_TYPE: Map Bounds/DATA_BOUNDS/Bounds of map after creation/Non NT
-	ExtendedLabels=N
-	Xpm="0 0 1 0"
-	"1 c #FFFFFF"
-	[end]
+[_polygon]
+Type=0x4b
+;GRMN_TYPE: Map Bounds/DATA_BOUNDS/Bounds of map after creation/Non NT
+ExtendedLabels=N
+Xpm="0 0 1 0"
+"1 c #FFFF80"
+[end]
 
 
-	[_polygon]
-	Type=0x4c
-	ExtendedLabels=Y
+[_polygon]
+Type=0x4c
+ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
-	CustomColor=No
-	Xpm="0 0 2 0"
-	"1 c #FFFF80"
-	"2 c #404040"
-	[end]
+CustomColor=No
+Xpm="0 0 2 0"
+"1 c #FFFF80"
+"2 c #404040"
+[end]
 
 
 	[_polygon]
