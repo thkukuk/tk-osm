@@ -327,8 +327,7 @@ amenity=prison					[0x3009 level 3]
 amenity=public_building				[0x3000 level 1]
 amenity=recycling				[0x2f15 level 0]
 # amenity=lean_to shouldn't be used
-amenity=shelter | tourism=lean_to | amenity=lean_to
-				[0x2b08 level 3 default_name 'Unterstand']
+amenity=shelter | tourism=lean_to | amenity=lean_to [0x2b08 level 3]
 
 amenity=shower | (amenity=toilets & shower=yes)
 				[0x2909 level 0 default_name 'Duschen' ]
