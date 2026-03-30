@@ -1,8 +1,8 @@
 #!/bin/bash
 
 COUNTRY=${1:-DACH}
-SPLITTER_MAXNODES=1400000
-#SPLITTER_MAXNODES=700000
+SPLITTER_MAXNODES=1600000
+#SPLITTER_MAXNODES=1400000
 SPLITTER_OVERLAP=0
 RETVAL=0
 
@@ -142,7 +142,7 @@ SRTM-*)
   esac
   ;;
 DACH)
-    MAPS="basemap-noPOI bicycling oepnv wanderwege" # marine
+    MAPS="basemap-noPOI basemap-Bike bicycling oepnv wanderwege" # marine
     TILEID=71200001
     COUNTRY_ABBR="DACH"
     ;;
@@ -165,7 +165,8 @@ europe)
     MAPS="basemap bicycling oepnv wanderwege" # marine streets
     TILEID=71100001
     COUNTRY_ABBR="EU"
-    #SPLITTER_MAXNODES=1200000
+    #SPLITTER_MAXNODES=1600000
+    SPLITTER_MAXNODES=1400000
     ;;
 benelux)
     MAPS="basemap bicycling oepnv wanderwege" # marine
