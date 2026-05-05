@@ -359,6 +359,8 @@ highway=residential & bridge=yes	[0x10102 level 2 continue]
 highway=residential & tunnel=yes	[0x10113 level 2 continue]
 highway=residential & area=yes
 			[0x05 road_class=0 road_speed=2 level 2 continue]
+highway=residential & mkgmap:unpaved=1 & area!=yes
+					[0x0f road_class=1 road_speed=2 level 2]
 highway=residential & area!=yes		[0x06 road_class=0 road_speed=2 level 2]
 
 highway=bicycle_road & bridge=yes        [0x10102 level 2 continue]
@@ -448,7 +450,8 @@ highway=track & tracktype=grade5 {add bicycle=no}
 
 highway=track & bridge=yes 		[0x10105 level 1 continue]
 highway=track & tunnel=yes 		[0x10116 level 1 continue]
-highway=track				[0x12 road_class=0 road_speed=1 level 1]
+highway=track				[0x12 road_class=0 road_speed=1 level 1 continue]
+highway=track				[0x010b10 level 1]
 
 highway=unsurfaced & bridge=yes		[0x10104 level 0 continue]
 highway=unsurfaced & tunnel=yes		[0x10115 level 0 continue]
