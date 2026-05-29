@@ -3,6 +3,8 @@
 INPUTDIR=${1:-data/planet}
 DATADIR=${2:-data/osm}
 
+OSMIUM_EXTRACT_OPT="-s smart"
+
 set -o nounset
 #set -o errexit
 
@@ -42,7 +44,7 @@ mkdir -p "${DATADIR}/.tmp" || exit 2
 
 echo "osmium extract world"
 print_date
-osmium extract -c tk-osm/scripts/osmium-extract/planet.json "${INPUT}"
+osmium extract $OSMIUM_EXTRACT_OPT -c tk-osm/scripts/osmium-extract/planet.json "${INPUT}"
 if [ $? -ne 0 ] ; then
   echo "Extracting from planet failed"
   cleanup 2
@@ -50,21 +52,21 @@ fi
 
 echo "osmium extract europe 1"
 print_date
-osmium extract -c tk-osm/scripts/osmium-extract/europe1.json data/osm/.tmp/europe.osm.pbf
+osmium extract $OSMIUM_EXTRACT_OPT -c tk-osm/scripts/osmium-extract/europe1.json data/osm/.tmp/europe.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "Eextracting from europe 1 failed"
   cleanup 2
 fi
 echo "osmium extract europe 2"
 print_date
-osmium extract -c tk-osm/scripts/osmium-extract/europe2.json data/osm/.tmp/europe.osm.pbf
+osmium extract $OSMIUM_EXTRACT_OPT -c tk-osm/scripts/osmium-extract/europe2.json data/osm/.tmp/europe.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "Eextracting from europe 2 failed"
   cleanup 2
 fi
-echo "osmium extract europe 3"
+echo "osmium extract $OSMIUM_EXTRACT_OPT europe 3"
 print_date
-osmium extract -c tk-osm/scripts/osmium-extract/europe3.json data/osm/.tmp/europe.osm.pbf
+osmium extract $OSMIUM_EXTRACT_OPT -c tk-osm/scripts/osmium-extract/europe3.json data/osm/.tmp/europe.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "Eextracting from europe 3 failed"
   cleanup 2
@@ -72,7 +74,7 @@ fi
 
 echo "osmium extract USA"
 print_date
-osmium extract -c tk-osm/scripts/osmium-extract/usa.json data/osm/.tmp/usa.osm.pbf
+osmium extract $OSMIUM_EXTRACT_OPT -c tk-osm/scripts/osmium-extract/usa.json data/osm/.tmp/usa.osm.pbf
 if [ $? -ne 0 ] ; then
   echo "Extracting from usa failed"
   exit 2
