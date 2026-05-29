@@ -85,6 +85,10 @@ amenity=shelter & (name=* | shelter_type!=* | shelter_type=basic_hut | shelter_t
 amenity=lean_to		[0x2b08 level 3]
 amenity=toilets & access!=customers & access!=destination
 			[0x2f0c level 0 default_name 'Toiletten']
+tourism=viewpoint	{name '${name} - ${description} (${ele}m)' |
+			'${description} (${ele}m)' | '${name} (${ele}m)' |
+			'${ele}m' | '${name} - ${description}' |
+			'${description}' | '${name}'} [0x2c04 level 3]
 #amenity=ice_cream
 
 <finalize>
