@@ -223,12 +223,11 @@ highway=track & tracktype!=* & surface=asphalt { add tracktype=grade1 }
 
 # Flag unpaved roads.
 highway=*
-& (surface=cobblestone | surface=compacted | surface=dirt |
-   surface=earth | surface=grass | surface=grass_paver |
-   surface=gravel | surface=grit | surface=ground | surface=mud |
-   surface=pebblestone | surface=sand | surface=unpaved |
+& (surface=compacted | surface=dirt | surface=earth | surface=grass |
+   surface=grass_paver | surface=gravel | surface=grit | surface=ground |
+   surface=mud | surface=sand | surface=unpaved |
    tracktype ~ 'grade[2-5]' |
-   smoothness=bad | smoothness=very_bad | smoothness=horrible |
+   smoothness=very_bad | smoothness=horrible |
    smoothness=very_horrible | smoothness=impassable |
    sac_scale ~ '.*(mountain|alpine)_hiking' |
    mtb:scale>0 | sport=via_ferrata)
